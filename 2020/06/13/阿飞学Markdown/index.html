@@ -139,7 +139,79 @@
 </ul>
 </li>
 </ol>
-<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2>	  
+<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
+<li><p>列表</p>
+<ul>
+<li>有序列表<ul>
+<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>无须列表<ul>
+<li>语法：<code>* + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
+</ul>
+</li>
+<li><p>分割线</p>
+<ul>
+<li>语法：<code>---</code></li>
+<li>说明：至少要有三个以上的 - 来标记</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li>语法：<code>![图片替代文字](图片地址)</code></li>
+<li>说明：图片地址可以是本地图片(<a href="https://duanruilong.github.io/blog/2018/05/06/%E8%AE%B0%E4%B8%80%E6%AC%A1Hexo%E6%96%87%E7%AB%A0%E9%87%8C%E7%9A%84%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/(https://duanruilong.github.io/blog/2018/05/06/记一次Hexo文章里的图片不显示问题/)" target="_blank" rel="noopener">关于hexo引用本地图片无法显示请参考</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
+</ul>
+</li>
+<li><p>链接</p>
+<ul>
+<li><p>文字链接</p>
+<ul>
+<li>语法：<code>[链接文字]（链接地址）</code></li>
+</ul>
+</li>
+<li><p>引用链接</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
+</li>
+</ul>
+</li>
+<li><p>网址链接</p>
+<ul>
+<li>语法：<code>&lt;url&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>行内代码</p>
+<ul>
+<li>语法：&#39;代码&#39;</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​<span class="code">```</span>语言</span><br><span class="line">代码</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<pre><code></code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+<ul>
+<li>语法：<code>&gt;+应用内容</code></li>
+<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
+</ul>
+</li>
+</ol>
+<h1 id="扩展语法"><a href="#扩展语法" class="headerlink" title="扩展语法"></a>扩展语法</h1>	  
 	</div>
 
 	<div>
@@ -242,7 +314,7 @@
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
 	   <div id="toc" class="toc collapse in">
 		   <span class="toc-title">Contents</span>
-			<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Markdown是什么"><span class="toc-article-text">Markdown是什么</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Markdown的工作流程"><span class="toc-article-text">Markdown的工作流程</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Markdown的编辑器"><span class="toc-article-text">Markdown的编辑器</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Markdown的基础语法"><span class="toc-article-text">Markdown的基础语法</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#字体"><span class="toc-article-text">字体</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#段落与换行"><span class="toc-article-text">段落与换行</span></a></li></ol></li></ol>
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Markdown是什么"><span class="toc-article-text">Markdown是什么</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Markdown的工作流程"><span class="toc-article-text">Markdown的工作流程</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Markdown的编辑器"><span class="toc-article-text">Markdown的编辑器</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Markdown的基础语法"><span class="toc-article-text">Markdown的基础语法</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#字体"><span class="toc-article-text">字体</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#段落与换行"><span class="toc-article-text">段落与换行</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#扩展语法"><span class="toc-article-text">扩展语法</span></a></li></ol>
 		</div>
 	
 	</div>
