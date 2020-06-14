@@ -87,7 +87,7 @@
 <li><p>代码块</p>
 <ul>
 <li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```</span>语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
