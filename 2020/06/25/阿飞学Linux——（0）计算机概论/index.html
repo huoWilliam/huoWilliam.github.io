@@ -114,14 +114,13 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>[TOC]</p>
-<h1 id="什么是电脑"><a href="#什么是电脑" class="headerlink" title="什么是电脑"></a>什么是电脑</h1><p>电脑是指接受用户输入指令与数据，经由cpu等数学与逻辑单元运算处理后，以产生或储存成有用的信息。</p>
-<a id="more"></a>
-
+	  <h1 id="什么是电脑"><a href="#什么是电脑" class="headerlink" title="什么是电脑"></a>什么是电脑</h1><p>电脑是指接受用户输入指令与数据，经由cpu等数学与逻辑单元运算处理后，以产生或储存成有用的信息。</p>
 <h2 id="计算机硬件的五大单元"><a href="#计算机硬件的五大单元" class="headerlink" title="计算机硬件的五大单元"></a>计算机硬件的五大单元</h2><p>计算机是由五个单元组成的，包括<strong>输入单元，输出单元，cpu内部的控制单元，算数逻辑单元与内存</strong>五个部分。</p>
 <p>cpu内部的控制单元负责协调周边元件与各单元间的工作，而算术逻辑单元负责程序运算与逻辑判断。</p>
 <p>故计算机的工作流程是，用户利用输入单元输入数据，之后数据流入内存，cpu从内存读取数据进行运算后，将结果写回内存后送给输出单元显示。</p>
-<p><img src="../images/computer02.gif" alt="电脑的五大单元"></p>
+<a id="more"></a>
+
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer02.gif" alt="电脑的五大单元"></p>
 <h2 id="CPU的架构"><a href="#CPU的架构" class="headerlink" title="CPU的架构"></a>CPU的架构</h2><p>cpu的架构分为两种，分别是精简指令集（RISC）与复杂指令集（CISC）。</p>
 <p>精简指令集较为精简，每个指令的执行时间较短，完成的动作单纯，执行性能较佳；而复杂指令集包含较多的指令，指令的执行较复杂，花费时间较长。</p>
 <h2 id="电脑上常用的计算单位"><a href="#电脑上常用的计算单位" class="headerlink" title="电脑上常用的计算单位"></a>电脑上常用的计算单位</h2><ol>
@@ -169,7 +168,7 @@
 </li>
 <li><p>DRAM与SRAM</p>
 <p>由于CPU与内存之间的通信还得要经过内存控制器，故如果将部分数据放在CPU中的话，可以提高性能。由此引入了高速缓存，但是DRAM无法达到所要求的频率速度，故需要使用SRAM（静态随机存取内存）。</p>
-<p><img src="../images/computer07.gif" alt="高速缓存作用"></p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer07.gif" alt="高速缓存作用"></p>
 </li>
 <li><p>ROM</p>
 <p>ROM也叫只读存储器，是一种非挥发性的内存。很多的固件，通常就是写入ROM中</p>
@@ -207,7 +206,7 @@
 </tr>
 </tbody></table>
 <h2 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h2><p>硬盘在运行时，主轴马达让盘片转动，然后机械手臂可伸展让磁头在盘片上进行读写。一个硬盘内会有多个盘片。盘片上的数据如下图所示：</p>
-<p><img src="../images/Disktructure.jpg" alt="盘片上的数据格式"></p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/Disktructure.jpg" alt="盘片上的数据格式"></p>
 <p>盘片上的每个小区块，称之为<strong>扇区</strong>。同一个同心圆的扇区组合成的圆称为<strong>磁道</strong>。而所有盘片上面的同一个磁道组合成了<strong>柱面</strong>。</p>
 <ul>
 <li><p>传输接口</p>
@@ -234,7 +233,7 @@
 <p>BIOS是主板上的固件，在开机时执行，负责载入CMOS中的参数，并调用储存设备中的开机程序。</p>
 </li>
 <li><p>连接周边设备的接口</p>
-<p><img src="../images/connect02.jpg" alt="链接周边设备接口"></p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/connect02.jpg" alt="链接周边设备接口"></p>
 <ul>
 <li>USB接口：USB 3.0为蓝色的插槽颜色。</li>
 </ul>
@@ -244,23 +243,23 @@
 <p>二进制与十进制的转换如下：</p>
 <p>1101 = 1 * 2^3^ + 1 * 2^2^ + 0 * 2^1^ + 1 * 2^0^</p>
 <p>十进制转二进制如下：</p>
-<p><img src="../images/number_01.gif" alt="十进制转二进制方法"></p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/number_01.gif" alt="十进制转二进制方法"></p>
 <h2 id="文字编码系统"><a href="#文字编码系统" class="headerlink" title="文字编码系统"></a>文字编码系统</h2><p>计算机上文字的存储采用的文字编码系统的方式来实现的。具体实现如下图所示：</p>
-<p><img src="../images/word_01.gif" alt="文字编码系统"></p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/word_01.gif" alt="文字编码系统"></p>
 <p>常用的英文编码表是ASCII编码，在该编码中，每个符号占1 Bytes的记录，故有2^8^ = 256种变化。</p>
 <h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="机器程序与编译程序"><a href="#机器程序与编译程序" class="headerlink" title="机器程序与编译程序"></a>机器程序与编译程序</h2><p>对于人类而言直接编写机器程序是不现实的，因此产生了高级程序语言。利用高级程序语言编写代码后，交与编译器进行编译后得到机器码，这样简化了写代码的工作。</p>
 <h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>OS其实也是一组程序，这组程序的重点在于管理电脑的所有活动以及驱动系统中的所有硬件。但是，要命令OS驱动硬件工作，必须有应用程序的帮助。</p>
 <ul>
 <li><p>OS核心</p>
 <p>OS核心负责管控硬件以及提供合理的电脑系统资源分配。核心程序是参考硬件编写的，故同一个OS程序不能够在不同的硬件架构下运行。当硬件发生变动时，核心程序也要做出调整。并且核心程序是受保护的，不能被用户直接调用。因此，OS提供了系统调用接口，使得用户可以通过该接口调用核心功能，从而编写应用程序来完成复杂的工作。</p>
-<p><img src="../images/os_01.gif" alt="OS的角色"></p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/os_01.gif" alt="OS的角色"></p>
 </li>
 <li><p>驱动程序</p>
 <p><img src="http://linux.vbird.org/linux_basic/0105computers/computer_driver.png" alt="驱动程序与OS的关系"></p>
 <p>OS必须能够驱动硬件，如此应用程序才能够使用该硬件功能。通常OS会提供开发接口，让开发商制作他们的驱动程序。要使用新硬件功能，必须要安装合适的驱动程序。</p>
 </li>
 </ul>
-<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>应用程序时参考OS提供的开发接口所开发出来的软件，这些软件可以让用户操作，从而达到某些电脑的功能利用。</p>
+<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>应用程序时参考OS提供的开发接口所开发出来的软件，这些软件可以让用户操作，从而达到某些电脑的功能利用。  </p>
 <h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
 <li><p>全世界目前跑的最快的计算机（2020年6月23日）</p>
 <ul>
@@ -301,7 +300,8 @@
 
     
     
-    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一页</a>
+    <a href="/2020/06/27/阿飞学Linux——（1）初识Linux/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> 上一页</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
