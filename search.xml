@@ -27,11 +27,6 @@
       </tags>
   </entry>
   <entry>
-    <title>阿飞学Linux——（1）初识Linux</title>
-    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>阿飞学Linux——（0）计算机概论</title>
     <url>/2020/06/25/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%880%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="什么是电脑"><a href="#什么是电脑" class="headerlink" title="什么是电脑"></a>什么是电脑</h1><p>电脑是指接受用户输入指令与数据，经由cpu等数学与逻辑单元运算处理后，以产生或储存成有用的信息。</p>
@@ -179,20 +174,15 @@
 <p>OS必须能够驱动硬件，如此应用程序才能够使用该硬件功能。通常OS会提供开发接口，让开发商制作他们的驱动程序。要使用新硬件功能，必须要安装合适的驱动程序。</p>
 </li>
 </ul>
-<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>应用程序时参考OS提供的开发接口所开发出来的软件，这些软件可以让用户操作，从而达到某些电脑的功能利用。  </p>
+<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>应用程序时参考OS提供的开发接口所开发出来的软件，这些软件可以让用户操作，从而达到某些电脑的功能利用。 </p>
 <h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
 <li><p>全世界目前跑的最快的计算机（2020年6月23日）</p>
 <ul>
-<li><p>名称：富岳</p>
-</li>
-<li><p>系统名称：Red Hat </p>
-</li>
-<li><p>所在位置：日本</p>
-</li>
-<li><p>使用的CPU型号与规格：64位处理器A64FX，采用ARM架构</p>
-</li>
-<li><p>总共使用的CPU数量：15W</p>
-</li>
+<li>名称：富岳</li>
+<li>系统名称：Red Hat </li>
+<li>所在位置：日本</li>
+<li>使用的CPU型号与规格：64位处理器A64FX，采用ARM架构</li>
+<li>总共使用的CPU数量：15W</li>
 </ul>
 </li>
 <li><p>Intel i7 4790 CPU的信息</p>
@@ -218,6 +208,11 @@
       <tags>
         <tag>Linux</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（1）初识Linux</title>
+    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>阿飞学Markdown</title>
