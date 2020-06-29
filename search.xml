@@ -27,163 +27,6 @@
       </tags>
   </entry>
   <entry>
-    <title>阿飞学Markdown</title>
-    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
-    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
-<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
-<a id="more"></a>
-
-<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
-<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
-<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
-<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
-<li>标题<ul>
-<li>语法：<code># + 空格 + 标题内容</code></li>
-<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
-</ul>
-</li>
-<li>粗体<ul>
-<li>语法：<code>**+加粗内容+**</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-<li>斜体<ul>
-<li>语法：<code>*+斜体内容+*</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-</ol>
-<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
-<li><p>列表</p>
-<ul>
-<li>有序列表<ul>
-<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>无须列表<ul>
-<li>语法：<code>* + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
-</ul>
-</li>
-<li><p>分割线</p>
-<ul>
-<li>语法：<code>---</code></li>
-<li>说明：至少要有三个以上的 - 来标记</li>
-</ul>
-</li>
-<li><p>图片</p>
-<ul>
-<li>语法：<code>![图片替代文字](图片地址)</code></li>
-<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
-</ul>
-</li>
-<li><p>链接</p>
-<ul>
-<li><p>文字链接</p>
-<ul>
-<li>语法：<code>[链接文字]（链接地址）</code></li>
-<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
-</ul>
-</li>
-<li><p>引用链接</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
-</li>
-</ul>
-</li>
-<li><p>网址链接</p>
-<ul>
-<li>语法：<code>&lt;url&gt;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>行内代码</p>
-</li>
-<li><p>语法：&#39;代码&#39;</p>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>引用</p>
-<ul>
-<li>语法：<code>&gt;+应用内容</code></li>
-<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
-</ul>
-</li>
-</ol>
-<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
-<li><p>删除线</p>
-<ul>
-<li>语法：<code>~~被删除的文字~~</code></li>
-</ul>
-</li>
-<li><p>Emoji表情</p>
-<ul>
-<li>语法：<code>:表情代码:</code></li>
-</ul>
-</li>
-<li><p>表格</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：块级元素不能插入表格中</p>
-</li>
-</ul>
-</li>
-<li><p>任务列表</p>
-<ul>
-<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
-</ul>
-</li>
-<li><p>锚点（书签）</p>
-<ul>
-<li>语法：<code>[锚点描述](#锚点名)</code> </li>
-</ul>
-</li>
-<li><p>上标和下标</p>
-<ul>
-<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
-</ul>
-</li>
-<li><p>注释</p>
-<ul>
-<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
-</ul>
-</li>
-<li><p>脚注</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>阿飞学Linux——（0）计算机概论</title>
     <url>/2020/06/25/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%880%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="什么是电脑"><a href="#什么是电脑" class="headerlink" title="什么是电脑"></a>什么是电脑</h1><p>电脑是指接受用户输入指令与数据，经由cpu等数学与逻辑单元运算处理后，以产生或储存成有用的信息。</p>
@@ -301,8 +144,8 @@
 <p>如果我们将卡安装在跟CPU直接相连的那几个插槽上，可以得到最佳性能，但是如果安装在与南桥相连接的插槽上，那么扩展卡的数据要先进入南桥争抢带宽，之后再通过DMI 2.0将数据传给CPU。DMI 2.0的传输速度远远低于PCIe 2.0x8的传输速度，由此导致了性能瓶颈。</p>
 </li>
 <li><p>CMOS与BIOS</p>
-<p>CMOS主要功能为记录主板上面的重要参数，包括系统时间，CPU电压与频率等。</p>
-<p>BIOS是主板上的固件，在开机时执行，负责载入CMOS中的参数，并调用储存设备中的开机程序。</p>
+<p>CMOS是嵌入在主板上面的存储器，主要功能为记录主板上面的重要参数，包括系统时间，CPU电压与频率等。</p>
+<p>BIOS是主板上的固件，在开机时计算机主动执行的第一个程序，负责载入CMOS中的参数，并调用储存设备中的开机程序。</p>
 </li>
 <li><p>连接周边设备的接口</p>
 <p><img src="http://linux.vbird.org/linux_basic/0105computers/connect02.jpg" alt="链接周边设备接口"></p>
@@ -465,6 +308,351 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（2）主机规划与磁盘分区</title>
+    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%882%EF%BC%89%E4%B8%BB%E6%9C%BA%E8%A7%84%E5%88%92%E4%B8%8E%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
+    <content><![CDATA[<h1 id="Linux与硬件的搭配"><a href="#Linux与硬件的搭配" class="headerlink" title="Linux与硬件的搭配"></a>Linux与硬件的搭配</h1><p>在安装Linux之前，应该先了解下你的Linux主要是想完成哪方面的工作，这样在选购硬件的时候才能知道哪个硬件是最重要的。</p>
+<h2 id="选择与Linux搭配的主机配置"><a href="#选择与Linux搭配的主机配置" class="headerlink" title="选择与Linux搭配的主机配置"></a>选择与Linux搭配的主机配置</h2><ul>
+<li><p>一般小型主机且不含X Window系统：</p>
+<ul>
+<li><p>用途：家庭用NAT主机（IP分享器功能）或小型企业之非图形接口小型主机</p>
+</li>
+<li><p>CPU：五年内出产的产品即可</p>
+</li>
+<li><p>RAM：521MB~1GB</p>
+</li>
+<li><p>网卡：一般的以太网卡即可</p>
+</li>
+<li><p>显卡：只要能够被Linux捕捉到的显卡即可</p>
+</li>
+<li><p>硬盘：20GB以上即可</p>
+<a id="more"></a>
+</li>
+</ul>
+</li>
+<li><p>桌上型Linux系统/含X Window：</p>
+<ul>
+<li>用途：Linux的练习机或工作机</li>
+<li>CPU：最好等级高点，如Intel i5，i7以上等级</li>
+<li>RAM：大于1GB</li>
+<li>网卡：普通的以太网卡即可</li>
+<li>显卡：入门级显卡即可</li>
+<li>硬盘：越大越好</li>
+</ul>
+</li>
+<li><p>中型以上Linux服务器：</p>
+<ul>
+<li>用途：中小型企业/学校单位的FTP/mail/www等网络服务主机</li>
+<li>CPU：最好等级高点，如Intel i5，i7以上的多核心系统</li>
+<li>RAM：大于1GB</li>
+<li>网卡：intel或broadcom的品牌较好</li>
+<li>显卡：入门级显卡即可</li>
+<li>硬盘：越大越好，可能的话使用磁盘阵列</li>
+</ul>
+</li>
+</ul>
+<h2 id="各硬件设备在Linux中的文件名"><a href="#各硬件设备在Linux中的文件名" class="headerlink" title="各硬件设备在Linux中的文件名"></a>各硬件设备在Linux中的文件名</h2><p><strong>在Linux中，每个设备都被当成一个文件来对待</strong>，在Linux中，几乎所有的硬件设备文件都在<strong>/dev</strong>这个目录下。常见的硬件设备在Linux中的文件名如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>设备在Linux内的文件名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SAS/SATA/USB硬盘</td>
+<td>/dev/sd[a-p]</td>
+</tr>
+<tr>
+<td>U盘</td>
+<td>/dev/sd[a-p] （与SATA相同）</td>
+</tr>
+<tr>
+<td>VirtI/O接口</td>
+<td>/dev/vd[a-p] （用于虚拟机内）</td>
+</tr>
+<tr>
+<td>软盘</td>
+<td>/dev/fd[0-7]</td>
+</tr>
+<tr>
+<td>打印机</td>
+<td>/dev/lp[0-2] （25针打印机）            /dev/usb/lp[0-15] （USB接口）</td>
+</tr>
+<tr>
+<td>鼠标</td>
+<td>/dev/input/mouse[0-15] （通用）           /dev/mouse （当前鼠标）</td>
+</tr>
+<tr>
+<td>CDROM/DVDROM</td>
+<td>/dev/scd[0-1] （通用）      /dev/cdrom （当前CDROM)）     /dev/sr[0-1]（通用，Centos较常见）</td>
+</tr>
+<tr>
+<td>IDE硬盘</td>
+<td>/dev/hd[a-d]（旧式系统才有）</td>
+</tr>
+</tbody></table>
+<h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><h2 id="磁盘连接的方式与设备文件名的关系"><a href="#磁盘连接的方式与设备文件名的关系" class="headerlink" title="磁盘连接的方式与设备文件名的关系"></a>磁盘连接的方式与设备文件名的关系</h2><p>目前主流的磁盘接口是SATA接口，如今大部分的Linux distribution已经将ide接口的磁盘文件名也仿真成了SATA接口了。</p>
+<p>正常的实体机器上的磁盘文件名大概都是/dev/sd[a-p]，而在虚拟机环境下，磁盘文件名大概就是/dev/vd[a-p]。</p>
+<p>如果一个计算机系统内有多个SATA/USB/SAS接口的磁盘，由于他们的设备文件名都是/dev/sd[a-p]，故这些磁盘的设备文件名取决于Linux核心侦测到磁盘的顺序。</p>
+<h2 id="MBR和GPT磁盘分区表"><a href="#MBR和GPT磁盘分区表" class="headerlink" title="MBR和GPT磁盘分区表"></a>MBR和GPT磁盘分区表</h2><p>磁盘的第一个扇区记录整颗磁盘的重要信息。早期磁盘第一个扇区里含有的重要信息我们称之为MBR格式。如今随着需求的变化，我们称这些重要信息为GPT。</p>
+<ul>
+<li><p>MBR</p>
+<p>早期的Linux为了相同于Windows的磁盘，因此使用的是支持Windows的MBR的方式来处理开机管理程序和分区表。故磁盘的第一个扇区（512 Byte）存放了两个重要数据</p>
+<ul>
+<li>主要开机记录区（MBR）：可以安装开机管理程序的地方，有446 Bytes</li>
+<li>分区表：记录整颗磁盘分区的状态，有64 Bytes</li>
+</ul>
+<p>由于分区表只有64 Bytes，故最多只能写入4组分区信息，每组分区信息记录了该分区的开始与结束的柱面号码，这四组分区称之为<strong>主要或延伸分区</strong>，分区的最小单位为通常为柱面。当系统要写入磁盘时，一定会参考磁盘分区表，才能针对某个分区进行数据的处理。</p>
+<p>如果我们要将磁盘划分出4个以上的分区，就要借助于延伸分区。<strong>延伸分区的思想是：既然第一个扇区所在的分区表只能记录4组分区信息，那就利用额外的扇区来记录更多的分区信息。</strong>延伸分区本身不能被格式化，而是通过延伸分区所指向的那个区块继续做分区的记录。<strong>延伸分区最多只能有一个。</strong></p>
+<img src="http://linux.vbird.org/linux_basic/0130designlinux/partition-2.png" alt="磁盘分区表的作用" style="zoom: 80%;" />
+
+<p>如上图所示，右下方的那个区块又继续分区出5个分区，这5个分区称为<strong>逻辑分区</strong>。逻辑分区的柱面范围就是延伸分区所设置的范围。上图分区的设备文件名如下：</p>
+<ul>
+<li>p1:/dev/sda1</li>
+<li>p2:/dev/sda2</li>
+<li>L1:/dev/sda5</li>
+<li>L2:/dev/sda6</li>
+<li>L3:/dev/sda7</li>
+<li>L4:/dev/sda8</li>
+<li>L5:/dev/sda9</li>
+</ul>
+<p><strong>注意：前4个分区号码是保留给主要和延伸分区的。</strong></p>
+</li>
+<li><p>GPT</p>
+<p>为了解决MBR分区表无法记录2.2T以上的磁盘的问题，引入了GPT分区表。</p>
+<img src="http://linux.vbird.org/linux_basic/0130designlinux/gpt_partition_1.jpg" alt="GPT分区表结构" style="zoom:80%;" />
+
+<p>GPT使用了34个LBA[^1]区块来记录分区信息，并且利用磁盘的最后33个LBA作为分区信息的备份。</p>
+<ul>
+<li><p>LBA0（MBR相容区块）</p>
+<p>该分区放入一个特殊标记，用来表示该磁盘为GPT格式，如果不懂GPT分区表的磁盘管理程序，就不会认识该磁盘。进一步保护了该磁盘。</p>
+</li>
+<li><p>LBA1（GPT表头记录）</p>
+<p>记录了分区表的位置与大小，同时记录了备份用的GPT分区表所放置的位置，同时放置了分区表的校验机制码。</p>
+</li>
+<li><p>LBA2-33（实际记录分区信息处）</p>
+<p>从LBA2区块开始，每个LBA记录了4笔分区记录，故在默认情况下，可以有4*32 = 128笔分区记录。由于每个LBA有512 Bytes，故每笔记录用到了128 Bytes的空间。</p>
+</li>
+</ul>
+<p>不同于MBR，GPT中没有延伸，主要，逻辑分区的概念，每个分区都是独立的，都可以进行格式化。</p>
+</li>
+</ul>
+<h2 id="开机检测程序：BIOS与UEFI"><a href="#开机检测程序：BIOS与UEFI" class="headerlink" title="开机检测程序：BIOS与UEFI"></a>开机检测程序：BIOS与UEFI</h2><ul>
+<li><p>BIOS搭配MBR/GPT的开机流程</p>
+<ol>
+<li>BIOS：开机的时候主动执行BIOS，根据使用者的设定取得能够开机的硬盘</li>
+<li>MBR：BIOS读取第一个可开机设备的第一个扇区的开机记录区块，执行开机管理程序</li>
+<li>开机管理程序：载入核心文件</li>
+<li>核心文件：开始OS的功能</li>
+</ol>
+<p>对于第2点，如果分区表为GPT格式的话，那么BIOS会从LBA0的MBR相容区块读取第一阶段的开机管理程序，如果开机管理程序能够认识GPT的话，那么使用BIOS同样可以读取到正确的OS核心。</p>
+<p><strong>开机管理程序除了可以安装在MBR之外，还可以安装在每个分区的开机扇区，通过特色才能造就“多重开机“。开机管理程序的功能是：提供菜单；载入核心文件；转交其他的loader。</strong></p>
+</li>
+<li><p>UEFI搭配GPT开机的流程</p>
+<p>BIOS不懂GPT，必须要通过GPT提供的MBR相容区块才能够读写该磁盘设备。因此，对比BIOS，UEFI虽然可以直接取得GPT的分区表，不过最好依旧拥有BIOS boot的分区支持。</p>
+</li>
+</ul>
+<h2 id="Linux安装模式下，磁盘分区的选择"><a href="#Linux安装模式下，磁盘分区的选择" class="headerlink" title="Linux安装模式下，磁盘分区的选择"></a>Linux安装模式下，磁盘分区的选择</h2><ul>
+<li><p>目录树结构</p>
+<p>所谓的目录树结构就是以根目录/为主，然后向下呈现分枝状的目录结构的一种文件架构。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0130designlinux/dirtree.gif" alt="目录树结构"></p>
+<p>上图中，长方形为目录，波浪形为文件。可见，所有的文件都是由根目录（/）发起，而次目录下还能够有其他的数据存在。</p>
+</li>
+<li><p>文件系统与目录树的关系（挂载）</p>
+<p>所谓的”挂载“就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下。简单来说，就是进入该目录就可以读取该分区的意思。这个进入点的目录称之为<strong>”挂载点“</strong>。</p>
+<img src="http://linux.vbird.org/linux_basic/0130designlinux/dir_3.png" alt="目录树与分区间的关系" style="zoom:80%;" />
+
+</li>
+</ul>
+<h1 id="主机硬盘的规划"><a href="#主机硬盘的规划" class="headerlink" title="主机硬盘的规划"></a>主机硬盘的规划</h1><ul>
+<li>最简单的分区方法：仅分区出根目录（/）与内存交换空间（swap）即可。然后，预留一些剩余的磁盘供后续的联系使用。</li>
+<li>较麻烦的分区方法：先分析该主机的未来用途，然后根据用途去分析需要较大容量的目录，以及读写较为频繁的目录，将这些重要的目录独立出来而不与根目录（/）放在一起。使得当这些读写较为频繁的磁盘分区出现问题时，不会影响到根目录的系统数据。在默认的Centos环境中，下面的目录是比较符合容量大且读写频繁的目录：<ul>
+<li>/boot</li>
+<li>/</li>
+<li>/home</li>
+<li>/var</li>
+<li>Swap</li>
+</ul>
+</li>
+</ul>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
+<li><p>一部计算机主机是否只要CPU够快，整体速度就会提高？</p>
+<p><em>错！一部计算机系统的速度与整体计算机系统的运行有关，每个元件都会影响计算机的速度。包括了内存，CPU，AGP与显卡速度，硬盘的速度以及其他相关的I/O接口等。</em></p>
+</li>
+<li><p>一部好的主机在安装之前，最好先进行规划，哪些是必须要主要的Linux主机规划事项？</p>
+<p><em>Linux主机在安装之前，一定要规划Linux主机的定位与角色！因此，Linux的主机是否开放网络服务？未来是否会进行大量的运算？该主机是否需要提供很大的硬盘容量来服务客户端的使用？这些都是要经过考虑的。</em></p>
+</li>
+<li><p>请写出下列设备，在Linux的设备文件名：SATA硬盘；CDROM；打印机；软盘；</p>
+<p><em>SATA硬盘：/dev/sd[a-p]</em></p>
+<p><em>CDROM：/dev/cdrom，/dev/sr[0-1]，/dev/scd[0-1]</em></p>
+<p><em>打印机：/dev/lp[0-2]</em></p>
+<p><em>软盘：/dev/fd[0-1]</em></p>
+</li>
+<li><p>目前在PC上面常见的硬盘与主板的连接接口有那两个？</p>
+<p><em>有内置的SATA接口与外接式的USB接口</em></p>
+</li>
+</ol>
+<p>[^1]: 逻辑区块地址，GPT将磁盘所有区块以LBA（默认为512 Bytes）来规划，第一个LBA称为LBA0</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Markdown</title>
+    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
+    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
+<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
+<a id="more"></a>
+
+<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
+<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
+<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
+<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
+<li>标题<ul>
+<li>语法：<code># + 空格 + 标题内容</code></li>
+<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
+</ul>
+</li>
+<li>粗体<ul>
+<li>语法：<code>**+加粗内容+**</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+<li>斜体<ul>
+<li>语法：<code>*+斜体内容+*</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+</ol>
+<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
+<li><p>列表</p>
+<ul>
+<li>有序列表<ul>
+<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>无须列表<ul>
+<li>语法：<code>* + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
+</ul>
+</li>
+<li><p>分割线</p>
+<ul>
+<li>语法：<code>---</code></li>
+<li>说明：至少要有三个以上的 - 来标记</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li>语法：<code>![图片替代文字](图片地址)</code></li>
+<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
+</ul>
+</li>
+<li><p>链接</p>
+<ul>
+<li><p>文字链接</p>
+<ul>
+<li>语法：<code>[链接文字]（链接地址）</code></li>
+<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
+</ul>
+</li>
+<li><p>引用链接</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
+</li>
+</ul>
+</li>
+<li><p>网址链接</p>
+<ul>
+<li>语法：<code>&lt;url&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>行内代码</p>
+</li>
+<li><p>语法：&#39;代码&#39;</p>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+<ul>
+<li>语法：<code>&gt;+应用内容</code></li>
+<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
+</ul>
+</li>
+</ol>
+<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
+<li><p>删除线</p>
+<ul>
+<li>语法：<code>~~被删除的文字~~</code></li>
+</ul>
+</li>
+<li><p>Emoji表情</p>
+<ul>
+<li>语法：<code>:表情代码:</code></li>
+</ul>
+</li>
+<li><p>表格</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：块级元素不能插入表格中</p>
+</li>
+</ul>
+</li>
+<li><p>任务列表</p>
+<ul>
+<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
+</ul>
+</li>
+<li><p>锚点（书签）</p>
+<ul>
+<li>语法：<code>[锚点描述](#锚点名)</code> </li>
+</ul>
+</li>
+<li><p>上标和下标</p>
+<ul>
+<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
+</ul>
+</li>
+<li><p>脚注</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>
