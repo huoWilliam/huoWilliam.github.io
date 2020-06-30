@@ -210,6 +210,66 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo折腾记（1）——安装与使用NexT主题</title>
+    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8NexT%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装NexT</h1><p>Next的安装分为三步骤：</p>
+<ol>
+<li><p>下载主题</p>
+<p>进入Hexo站点目录下，使用<code>git clone</code>下载最新的NexT主题。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$cd</span> your-hexo-site</span><br><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>当要更新NexT主题的时候，可以进入theme/next文件夹下，使用<code>git pull</code>，进行更新合并 </p></div>
+</li>
+<li><p>启用主题</p>
+<p>打开<strong>站点配置文件_config.yml</strong>，找到theme字段，并将其值改为<code>next</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证主题是否正确启用</p>
+<p>启动Hexo本地服务器，并开启调试模式，当出现如下命令提示时，说明启动成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>此时，可以用浏览器访问<code>http://localhost:4000</code>，检查Next是否配置成功，当出现如下画面时，说明NexT成功启用。</p>
+<p><img src="https://theme-next.iissnan.com/uploads/five-minutes-setup/validation-default-scheme-mac.png" alt="NexT成功启用"></p>
+</li>
+</ol>
+<h1 id="外观切换"><a href="#外观切换" class="headerlink" title="外观切换"></a>外观切换</h1><p>NexT提供了4种不同的外观进行切换，分别为Muse，Mist，Pisces，Gemini。</p>
+<p>首先进入<strong>主题配置文件_config.yml</strong>，搜索scheme关键字。按个人喜好选择合适的外观。如下所示，设置外观为Pisces。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h1><p>NexT默认只启用了home和archives两个菜单项。我们可以手动开启更多的菜单项。</p>
+<ol>
+<li><p>首先，进入<strong>主题配置文件_config.yml</strong>，搜寻menu关键字。按需要进行菜单设置，将需要使用的菜单项取消注释。如下所示，分别启用了菜单项：home，about，tags，categories，archives。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/||</span> <span class="string">home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/||</span> <span class="string">user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/||</span> <span class="string">tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/||</span> <span class="string">th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/||</span> <span class="string">archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>菜单项开启后，点击菜单项无法进入到对应的页面，我们需要为菜单项建立对应的页面。</p>
+<ul>
+<li><p>建立tags页面</p>
+<p>首先，进入Hexo站点目录，新建一个页面，命名为tags：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$cd</span> your-hexo-site</span><br><span class="line"><span class="variable">$hexo</span> new page tags</span><br></pre></td></tr></table></figure>
+
+<p>其次，编辑新建的页面，将页面类型设置为tags，主题将为该页面显示标签云。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-06-30 11:17:38</span><br><span class="line">type: "tags"</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立categories页面</p>
+<p>首先，进入Hexo站点目录，新建一个页面，命名为categories：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$cd</span> your-hexo-site</span><br><span class="line"><span class="variable">$hexo</span> new page categories</span><br></pre></td></tr></table></figure>
+
+<p>其次，编辑新建的页面，将页面类型设置为tags，主题将为该页面显示标签云。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-06-30 11:17:38</span><br><span class="line">type: "categories"</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿飞学Linux——（1）初识Linux</title>
     <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
     <content><![CDATA[<h1 id="初识Linux"><a href="#初识Linux" class="headerlink" title="初识Linux"></a>初识Linux</h1><h2 id="什么是Linux"><a href="#什么是Linux" class="headerlink" title="什么是Linux"></a>什么是Linux</h2><p>Linux是一种OS，于1991年，由芬兰的Linus Torvalds开发而成，具有“可移植性”和良好的稳定性。</p>
@@ -308,6 +368,171 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（3）安装Centos7.x</title>
+    <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
+    <content><![CDATA[<h1 id="本练习机的规划"><a href="#本练习机的规划" class="headerlink" title="本练习机的规划"></a>本练习机的规划</h1><ol>
+<li>Linux主机的角色定位</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Markdown</title>
+    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
+    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
+<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
+<a id="more"></a>
+
+<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
+<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
+<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
+<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
+<li>标题<ul>
+<li>语法：<code># + 空格 + 标题内容</code></li>
+<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
+</ul>
+</li>
+<li>粗体<ul>
+<li>语法：<code>**+加粗内容+**</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+<li>斜体<ul>
+<li>语法：<code>*+斜体内容+*</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+</ol>
+<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
+<li><p>列表</p>
+<ul>
+<li>有序列表<ul>
+<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>无须列表<ul>
+<li>语法：<code>* + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
+</ul>
+</li>
+<li><p>分割线</p>
+<ul>
+<li>语法：<code>---</code></li>
+<li>说明：至少要有三个以上的 - 来标记</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li>语法：<code>![图片替代文字](图片地址)</code></li>
+<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
+</ul>
+</li>
+<li><p>链接</p>
+<ul>
+<li><p>文字链接</p>
+<ul>
+<li>语法：<code>[链接文字]（链接地址）</code></li>
+<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
+</ul>
+</li>
+<li><p>引用链接</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
+</li>
+</ul>
+</li>
+<li><p>网址链接</p>
+<ul>
+<li>语法：<code>&lt;url&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>行内代码</p>
+</li>
+<li><p>语法：&#39;代码&#39;</p>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+<ul>
+<li>语法：<code>&gt;+应用内容</code></li>
+<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
+</ul>
+</li>
+</ol>
+<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
+<li><p>删除线</p>
+<ul>
+<li>语法：<code>~~被删除的文字~~</code></li>
+</ul>
+</li>
+<li><p>Emoji表情</p>
+<ul>
+<li>语法：<code>:表情代码:</code></li>
+</ul>
+</li>
+<li><p>表格</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：块级元素不能插入表格中</p>
+</li>
+</ul>
+</li>
+<li><p>任务列表</p>
+<ul>
+<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
+</ul>
+</li>
+<li><p>锚点（书签）</p>
+<ul>
+<li>语法：<code>[锚点描述](#锚点名)</code> </li>
+</ul>
+</li>
+<li><p>上标和下标</p>
+<ul>
+<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
+</ul>
+</li>
+<li><p>脚注</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -502,171 +727,6 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（3）安装Centos7.x</title>
-    <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
-    <content><![CDATA[<h1 id="本练习机的规划"><a href="#本练习机的规划" class="headerlink" title="本练习机的规划"></a>本练习机的规划</h1><ol>
-<li>Linux主机的角色定位</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>阿飞学Markdown</title>
-    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
-    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
-<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
-<a id="more"></a>
-
-<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
-<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
-<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
-<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
-<li>标题<ul>
-<li>语法：<code># + 空格 + 标题内容</code></li>
-<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
-</ul>
-</li>
-<li>粗体<ul>
-<li>语法：<code>**+加粗内容+**</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-<li>斜体<ul>
-<li>语法：<code>*+斜体内容+*</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-</ol>
-<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
-<li><p>列表</p>
-<ul>
-<li>有序列表<ul>
-<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>无须列表<ul>
-<li>语法：<code>* + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
-</ul>
-</li>
-<li><p>分割线</p>
-<ul>
-<li>语法：<code>---</code></li>
-<li>说明：至少要有三个以上的 - 来标记</li>
-</ul>
-</li>
-<li><p>图片</p>
-<ul>
-<li>语法：<code>![图片替代文字](图片地址)</code></li>
-<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
-</ul>
-</li>
-<li><p>链接</p>
-<ul>
-<li><p>文字链接</p>
-<ul>
-<li>语法：<code>[链接文字]（链接地址）</code></li>
-<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
-</ul>
-</li>
-<li><p>引用链接</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
-</li>
-</ul>
-</li>
-<li><p>网址链接</p>
-<ul>
-<li>语法：<code>&lt;url&gt;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>行内代码</p>
-</li>
-<li><p>语法：&#39;代码&#39;</p>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>引用</p>
-<ul>
-<li>语法：<code>&gt;+应用内容</code></li>
-<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
-</ul>
-</li>
-</ol>
-<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
-<li><p>删除线</p>
-<ul>
-<li>语法：<code>~~被删除的文字~~</code></li>
-</ul>
-</li>
-<li><p>Emoji表情</p>
-<ul>
-<li>语法：<code>:表情代码:</code></li>
-</ul>
-</li>
-<li><p>表格</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：块级元素不能插入表格中</p>
-</li>
-</ul>
-</li>
-<li><p>任务列表</p>
-<ul>
-<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
-</ul>
-</li>
-<li><p>锚点（书签）</p>
-<ul>
-<li>语法：<code>[锚点描述](#锚点名)</code> </li>
-</ul>
-</li>
-<li><p>上标和下标</p>
-<ul>
-<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
-</ul>
-</li>
-<li><p>注释</p>
-<ul>
-<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
-</ul>
-</li>
-<li><p>脚注</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>
