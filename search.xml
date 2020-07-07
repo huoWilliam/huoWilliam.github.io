@@ -107,6 +107,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/06/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
     <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
@@ -171,30 +197,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（4）——添加脚注的方法</title>
-    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
-<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
-
-<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
-<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
-</div> 
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo折腾记（5）——设置加密访问</title>
     <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/</url>
     <content><![CDATA[<h1 id="设置加密访问"><a href="#设置加密访问" class="headerlink" title="设置加密访问"></a>设置加密访问</h1><p>设置加密访问可以通过hexo-blog-encrypt这个插件来实现，具体的设置与使用方法如下。</p>
@@ -230,29 +232,42 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/06/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
+    <title>Hexo折腾记（4）——添加脚注的方法</title>
+    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
+<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
+<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
+</div> 
 ]]></content>
       <categories>
-        <category>test</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>test</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -428,6 +443,121 @@
 <li>最大读写速度：读——550 MB/s，写——520 MB/s</li>
 <li>最大随机读写数据：读——25000 IOPS，写——40000 IOPS</li>
 </ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【霸王别姬】不疯魔，不成活</title>
+    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（1）初识Linux</title>
+    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
+    <content><![CDATA[<h1 id="初识Linux"><a href="#初识Linux" class="headerlink" title="初识Linux"></a>初识Linux</h1><h2 id="什么是Linux"><a href="#什么是Linux" class="headerlink" title="什么是Linux"></a>什么是Linux</h2><p>Linux是一种OS，于1991年，由芬兰的Linus Torvalds开发而成，具有“可移植性”和良好的稳定性。</p>
+<h2 id="GNU计划，自由软件与开放源代码"><a href="#GNU计划，自由软件与开放源代码" class="headerlink" title="GNU计划，自由软件与开放源代码"></a>GNU计划，自由软件与开放源代码</h2><p>将源代码连同软件程序释出的举动，在GNU计划的范畴之内被称为自由软件运动。同时为了防止自由软件被他人做成专利软件，Stallman将所有GNU与FSF开发出来的软件挂上了GPL的版权宣告——自由软件是一种自由的权力，并非是“价格”。</p>
+<a id="more"></a>
+
+<p>自由软件具有如下几个特点：取得软件与源代码，复制，修改，再发行，回馈，不能修改授权，不能单纯贩卖。</p>
+<p>开放源代码（Open Source，简称开源软件）是指具有如下特点的软件：公布源代码且用户具有修改权；任意的再散布；允许修改或衍生作品；不可限制某些个人或团体的使用权；不可限制某些领域的应用；不可具有排他条款；</p>
+<p>可见，GPL自由软件也是开源软件的一种。</p>
+<h1 id="Linux的发展"><a href="#Linux的发展" class="headerlink" title="Linux的发展"></a>Linux的发展</h1><p>由于Minix无法满足使用者的功能需求，故Linus Torvalds参考Minix，编写了一个可以运行于386机器上的OS核心，即Linux。Linux完全相容于Unix，在Unix上运行的程序或软件，也可以在Linux上运行。Linus鼓励更多的开发人员共同参与到Linux的开发中。</p>
+<p>为了应对程序码加入的状况，于是Linux便逐渐发展成具有模块的功能！亦即是将某些功能独立出于核心外，在需要的时候才载入到核心中。如此一来，如果有新的硬件驱动程序或者其他协定的程序码进来时，就可以模块化，大大的增加了Linux核心的可维护能力！</p>
+<h2 id="Linux的核心版本"><a href="#Linux的核心版本" class="headerlink" title="Linux的核心版本"></a>Linux的核心版本</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">3.10.0 - 123.e17.x86_64</span><br><span class="line">主版本.次版本.释出版本 - 修改版本</span><br></pre></td></tr></table></figure>
+
+<p>在2.6.x版本之前，Torvalds将核心的发展趋势分为两股</p>
+<ul>
+<li>主，次版本为奇数：发展中版本</li>
+<li>主，次版本为偶数：稳定版本</li>
+</ul>
+<p>不过在3.0版本推出之后，这种以奇数，偶数分类的编号格式就失效了。转而以主线版本和长期维护版本分类。从3.0版本开始，核心主要依据主线版本来开发，开发完毕后往下一个主线版本进行，如3.10就是在3.9的基础下开发出来的新的主线版本。而旧的主线版本有两种处理方式，一是结束开发，而是转为长期维护版本。</p>
+<p>要判断Linux核心是否为长期支持的版本，可以使用<code>uname -r</code> 来查阅核心版本，之后对照链接<a href="https://www.kernel.org/releases.html" target="_blank" rel="noopener">https://www.kernel.org/releases.html</a>的数据来分析。<strong>要注意，Linux distributions的版本号不等同于Linux kernel的版本。</strong></p>
+<h2 id="Linux-distributions"><a href="#Linux-distributions" class="headerlink" title="Linux distributions"></a>Linux distributions</h2><p>为了帮助一般的用户使用Linux，许多商业公司或非盈利团体，就将Linux核心与可运行的软件整合起来，加上自己具有创意的工具程序，该工具程序可以让使用者以光盘/dvd或者通过网络直接安装/管理Linux。这个”Kernel + software + Tools + 可完整安装程序“的东西，我们称之为Linux distributions。</p>
+<p>不同的Linux Distributions之间基本上都大同小异，因为他们使用的核心都是由<a href="http://www.kernel.org" target="_blank" rel="noopener">http://www.kernel.org</a>所释出的。并且不同的Linux Distributions之间的开发都参考了一定的标准，如LSB，FHS等标准，而且选用的软件之间的重复性也很高。唯一的差别，可能就是该开发者自家所开发出来的管理工具，以及套件管理的模式吧。</p>
+<h1 id="Linux当前应用的角色"><a href="#Linux当前应用的角色" class="headerlink" title="Linux当前应用的角色"></a>Linux当前应用的角色</h1><ol>
+<li>企业环境的利用：网络服务器，关键任务的应用（金融数据库），学术机构的高性能运算任务</li>
+<li>个人环境的使用：桌面电脑，手持系统，嵌入式系统</li>
+<li>云端运用：云程序，端设备</li>
+</ol>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
+<li><p>找出目前Linux核心的最新稳定版与发展中版本的版本号码</p>
+<p><em>2020年6月27日</em></p>
+<p><em>Linux kernel 最新稳定版本：5.7.6</em></p>
+<p><em>Linux kernel 最新发展中版本：5.8-rc2</em></p>
+</li>
+<li><p>Linux吉祥物企鹅的名字，及最原始的图像文件画面</p>
+<p><em>名字叫Tux，图片如下</em></p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/NewTux.svg/800px-NewTux.svg.png" alt="Tux" style="zoom: 33%;" />
+</li>
+<li><p>Android版本与Linux核心版本间的关系</p>
+<table>
+<thead>
+<tr>
+<th>Android 版本</th>
+<th>Linux核心版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.5 Cupcake</td>
+<td>2.6.27</td>
+</tr>
+<tr>
+<td>1.6 Donut</td>
+<td>2.6.29</td>
+</tr>
+<tr>
+<td>2.0/1 Eclair</td>
+<td>2.6.29</td>
+</tr>
+<tr>
+<td>2.2.x Froyo</td>
+<td>2.6.32</td>
+</tr>
+<tr>
+<td>2.3.x Gingerbread</td>
+<td>2.6.35</td>
+</tr>
+<tr>
+<td>3.x.x Honeycomb</td>
+<td>2.6.36</td>
+</tr>
+<tr>
+<td>4.0.x Ice Cream San</td>
+<td>3.0.1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>你在你的主机上面安装了一张网卡，但是开机之后，系统却无法使用，你确定网卡是好的，那么可能的问题出在哪里？该如何解决？</p>
+<p><em>因为硬件都没有问题，所以，可能出问题的地方在于系统的核心不支持这种网卡。解决方法是：（1）到网卡的开发商网站 （2）下载支持你主机OS的驱动程序 （3）安装网卡的驱动程序后，就可以正常使用了</em></p>
+</li>
+<li><p>我在Windows上面玩的游戏，可不可以拿到Linux去玩？</p>
+<p><em>不行，因为Windows上的应用程序是根据Windows的核心所开发的，同一个应用程序不能在两个不同的操作系统上工作，除非该软件已经进行了移植。</em></p>
+</li>
+<li><p>Linux本身仅是一个核心与相关的核心工具而已，不过，他已经可以驱动所有的硬件，所 以，可以算是一个很阳春的操作系统了。经过其他应用程序的开发之后，被整合成为 Linux distribitions。请问众多的distributions之间，有何异同？</p>
+<p><em>相同：（1）同样使用<a href="http://www.kernel.org" target="_blank" rel="noopener">http://www.kernel.org</a>所释出的核心； （2）支持同意的标准，如FHS，LSB （3）使用几乎相同的自由软件 （4）几乎相同的操作接口</em></p>
+<p><em>不同：使用的Kernel与各软件的版本可能不同；各开发商加入的应用工具不同，使用的套件管理模式不同</em></p>
+</li>
+<li><p>GNU的全名为何？他主要由那个基金会支持？</p>
+<p><em>GNU的全名是GNU is not Unix，该计划是由自由软件基金会（FSF）所支持的。这两者都是由Stallman所发起的</em></p>
+</li>
+<li><p>什么是POSIX?为何说Linux使用POSIX对于发展有很好的影响？</p>
+<p><em>POSIX是一种标准规范，主要针对在Unix上面运行的程序进行规范。若OS符合POSIX，则符合POSIX的程序就可以在该OS上运行。Linux由于支持POSIX，故很多的Unix上的程序可以直接在Linux上运行，因此程序的移植相对简单。</em></p>
 </li>
 </ol>
 ]]></content>
@@ -632,283 +762,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【霸王别姬】不疯魔，不成活</title>
-    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（1）初识Linux</title>
-    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
-    <content><![CDATA[<h1 id="初识Linux"><a href="#初识Linux" class="headerlink" title="初识Linux"></a>初识Linux</h1><h2 id="什么是Linux"><a href="#什么是Linux" class="headerlink" title="什么是Linux"></a>什么是Linux</h2><p>Linux是一种OS，于1991年，由芬兰的Linus Torvalds开发而成，具有“可移植性”和良好的稳定性。</p>
-<h2 id="GNU计划，自由软件与开放源代码"><a href="#GNU计划，自由软件与开放源代码" class="headerlink" title="GNU计划，自由软件与开放源代码"></a>GNU计划，自由软件与开放源代码</h2><p>将源代码连同软件程序释出的举动，在GNU计划的范畴之内被称为自由软件运动。同时为了防止自由软件被他人做成专利软件，Stallman将所有GNU与FSF开发出来的软件挂上了GPL的版权宣告——自由软件是一种自由的权力，并非是“价格”。</p>
-<a id="more"></a>
-
-<p>自由软件具有如下几个特点：取得软件与源代码，复制，修改，再发行，回馈，不能修改授权，不能单纯贩卖。</p>
-<p>开放源代码（Open Source，简称开源软件）是指具有如下特点的软件：公布源代码且用户具有修改权；任意的再散布；允许修改或衍生作品；不可限制某些个人或团体的使用权；不可限制某些领域的应用；不可具有排他条款；</p>
-<p>可见，GPL自由软件也是开源软件的一种。</p>
-<h1 id="Linux的发展"><a href="#Linux的发展" class="headerlink" title="Linux的发展"></a>Linux的发展</h1><p>由于Minix无法满足使用者的功能需求，故Linus Torvalds参考Minix，编写了一个可以运行于386机器上的OS核心，即Linux。Linux完全相容于Unix，在Unix上运行的程序或软件，也可以在Linux上运行。Linus鼓励更多的开发人员共同参与到Linux的开发中。</p>
-<p>为了应对程序码加入的状况，于是Linux便逐渐发展成具有模块的功能！亦即是将某些功能独立出于核心外，在需要的时候才载入到核心中。如此一来，如果有新的硬件驱动程序或者其他协定的程序码进来时，就可以模块化，大大的增加了Linux核心的可维护能力！</p>
-<h2 id="Linux的核心版本"><a href="#Linux的核心版本" class="headerlink" title="Linux的核心版本"></a>Linux的核心版本</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">3.10.0 - 123.e17.x86_64</span><br><span class="line">主版本.次版本.释出版本 - 修改版本</span><br></pre></td></tr></table></figure>
-
-<p>在2.6.x版本之前，Torvalds将核心的发展趋势分为两股</p>
-<ul>
-<li>主，次版本为奇数：发展中版本</li>
-<li>主，次版本为偶数：稳定版本</li>
-</ul>
-<p>不过在3.0版本推出之后，这种以奇数，偶数分类的编号格式就失效了。转而以主线版本和长期维护版本分类。从3.0版本开始，核心主要依据主线版本来开发，开发完毕后往下一个主线版本进行，如3.10就是在3.9的基础下开发出来的新的主线版本。而旧的主线版本有两种处理方式，一是结束开发，而是转为长期维护版本。</p>
-<p>要判断Linux核心是否为长期支持的版本，可以使用<code>uname -r</code> 来查阅核心版本，之后对照链接<a href="https://www.kernel.org/releases.html" target="_blank" rel="noopener">https://www.kernel.org/releases.html</a>的数据来分析。<strong>要注意，Linux distributions的版本号不等同于Linux kernel的版本。</strong></p>
-<h2 id="Linux-distributions"><a href="#Linux-distributions" class="headerlink" title="Linux distributions"></a>Linux distributions</h2><p>为了帮助一般的用户使用Linux，许多商业公司或非盈利团体，就将Linux核心与可运行的软件整合起来，加上自己具有创意的工具程序，该工具程序可以让使用者以光盘/dvd或者通过网络直接安装/管理Linux。这个”Kernel + software + Tools + 可完整安装程序“的东西，我们称之为Linux distributions。</p>
-<p>不同的Linux Distributions之间基本上都大同小异，因为他们使用的核心都是由<a href="http://www.kernel.org" target="_blank" rel="noopener">http://www.kernel.org</a>所释出的。并且不同的Linux Distributions之间的开发都参考了一定的标准，如LSB，FHS等标准，而且选用的软件之间的重复性也很高。唯一的差别，可能就是该开发者自家所开发出来的管理工具，以及套件管理的模式吧。</p>
-<h1 id="Linux当前应用的角色"><a href="#Linux当前应用的角色" class="headerlink" title="Linux当前应用的角色"></a>Linux当前应用的角色</h1><ol>
-<li>企业环境的利用：网络服务器，关键任务的应用（金融数据库），学术机构的高性能运算任务</li>
-<li>个人环境的使用：桌面电脑，手持系统，嵌入式系统</li>
-<li>云端运用：云程序，端设备</li>
-</ol>
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
-<li><p>找出目前Linux核心的最新稳定版与发展中版本的版本号码</p>
-<p><em>2020年6月27日</em></p>
-<p><em>Linux kernel 最新稳定版本：5.7.6</em></p>
-<p><em>Linux kernel 最新发展中版本：5.8-rc2</em></p>
-</li>
-<li><p>Linux吉祥物企鹅的名字，及最原始的图像文件画面</p>
-<p><em>名字叫Tux，图片如下</em></p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/NewTux.svg/800px-NewTux.svg.png" alt="Tux" style="zoom: 33%;" />
-</li>
-<li><p>Android版本与Linux核心版本间的关系</p>
-<table>
-<thead>
-<tr>
-<th>Android 版本</th>
-<th>Linux核心版本</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.5 Cupcake</td>
-<td>2.6.27</td>
-</tr>
-<tr>
-<td>1.6 Donut</td>
-<td>2.6.29</td>
-</tr>
-<tr>
-<td>2.0/1 Eclair</td>
-<td>2.6.29</td>
-</tr>
-<tr>
-<td>2.2.x Froyo</td>
-<td>2.6.32</td>
-</tr>
-<tr>
-<td>2.3.x Gingerbread</td>
-<td>2.6.35</td>
-</tr>
-<tr>
-<td>3.x.x Honeycomb</td>
-<td>2.6.36</td>
-</tr>
-<tr>
-<td>4.0.x Ice Cream San</td>
-<td>3.0.1</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>你在你的主机上面安装了一张网卡，但是开机之后，系统却无法使用，你确定网卡是好的，那么可能的问题出在哪里？该如何解决？</p>
-<p><em>因为硬件都没有问题，所以，可能出问题的地方在于系统的核心不支持这种网卡。解决方法是：（1）到网卡的开发商网站 （2）下载支持你主机OS的驱动程序 （3）安装网卡的驱动程序后，就可以正常使用了</em></p>
-</li>
-<li><p>我在Windows上面玩的游戏，可不可以拿到Linux去玩？</p>
-<p><em>不行，因为Windows上的应用程序是根据Windows的核心所开发的，同一个应用程序不能在两个不同的操作系统上工作，除非该软件已经进行了移植。</em></p>
-</li>
-<li><p>Linux本身仅是一个核心与相关的核心工具而已，不过，他已经可以驱动所有的硬件，所 以，可以算是一个很阳春的操作系统了。经过其他应用程序的开发之后，被整合成为 Linux distribitions。请问众多的distributions之间，有何异同？</p>
-<p><em>相同：（1）同样使用<a href="http://www.kernel.org" target="_blank" rel="noopener">http://www.kernel.org</a>所释出的核心； （2）支持同意的标准，如FHS，LSB （3）使用几乎相同的自由软件 （4）几乎相同的操作接口</em></p>
-<p><em>不同：使用的Kernel与各软件的版本可能不同；各开发商加入的应用工具不同，使用的套件管理模式不同</em></p>
-</li>
-<li><p>GNU的全名为何？他主要由那个基金会支持？</p>
-<p><em>GNU的全名是GNU is not Unix，该计划是由自由软件基金会（FSF）所支持的。这两者都是由Stallman所发起的</em></p>
-</li>
-<li><p>什么是POSIX?为何说Linux使用POSIX对于发展有很好的影响？</p>
-<p><em>POSIX是一种标准规范，主要针对在Unix上面运行的程序进行规范。若OS符合POSIX，则符合POSIX的程序就可以在该OS上运行。Linux由于支持POSIX，故很多的Unix上的程序可以直接在Linux上运行，因此程序的移植相对简单。</em></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>阿飞学Markdown</title>
-    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
-    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
-<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
-<a id="more"></a>
-
-<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
-<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
-<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
-<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
-<li>标题<ul>
-<li>语法：<code># + 空格 + 标题内容</code></li>
-<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
-</ul>
-</li>
-<li>粗体<ul>
-<li>语法：<code>**+加粗内容+**</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-<li>斜体<ul>
-<li>语法：<code>*+斜体内容+*</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-</ol>
-<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
-<li><p>列表</p>
-<ul>
-<li>有序列表<ul>
-<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>无须列表<ul>
-<li>语法：<code>* + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
-</ul>
-</li>
-<li><p>分割线</p>
-<ul>
-<li>语法：<code>---</code></li>
-<li>说明：至少要有三个以上的 - 来标记</li>
-</ul>
-</li>
-<li><p>图片</p>
-<ul>
-<li>语法：<code>![图片替代文字](图片地址)</code></li>
-<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
-</ul>
-</li>
-<li><p>链接</p>
-<ul>
-<li><p>文字链接</p>
-<ul>
-<li>语法：<code>[链接文字]（链接地址）</code></li>
-<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
-</ul>
-</li>
-<li><p>引用链接</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
-</li>
-</ul>
-</li>
-<li><p>网址链接</p>
-<ul>
-<li>语法：<code>&lt;url&gt;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>行内代码</p>
-</li>
-<li><p>语法：&#39;代码&#39;</p>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>引用</p>
-<ul>
-<li>语法：<code>&gt;+应用内容</code></li>
-<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
-</ul>
-</li>
-</ol>
-<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
-<li><p>删除线</p>
-<ul>
-<li>语法：<code>~~被删除的文字~~</code></li>
-</ul>
-</li>
-<li><p>Emoji表情</p>
-<ul>
-<li>语法：<code>:表情代码:</code></li>
-</ul>
-</li>
-<li><p>表格</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：块级元素不能插入表格中</p>
-</li>
-</ul>
-</li>
-<li><p>任务列表</p>
-<ul>
-<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
-</ul>
-</li>
-<li><p>锚点（书签）</p>
-<ul>
-<li>语法：<code>[锚点描述](#锚点名)</code> </li>
-</ul>
-</li>
-<li><p>上标和下标</p>
-<ul>
-<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
-</ul>
-</li>
-<li><p>注释</p>
-<ul>
-<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
-</ul>
-</li>
-<li><p>脚注</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>阿飞学Linux——（3）安装Centos7.x</title>
     <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
     <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
@@ -1086,8 +939,170 @@
       </tags>
   </entry>
   <entry>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
     <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Markdown</title>
+    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
+    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
+<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
+<a id="more"></a>
+
+<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
+<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
+<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
+<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
+<li>标题<ul>
+<li>语法：<code># + 空格 + 标题内容</code></li>
+<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
+</ul>
+</li>
+<li>粗体<ul>
+<li>语法：<code>**+加粗内容+**</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+<li>斜体<ul>
+<li>语法：<code>*+斜体内容+*</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+</ol>
+<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
+<li><p>列表</p>
+<ul>
+<li>有序列表<ul>
+<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>无须列表<ul>
+<li>语法：<code>* + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
+</ul>
+</li>
+<li><p>分割线</p>
+<ul>
+<li>语法：<code>---</code></li>
+<li>说明：至少要有三个以上的 - 来标记</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li>语法：<code>![图片替代文字](图片地址)</code></li>
+<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
+</ul>
+</li>
+<li><p>链接</p>
+<ul>
+<li><p>文字链接</p>
+<ul>
+<li>语法：<code>[链接文字]（链接地址）</code></li>
+<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
+</ul>
+</li>
+<li><p>引用链接</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
+</li>
+</ul>
+</li>
+<li><p>网址链接</p>
+<ul>
+<li>语法：<code>&lt;url&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>行内代码</p>
+</li>
+<li><p>语法：&#39;代码&#39;</p>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+<ul>
+<li>语法：<code>&gt;+应用内容</code></li>
+<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
+</ul>
+</li>
+</ol>
+<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
+<li><p>删除线</p>
+<ul>
+<li>语法：<code>~~被删除的文字~~</code></li>
+</ul>
+</li>
+<li><p>Emoji表情</p>
+<ul>
+<li>语法：<code>:表情代码:</code></li>
+</ul>
+</li>
+<li><p>表格</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：块级元素不能插入表格中</p>
+</li>
+</ul>
+</li>
+<li><p>任务列表</p>
+<ul>
+<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
+</ul>
+</li>
+<li><p>锚点（书签）</p>
+<ul>
+<li>语法：<code>[锚点描述](#锚点名)</code> </li>
+</ul>
+</li>
+<li><p>上标和下标</p>
+<ul>
+<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
+</ul>
+</li>
+<li><p>脚注</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
   </entry>
 </search>
