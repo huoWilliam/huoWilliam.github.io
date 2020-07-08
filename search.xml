@@ -107,32 +107,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/06/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
     <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
@@ -232,6 +206,76 @@
       </tags>
   </entry>
   <entry>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【我的团长我的团】岂曰无衣，与子同袍</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E7%9A%84%E5%9B%A2%E9%95%BF%E6%88%91%E7%9A%84%E5%9B%A2%E3%80%91%E5%B2%82%E6%9B%B0%E6%97%A0%E8%A1%A3%EF%BC%8C%E4%B8%8E%E5%AD%90%E5%90%8C%E8%A2%8D/</url>
+    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=6078394&bvid=BV18s41167vc&cid=9868239&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>炮弹打不下春苗般的生机<br>铁翼下的种子徒生些抗力<br>应声站起来大时代的战士<br>高塔般竖立在我们的土地<br>什么力也瞬灭不了火炭般的眼睛<br>什么声也遮蔽不住愤怒的吼声<br>烟火里孕育着复兴的幼芽<br>真的，生存要从死里来争取<br>鲜血培养起自由之花<br>我们要在暗夜竖立火炬</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/06/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【霸王别姬】不疯魔，不成活</title>
+    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo折腾记（4）——添加脚注的方法</title>
     <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
@@ -253,21 +297,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【我不是药神】生来平凡，诚勇无惧</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -454,20 +483,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【霸王别姬】不疯魔，不成活</title>
-    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>阿飞学Linux——（1）初识Linux</title>
     <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
     <content><![CDATA[<h1 id="初识Linux"><a href="#初识Linux" class="headerlink" title="初识Linux"></a>初识Linux</h1><h2 id="什么是Linux"><a href="#什么是Linux" class="headerlink" title="什么是Linux"></a>什么是Linux</h2><p>Linux是一种OS，于1991年，由芬兰的Linus Torvalds开发而成，具有“可移植性”和良好的稳定性。</p>
@@ -567,6 +582,193 @@
       <tags>
         <tag>Linux</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（3）安装Centos7.x</title>
+    <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
+    <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
+<li><p>该主机的定位：用来练习Linux的相关技术，所以几乎所有的数据都要安装进来。故选择Everything的Distribution版本。</p>
+</li>
+<li><p>选择的distribution：CentOS 7.x</p>
+<div class="note info"><p>阿里云镜像下载网址：&lt; <a href="http://mirrors.aliyun.com/centos/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/</a> &gt; </p>
+</div>
+</li>
+<li><p>硬件配置：</p>
+<ul>
+<li>CPU：intel i5-8250U，<em>这里使用的CPU是我电脑上的</em></li>
+<li>内存：1.2G左右</li>
+<li>硬盘：一颗40GB左右的VirtI/O芯片组的磁盘</li>
+<li>网卡：使用桥接的方式设置了对外网卡，Centos本身就有提供驱动程序，所以可以直接抓到网卡</li>
+<li>显卡：入门级显卡即可</li>
+<li>I/O设备：不做要求</li>
+</ul>
+</li>
+<li><p>磁盘分区规划</p>
+<p>设置成使用GPT分区表来配置磁盘。虽然开机检测程序UEFI可以直接识别GPT分区表，但是开机检测程序BIOS只能读取第一阶段的boot loader。所以，对于GPT格式的磁盘，BIOS boot这个分区还是建议划分的。</p>
+<table>
+<thead>
+<tr>
+<th>所需目录/装置</th>
+<th>磁盘容量</th>
+<th>文件系统</th>
+<th>分区格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BIOS boot</td>
+<td>2MB</td>
+<td>系统自订</td>
+<td>标准分区</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>1GB</td>
+<td>xfs</td>
+<td>标准分区</td>
+</tr>
+<tr>
+<td>/</td>
+<td>10GB</td>
+<td>xfs</td>
+<td>LVM 方式</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>5GB</td>
+<td>xfs</td>
+<td>LVM 方式</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>1GB</td>
+<td>swap</td>
+<td>LVM 方式</td>
+</tr>
+</tbody></table>
+<p>如果，你的开机检测程序为UEFI的话，那么还需要划分出一个UEFI支持的分区。</p>
+</li>
+<li><p>选择软件：含有x接口的服务器软件的方式来安装。</p>
+</li>
+<li><p>开机检测程序：BIOS</p>
+</li>
+</ol>
+<h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><ol>
+<li>虚拟机软件：virtualbox</li>
+<li>系统：centos7.x</li>
+</ol>
+<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li>调整开机媒体（BIOS）：使用CD/DVD光盘开机</li>
+<li>选择安装模式与开机</li>
+<li>选择语系</li>
+<li>软件选择</li>
+<li>磁盘分区</li>
+<li>开机管理程序，网络，时区设置与root密码</li>
+<li>安装后的首次设置：包括使用者与防火墙等</li>
+</ol>
+<h2 id="虚拟机创建与调整开机媒体"><a href="#虚拟机创建与调整开机媒体" class="headerlink" title="虚拟机创建与调整开机媒体"></a>虚拟机创建与调整开机媒体</h2><ol>
+<li><p>新建虚拟机</p>
+<p><img src="/images/image-20200704163911908.png" alt="image-20200704163911908"></p>
+<p><img src="/images/image-20200704164238660.png" alt="image-20200704164238660"></p>
+</li>
+<li><p>创建虚拟硬盘</p>
+<p><img src="/images/image-20200704164403712.png" alt="image-20200704164403712"></p>
+</li>
+<li><p>至此成功创建一台虚拟机，点击设置，先将镜像文件载入光盘</p>
+<p><img src="/images/image-20200704164843754.png" alt="image-20200704164843754"></p>
+</li>
+<li><p>调整开机媒体顺序</p>
+<p><img src="/images/image-20200704165042839.png" alt="image-20200704165042839"></p>
+</li>
+<li><p>调整网络</p>
+<p><img src="/images/image-20200704165424029.png" alt="image-20200704165424029"></p>
+</li>
+</ol>
+<h2 id="选择安装模式与开机"><a href="#选择安装模式与开机" class="headerlink" title="选择安装模式与开机"></a>选择安装模式与开机</h2><p>使用光盘镜像文件开机后，就会出现如下画面：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_01.jpg" alt="选择安装模式"></p>
+<p>图中选项从上而下，分别是：</p>
+<ol>
+<li>正常安装</li>
+<li>测试光盘后再安装系统</li>
+<li>进入出错模式，该模式下有更多的选项，分别是<ul>
+<li>以图形接口安装系统</li>
+<li>救援模式</li>
+<li>内存测试</li>
+<li>有本机磁盘开机，不由光盘开机</li>
+</ul>
+</li>
+</ol>
+<p>由于我们的磁盘容量只有40GB，系统会默认使用MBR分区表，为了改用GPT分区表，我们需要在开机核心参数内添加<code>inst.gpt</code>字段。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_02.jpg" alt="添加核心参数修改安装程序"></p>
+<p>之后，按下回车，系统会开始侦测你的硬件信息。之后就进入到正式的安装流程。安装画面的如下：</p>
+<img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_05.jpg" alt="安装画面" style="zoom:80%;" />
+
+<p>对于上图中的在地设定，软件等设置很是简单，不多做描写。</p>
+<h2 id="磁盘分区与文件系统设置"><a href="#磁盘分区与文件系统设置" class="headerlink" title="磁盘分区与文件系统设置"></a>磁盘分区与文件系统设置</h2><p>点选“系统”项目下的“安装目的地”，之后便会进入如下画面：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_11.jpg" alt="选择要安装Linux的硬盘，并选择手动分区模式"></p>
+<p>如果硬盘中存在旧系统，则在安装Centos之前要清除旧的系统，即删掉旧分区。如果是全新的硬盘就可以省略该步骤。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_12.jpg" alt="删除旧的分区"></p>
+<p>之后开始安装磁盘分区规划对磁盘进行分区。</p>
+<p><strong>注意，如果开机检测程序为UEFI，则要划分出一个UEFI支持分区。</strong></p>
+<blockquote>
+<p>设备类型分为3种：</p>
+<ol>
+<li>标准分区：类似/dev/sda1之类的分区</li>
+<li>LVM：一种可以弹性增加/削减文件系统容量的设备设置。</li>
+<li>LVM简单配置：与传统LVM直接分配固定的容量不同，它可以让你在使用多少容量时才分配磁盘多少容量给你。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>文件系统分为以下几种：</p>
+<ol>
+<li>ext2/ext3/ext4：Linux早期使用的文件系统类型。ext3/ext4多了日志的记录，复原系统比较快。由于磁盘容量越来越大，该文件系统已经较少使用。</li>
+<li>swap：磁盘仿真为内存，不需要指定挂载点</li>
+<li>BIOS boot：GPT分区表可能会使用到的项目，如果使用MBR分区，就不需要该项目</li>
+<li>xfs：CentOS默认的文件系统，对于大容量的磁盘管理非常好，格式化速度快。</li>
+<li>vfat：同时被Linux与Windows支持的文件系统类型。</li>
+</ol>
+</blockquote>
+<p>最终完成分区应该如下图所示：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_24.jpg" alt="完成分区"></p>
+<h2 id="核心管理与网络设置"><a href="#核心管理与网络设置" class="headerlink" title="核心管理与网络设置"></a>核心管理与网络设置</h2><p>KDUMP，主要在处理，当Linux系统因为核心问题导致的死机事件时，会将该死机时间的内存数据存储起来的一项功能。可以开启，也可以不开启。</p>
+<p>网络设置如下图所示：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_27.jpg" alt="网络设置"></p>
+<p>设置开机自动启动网络的方式如下：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_28.jpg" alt="开机自启网络"></p>
+<p>之后按如下方式配置网卡：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_29.jpg" alt="手动配置ip"></p>
+<p>修改主机名称：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_30.jpg" alt="修改主机名称"></p>
+<p>至此，所有的设置都已完成，开始安装OS。</p>
+<p>接下来的开机之后的首次设置较为简单，可以照系统提示完成。</p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><ol>
+<li><p>默认使用MBR分区方式的情况下，在第二颗SATA磁盘中，分区“六个有用”的分区（具有文件系统的），此外，已知有两个primary的分区类型。请问六个分区的文件名？</p>
+<p><em>/dev/sdb1 (primary)</em></p>
+<p><em>/dev/sdb2 (primary)</em></p>
+<p><em>/dev/sdb3 (extended)</em></p>
+<p><em>/dev/sdb5,/dev/sdb6,/dev/sdb7,/dev/sdb8 (logical)</em></p>
+<p><em>其中逻辑分区的容量总和为/dev/sdb3的容量大小</em></p>
+</li>
+<li><p>软件磁盘阵列的设备文件名为何？</p>
+<p><em>RAID：/dev/md[0-127]</em></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
+    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>阿飞学Linux——（2）主机规划与磁盘分区</title>
@@ -760,193 +962,6 @@
       <tags>
         <tag>Linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（3）安装Centos7.x</title>
-    <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
-    <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
-<li><p>该主机的定位：用来练习Linux的相关技术，所以几乎所有的数据都要安装进来。故选择Everything的Distribution版本。</p>
-</li>
-<li><p>选择的distribution：CentOS 7.x</p>
-<div class="note info"><p>阿里云镜像下载网址：&lt; <a href="http://mirrors.aliyun.com/centos/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/</a> &gt; </p>
-</div>
-</li>
-<li><p>硬件配置：</p>
-<ul>
-<li>CPU：intel i5-8250U，<em>这里使用的CPU是我电脑上的</em></li>
-<li>内存：1.2G左右</li>
-<li>硬盘：一颗40GB左右的VirtI/O芯片组的磁盘</li>
-<li>网卡：使用桥接的方式设置了对外网卡，Centos本身就有提供驱动程序，所以可以直接抓到网卡</li>
-<li>显卡：入门级显卡即可</li>
-<li>I/O设备：不做要求</li>
-</ul>
-</li>
-<li><p>磁盘分区规划</p>
-<p>设置成使用GPT分区表来配置磁盘。虽然开机检测程序UEFI可以直接识别GPT分区表，但是开机检测程序BIOS只能读取第一阶段的boot loader。所以，对于GPT格式的磁盘，BIOS boot这个分区还是建议划分的。</p>
-<table>
-<thead>
-<tr>
-<th>所需目录/装置</th>
-<th>磁盘容量</th>
-<th>文件系统</th>
-<th>分区格式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BIOS boot</td>
-<td>2MB</td>
-<td>系统自订</td>
-<td>标准分区</td>
-</tr>
-<tr>
-<td>/boot</td>
-<td>1GB</td>
-<td>xfs</td>
-<td>标准分区</td>
-</tr>
-<tr>
-<td>/</td>
-<td>10GB</td>
-<td>xfs</td>
-<td>LVM 方式</td>
-</tr>
-<tr>
-<td>/home</td>
-<td>5GB</td>
-<td>xfs</td>
-<td>LVM 方式</td>
-</tr>
-<tr>
-<td>swap</td>
-<td>1GB</td>
-<td>swap</td>
-<td>LVM 方式</td>
-</tr>
-</tbody></table>
-<p>如果，你的开机检测程序为UEFI的话，那么还需要划分出一个UEFI支持的分区。</p>
-</li>
-<li><p>选择软件：含有x接口的服务器软件的方式来安装。</p>
-</li>
-<li><p>开机检测程序：BIOS</p>
-</li>
-</ol>
-<h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><ol>
-<li>虚拟机软件：virtualbox</li>
-<li>系统：centos7.x</li>
-</ol>
-<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li>调整开机媒体（BIOS）：使用CD/DVD光盘开机</li>
-<li>选择安装模式与开机</li>
-<li>选择语系</li>
-<li>软件选择</li>
-<li>磁盘分区</li>
-<li>开机管理程序，网络，时区设置与root密码</li>
-<li>安装后的首次设置：包括使用者与防火墙等</li>
-</ol>
-<h2 id="虚拟机创建与调整开机媒体"><a href="#虚拟机创建与调整开机媒体" class="headerlink" title="虚拟机创建与调整开机媒体"></a>虚拟机创建与调整开机媒体</h2><ol>
-<li><p>新建虚拟机</p>
-<p><img src="/images/image-20200704163911908.png" alt="image-20200704163911908"></p>
-<p><img src="/images/image-20200704164238660.png" alt="image-20200704164238660"></p>
-</li>
-<li><p>创建虚拟硬盘</p>
-<p><img src="/images/image-20200704164403712.png" alt="image-20200704164403712"></p>
-</li>
-<li><p>至此成功创建一台虚拟机，点击设置，先将镜像文件载入光盘</p>
-<p><img src="/images/image-20200704164843754.png" alt="image-20200704164843754"></p>
-</li>
-<li><p>调整开机媒体顺序</p>
-<p><img src="/images/image-20200704165042839.png" alt="image-20200704165042839"></p>
-</li>
-<li><p>调整网络</p>
-<p><img src="/images/image-20200704165424029.png" alt="image-20200704165424029"></p>
-</li>
-</ol>
-<h2 id="选择安装模式与开机"><a href="#选择安装模式与开机" class="headerlink" title="选择安装模式与开机"></a>选择安装模式与开机</h2><p>使用光盘镜像文件开机后，就会出现如下画面：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_01.jpg" alt="选择安装模式"></p>
-<p>图中选项从上而下，分别是：</p>
-<ol>
-<li>正常安装</li>
-<li>测试光盘后再安装系统</li>
-<li>进入出错模式，该模式下有更多的选项，分别是<ul>
-<li>以图形接口安装系统</li>
-<li>救援模式</li>
-<li>内存测试</li>
-<li>有本机磁盘开机，不由光盘开机</li>
-</ul>
-</li>
-</ol>
-<p>由于我们的磁盘容量只有40GB，系统会默认使用MBR分区表，为了改用GPT分区表，我们需要在开机核心参数内添加<code>inst.gpt</code>字段。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_02.jpg" alt="添加核心参数修改安装程序"></p>
-<p>之后，按下回车，系统会开始侦测你的硬件信息。之后就进入到正式的安装流程。安装画面的如下：</p>
-<img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_05.jpg" alt="安装画面" style="zoom:80%;" />
-
-<p>对于上图中的在地设定，软件等设置很是简单，不多做描写。</p>
-<h2 id="磁盘分区与文件系统设置"><a href="#磁盘分区与文件系统设置" class="headerlink" title="磁盘分区与文件系统设置"></a>磁盘分区与文件系统设置</h2><p>点选“系统”项目下的“安装目的地”，之后便会进入如下画面：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_11.jpg" alt="选择要安装Linux的硬盘，并选择手动分区模式"></p>
-<p>如果硬盘中存在旧系统，则在安装Centos之前要清除旧的系统，即删掉旧分区。如果是全新的硬盘就可以省略该步骤。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_12.jpg" alt="删除旧的分区"></p>
-<p>之后开始安装磁盘分区规划对磁盘进行分区。</p>
-<p><strong>注意，如果开机检测程序为UEFI，则要划分出一个UEFI支持分区。</strong></p>
-<blockquote>
-<p>设备类型分为3种：</p>
-<ol>
-<li>标准分区：类似/dev/sda1之类的分区</li>
-<li>LVM：一种可以弹性增加/削减文件系统容量的设备设置。</li>
-<li>LVM简单配置：与传统LVM直接分配固定的容量不同，它可以让你在使用多少容量时才分配磁盘多少容量给你。</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>文件系统分为以下几种：</p>
-<ol>
-<li>ext2/ext3/ext4：Linux早期使用的文件系统类型。ext3/ext4多了日志的记录，复原系统比较快。由于磁盘容量越来越大，该文件系统已经较少使用。</li>
-<li>swap：磁盘仿真为内存，不需要指定挂载点</li>
-<li>BIOS boot：GPT分区表可能会使用到的项目，如果使用MBR分区，就不需要该项目</li>
-<li>xfs：CentOS默认的文件系统，对于大容量的磁盘管理非常好，格式化速度快。</li>
-<li>vfat：同时被Linux与Windows支持的文件系统类型。</li>
-</ol>
-</blockquote>
-<p>最终完成分区应该如下图所示：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_24.jpg" alt="完成分区"></p>
-<h2 id="核心管理与网络设置"><a href="#核心管理与网络设置" class="headerlink" title="核心管理与网络设置"></a>核心管理与网络设置</h2><p>KDUMP，主要在处理，当Linux系统因为核心问题导致的死机事件时，会将该死机时间的内存数据存储起来的一项功能。可以开启，也可以不开启。</p>
-<p>网络设置如下图所示：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_27.jpg" alt="网络设置"></p>
-<p>设置开机自动启动网络的方式如下：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_28.jpg" alt="开机自启网络"></p>
-<p>之后按如下方式配置网卡：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_29.jpg" alt="手动配置ip"></p>
-<p>修改主机名称：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_30.jpg" alt="修改主机名称"></p>
-<p>至此，所有的设置都已完成，开始安装OS。</p>
-<p>接下来的开机之后的首次设置较为简单，可以照系统提示完成。</p>
-<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><ol>
-<li><p>默认使用MBR分区方式的情况下，在第二颗SATA磁盘中，分区“六个有用”的分区（具有文件系统的），此外，已知有两个primary的分区类型。请问六个分区的文件名？</p>
-<p><em>/dev/sdb1 (primary)</em></p>
-<p><em>/dev/sdb2 (primary)</em></p>
-<p><em>/dev/sdb3 (extended)</em></p>
-<p><em>/dev/sdb5,/dev/sdb6,/dev/sdb7,/dev/sdb8 (logical)</em></p>
-<p><em>其中逻辑分区的容量总和为/dev/sdb3的容量大小</em></p>
-</li>
-<li><p>软件磁盘阵列的设备文件名为何？</p>
-<p><em>RAID：/dev/md[0-127]</em></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
-    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>阿飞学Markdown</title>
