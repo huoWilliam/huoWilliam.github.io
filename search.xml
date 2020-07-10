@@ -107,6 +107,65 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo折腾记（5）——设置加密访问</title>
+    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/</url>
+    <content><![CDATA[<h1 id="设置加密访问"><a href="#设置加密访问" class="headerlink" title="设置加密访问"></a>设置加密访问</h1><p>设置加密访问可以通过hexo-blog-encrypt这个插件来实现，具体的设置与使用方法如下。</p>
+<ol>
+<li><p>安装插件</p>
+<p>设置加密访问必须先安装hexo-blog-encrypt这个插件。进入站点根目录，启动Git，运行如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<mark class="label primary"> 站点配置文件_config.yml</mark>中启用该插件。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#encrypt</span></span><br><span class="line"><span class="attr">encrypt:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">default_message:</span> <span class="string">输入密码，查看文章。</span></span><br><span class="line">    <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>default_message：设置默认提示信息</li>
+<li>wrong_pass_message：设置密码输入错误提示信息</li>
+</ul>
+</li>
+<li><p>在文章头部添加对应的字段，如password，abstrat等。就可以在blog中开启加密访问了。具体案例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章加密</span><br><span class="line">date: 2019-01-04T22:20:13.000Z</span><br><span class="line">category: 教程</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  - </span>博客</span><br><span class="line"><span class="bullet">  - </span>Hexo</span><br><span class="line">keywords: 博客文章密码</span><br><span class="line">password: TloveY</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>该插件也可以<strong>根据标签进行加密访问设置</strong>。设置方法是在<mark class="label primary"> 站点配置文件_config.yml</mark>中进行如下修改：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="attr">encrypt:</span> <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">有东西被加密了,</span> <span class="string">请输入密码查看.</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#123;name:</span> <span class="string">tagName,</span> <span class="attr">password:</span> <span class="string">密码A&#125;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#123;name:</span> <span class="string">tagName,</span> <span class="attr">password:</span> <span class="string">密码B&#125;</span></span><br><span class="line">  <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo折腾记（4）——添加脚注的方法</title>
+    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
+<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
+
+<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
+<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
+</div> 
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
     <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
@@ -171,59 +230,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（5）——设置加密访问</title>
-    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/</url>
-    <content><![CDATA[<h1 id="设置加密访问"><a href="#设置加密访问" class="headerlink" title="设置加密访问"></a>设置加密访问</h1><p>设置加密访问可以通过hexo-blog-encrypt这个插件来实现，具体的设置与使用方法如下。</p>
-<ol>
-<li><p>安装插件</p>
-<p>设置加密访问必须先安装hexo-blog-encrypt这个插件。进入站点根目录，启动Git，运行如下代码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<mark class="label primary"> 站点配置文件_config.yml</mark>中启用该插件。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#encrypt</span></span><br><span class="line"><span class="attr">encrypt:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">default_message:</span> <span class="string">输入密码，查看文章。</span></span><br><span class="line">    <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>default_message：设置默认提示信息</li>
-<li>wrong_pass_message：设置密码输入错误提示信息</li>
-</ul>
-</li>
-<li><p>在文章头部添加对应的字段，如password，abstrat等。就可以在blog中开启加密访问了。具体案例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章加密</span><br><span class="line">date: 2019-01-04T22:20:13.000Z</span><br><span class="line">category: 教程</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  - </span>博客</span><br><span class="line"><span class="bullet">  - </span>Hexo</span><br><span class="line">keywords: 博客文章密码</span><br><span class="line">password: TloveY</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>该插件也可以<strong>根据标签进行加密访问设置</strong>。设置方法是在<mark class="label primary"> 站点配置文件_config.yml</mark>中进行如下修改：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="attr">encrypt:</span> <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">有东西被加密了,</span> <span class="string">请输入密码查看.</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#123;name:</span> <span class="string">tagName,</span> <span class="attr">password:</span> <span class="string">密码A&#125;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#123;name:</span> <span class="string">tagName,</span> <span class="attr">password:</span> <span class="string">密码B&#125;</span></span><br><span class="line">  <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【我不是药神】生来平凡，诚勇无惧</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【我的团长我的团】岂曰无衣，与子同袍</title>
     <url>/2020/07/08/%E3%80%90%E6%88%91%E7%9A%84%E5%9B%A2%E9%95%BF%E6%88%91%E7%9A%84%E5%9B%A2%E3%80%91%E5%B2%82%E6%9B%B0%E6%97%A0%E8%A1%A3%EF%BC%8C%E4%B8%8E%E5%AD%90%E5%90%8C%E8%A2%8D/</url>
-    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=6078394&bvid=BV18s41167vc&cid=9868239&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/3V16FAtsS24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>炮弹打不下春苗般的生机<br>铁翼下的种子徒生些抗力<br>应声站起来大时代的战士<br>高塔般竖立在我们的土地<br>什么力也瞬灭不了火炭般的眼睛<br>什么声也遮蔽不住愤怒的吼声<br>烟火里孕育着复兴的幼芽<br>真的，生存要从死里来争取<br>鲜血培养起自由之花<br>我们要在暗夜竖立火炬</p>
 ]]></content>
@@ -276,27 +285,174 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（4）——添加脚注的方法</title>
-    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
-<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
-<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
-</div> 
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
 ]]></content>
       <categories>
-        <category>博客搭建</category>
+        <category>光影岁月</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>music</tag>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一文看懂深度学习</title>
+    <url>/2020/07/10/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><img src="https://miro.medium.com/max/1050/0*MCioiwbkOjtFBLU8.png" alt="image for post"></p>
+<blockquote>
+<p><em>深度学习有很好的表现，引领了第三次人工智能的浪潮。目前大部分表现优异的应用都用到了深度学习，大红大紫的 AlphaGo 就使用到了深度学习。</em></p>
+<p><em>本文将详细的给大家介绍深度学习的基本概念、优缺点和主流的几种算法。</em></p>
+</blockquote>
+<h1 id="深度学习、神经网络、机器学习、人工智能的关系"><a href="#深度学习、神经网络、机器学习、人工智能的关系" class="headerlink" title="深度学习、神经网络、机器学习、人工智能的关系"></a>深度学习、神经网络、机器学习、人工智能的关系</h1><p><strong>深度学习、机器学习、人工智能</strong></p>
+<p>简单来说：</p>
+<ol>
+<li>深度学习是机器学习的一个分支(最重要的分支)</li>
+<li>机器学习是人工智能的一个分支</li>
+</ol>
+<p><img src="https://miro.medium.com/max/2250/0*0m26vYcHghsHL-Bw.jpg" alt="Image for post"></p>
+<p>目前表现最好的一些应用大部分都是深度学习，正是因为深度学习的突出表现，引发了人工智能的第三次浪潮。详情可以看《<a href="https://easyai.tech/blog/ai-history/" target="_blank" rel="noopener">人工智能的发展史 — — 3次 AI 浪潮</a>》</p>
+<p><strong>深度学习、神经网络</strong></p>
+<p>深度学习的概念源于人工神经网络的研究，但是并不完全等于传统神经网络。</p>
+<p>不过在叫法上，很多深度学习算法中都会包含”神经网络”这个词，比如：卷积神经网络、循环神经网络。</p>
+<p><strong>所以，深度学习可以说是在传统神经网络基础上的升级，约等于神经网络。</strong></p>
+<p><img src="https://miro.medium.com/max/2250/0*jHGzSx46XNqse7k3.png" alt="Image for post"></p>
+<h1 id="大白话解释深度学习"><a href="#大白话解释深度学习" class="headerlink" title="大白话解释深度学习"></a>大白话解释深度学习</h1><p>看了很多版本的解释，发现李开复在《<a href="https://amazon.cn/gp/product/B06Y4141WL/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=106366349-23&creative=3200&linkCode=as2&creativeASIN=B06Y4141WL&linkId=de21a3460960208b0e4dd9cf5b99306c" target="_blank" rel="noopener">人工智能</a>》一书中讲的是最容易理解的，所以下面直接引用他的解释：</p>
+<p>我们以识别图片中的汉字为例。</p>
+<p>假设深度学习要处理的信息是“水流”，而处理数据的深度学习网络是一个由管道和阀门组成的巨大水管网络。网络的入口是若干管道开口，网络的出口也是若干管道开口。这个水管网络有许多层，每一层由许多个可以控制水流流向与流量的调节阀。根据不同任务的需要，水管网络的层数、每层的调节阀数量可以有不同的变化组合。对复杂任务来说，调节阀的总数可以成千上万甚至更多。水管网络中，每一层的每个调节阀都通过水管与下一层的所有调节阀连接起来，组成一个从前到后，逐层完全连通的水流系统。</p>
+<p><img src="https://miro.medium.com/max/2250/0*9i7eqIi0v_rZ69i8.png" alt="Image for post"></p>
+<p>那么，计算机该如何使用这个庞大的水管网络来学习识字呢？</p>
+<p>比如，当计算机看到一张写有“田”字的图片，就简单将组成这张图片的所有数字（在计算机里，图片的每个颜色点都是用“0”和“1”组成的数字来表示的）全都变成信息的水流，从入口灌进水管网络。</p>
+<p><img src="https://miro.medium.com/max/2250/0*iA2vNFI2BtyxtmVJ.png" alt="Image for post"></p>
+<p>我们预先在水管网络的每个出口都插一块字牌，对应于每一个我们想让计算机认识的汉字。这时，因为输入的是“田”这个汉字，等水流流过整个水管网络，计算机就会跑到管道出口位置去看一看，是不是标记由“田”字的管道出口流出来的水流最多。如果是这样，就说明这个管道网络符合要求。如果不是这样，就调节水管网络里的每一个流量调节阀，让“田”字出口“流出”的水最多。</p>
+<p>这下，计算机要忙一阵了，要调节那么多阀门！好在计算机的速度快，暴力的计算加上算法的优化，总是可以很快给出一个解决方案，调好所有阀门，让出口处的流量符合要求。</p>
+<p><img src="https://miro.medium.com/max/2250/0*qJEO7uk-36RqndEL.png" alt="Image for post"></p>
+<p>下一步，学习“申”字时，我们就用类似的方法，把每一张写有“申”字的图片变成一大堆数字组成的水流，灌进水管网络，看一看，是不是写有“申”字的那个管道出口流水最多，如果不是，我们还得再调整所有的阀门。这一次，要既保证刚才学过的“田”字不受影响，也要保证新的“申”字可以被正确处理。</p>
+<p><img src="https://miro.medium.com/max/2250/0*MU5HgYbFRARwyTzU.png" alt="Image for post"></p>
+<p>如此反复进行，直到所有汉字对应的水流都可以按照期望的方式流过整个水管网络。这时，我们就说，这个水管网络是一个<strong>训练好的深度学习模型了</strong>。当大量汉字被这个管道网络处理，所有阀门都调节到位后，整套水管网络就可以用来识别汉字了。这时，我们可以把调节好的所有阀门都“焊死”，静候新的水流到来。</p>
+<p><img src="https://miro.medium.com/max/2250/0*yof1ZXCegXlMmBw4.png" alt="Image for post"></p>
+<p>与训练时做的事情类似，未知的图片会被计算机转变成数据的水流，灌入训练好的水管网络。这时，计算机只要观察一下，哪个出水口流出来的水流最多，这张图片写的就是哪个字。</p>
+<p><strong>深度学习大致就是这么一个用人类的数学知识与计算机算法构建起来的整体架构，再结合尽可能多的训练数据以及计算机的大规模运算能力去调节内部参数，尽可能逼近问题目标的半理论、半经验的建模方式。</strong></p>
+<h1 id="传统机器学习-VS-深度学习"><a href="#传统机器学习-VS-深度学习" class="headerlink" title="传统机器学习 VS 深度学习"></a>传统机器学习 VS 深度学习</h1><p><strong>传统机器学习和深度学习的相似点</strong></p>
+<p><img src="https://miro.medium.com/max/2250/0*IZS2sBbcC4Bq6oAz.png" alt="Image for post"></p>
+<p>在数据准备和预处理方面，两者是很相似的。</p>
+<p>他们都可能对数据进行一些操作：</p>
+<ul>
+<li>数据清洗</li>
+<li>数据标签</li>
+<li>归一化</li>
+<li>去噪</li>
+<li>降维</li>
+</ul>
+<p>对于数据预处理感兴趣的可以看看《<a href="https://easyai.tech/blog/ai-dataset-6-problem-solution/" target="_blank" rel="noopener">AI 数据集最常见的6大问题（附解决方案）</a>》</p>
+<p><strong>传统机器学习和深度学习的核心区别</strong></p>
+<p><img src="https://miro.medium.com/max/2250/0*nbVmEiRfR0mRoicm.png" alt="Image for post"></p>
+<p>传统机器学习的特征提取主要依赖人工，针对特定简单任务的时候人工提取特征会简单有效，但是并不能通用。</p>
+<p><u>深度学习的特征提取并不依靠人工，而是机器自动提取的。</u>这也是为什么大家都说深度学习的可解释性很差，因为有时候深度学习虽然能有好的表现，但是我们并不知道他的原理是什么。</p>
+<h1 id="深度学习的优缺点"><a href="#深度学习的优缺点" class="headerlink" title="深度学习的优缺点"></a>深度学习的优缺点</h1><p><img src="https://miro.medium.com/max/2250/0*a-46X1jB7i79HT-h.png" alt="Image for post"></p>
+<p><strong>优点1：学习能力强</strong></p>
+<p>从结果来看，深度学习的表现非常好，他的学习能力非常强。</p>
+<p><strong>优点2：覆盖范围广，适应性好</strong></p>
+<p>深度学习的神经网络层数很多，宽度很广，理论上可以映射到任意函数，所以能解决很复杂的问题。</p>
+<p><strong>优点3：数据驱动，上限高</strong></p>
+<p>深度学习高度依赖数据，数据量越大，他的表现就越好。在图像识别、面部识别、<a href="https://easyai.tech/ai-definition/nlp/" target="_blank" rel="noopener">NLP</a> 等部分任务甚至已经超过了人类的表现。同时还可以通过调参进一步提高他的上限。</p>
+<p><strong>优点4：可移植性好</strong></p>
+<p>由于深度学习的优异表现，有很多框架可以使用，例如 <a href="https://easyai.tech/tensorflow-course-source/" target="_blank" rel="noopener">TensorFlow</a>、<a href="https://easyai.tech/PyTorch/" target="_blank" rel="noopener">Pytorch</a>。这些框架可以兼容很多平台。</p>
+<p><strong>缺点1：计算量大，便携性差</strong></p>
+<p>深度学习需要大量的数据很大量的算力，所以成本很高。并且现在很多应用还不适合在移动设备上使用。目前已经有很多公司和团队在研发针对便携设备的芯片。这个问题未来会得到解决。</p>
+<p><strong>缺点2：硬件需求高</strong></p>
+<p>深度学习对算力要求很高，普通的 CPU 已经无法满足深度学习的要求。主流的算力都是使用 <a href="https://easyai.tech/ai-definition/gpugraphics-processing-unit/" target="_blank" rel="noopener">GPU</a> 和 <a href="https://easyai.tech/ai-definition/tpu（tensor-processing-unit）/" target="_blank" rel="noopener">TPU</a>，所以对于硬件的要求很高，成本也很高。</p>
+<p><strong>缺点3：模型设计复杂</strong></p>
+<p>深度学习的模型设计非常复杂，需要投入大量的人力物力和时间来开发新的算法和模型。大部分人只能使用现成的模型。</p>
+<p><strong>缺点4：没有”人性”，容易存在偏见</strong></p>
+<p>由于深度学习依赖数据，并且可解释性不高。在训练数据不平衡的情况下会出现性别歧视、种族歧视等问题。</p>
+<h1 id="4种典型的深度学习算法"><a href="#4种典型的深度学习算法" class="headerlink" title="4种典型的深度学习算法"></a>4种典型的深度学习算法</h1><p><img src="https://miro.medium.com/max/2250/0*Xjz6KC53Hz69laZX.png" alt="Image for post"></p>
+<h1 id="卷积神经网络-—-CNN"><a href="#卷积神经网络-—-CNN" class="headerlink" title="卷积神经网络 — CNN"></a>卷积神经网络 — CNN</h1><p><a href="https://easyai.tech/ai-definition/cnn/" target="_blank" rel="noopener"><strong>CNN</strong></a> <strong>的价值：</strong></p>
+<ol>
+<li>能够<strong>将大数据量的图片有效的降维成小数据量(并不影响结果)</strong></li>
+<li>能够保留图片的特征，类似人类的视觉原理</li>
+</ol>
+<p><strong>CNN 的基本原理：</strong></p>
+<ol>
+<li>卷积层 — 主要作用是保留图片的特征</li>
+<li>池化层 — 主要作用是把数据降维，可以有效的避免过拟合</li>
+<li>全连接层 — 根据不同任务输出我们想要的结果</li>
+</ol>
+<p><strong>CNN 的实际应用：</strong></p>
+<ol>
+<li>图片分类、检索</li>
+<li>目标定位检测</li>
+<li>目标分割</li>
+<li>人脸识别</li>
+<li>骨骼识别</li>
+</ol>
+<p>了解更多《<a href="https://easyai.tech/ai-definition/cnn/" target="_blank" rel="noopener">一文看懂卷积神经网络-CNN（基本原理+独特价值+实际应用）</a>》</p>
+<h1 id="循环神经网络-—-RNN"><a href="#循环神经网络-—-RNN" class="headerlink" title="循环神经网络 — RNN"></a>循环神经网络 — RNN</h1><p><a href="https://easyai.tech/ai-definition/rnn/" target="_blank" rel="noopener">RNN</a> 是<strong>一种能有效的处理序列数据的算法</strong>。比如：文章内容、语音音频、股票价格走势…</p>
+<p>之所以他能处理序列数据，是因为<strong>在序列中前面的输入也会影响到后面的输出，相当于有了“记忆功能”。但是 RNN 存在严重的短期记忆问题，长期的数据影响很小（哪怕他是重要的信息）。</strong></p>
+<p>于是基于 RNN 出现了 <a href="https://easyai.tech/ai-definition/lstm/" target="_blank" rel="noopener">LSTM</a> 和 GRU 等变种算法。这些变种算法主要有几个特点：</p>
+<ol>
+<li>长期信息可以有效的保留</li>
+<li>挑选重要信息保留，不重要的信息会选择“遗忘”</li>
+</ol>
+<p>RNN 几个典型的应用如下：</p>
+<ol>
+<li>文本生成</li>
+<li>语音识别</li>
+<li>机器翻译</li>
+<li>生成图像描述</li>
+<li>视频标记</li>
+</ol>
+<p>了解更多《<a href="https://easyai.tech/ai-definition/rnn/" target="_blank" rel="noopener">一文看懂循环神经网络-RNN（独特价值+优化算法+实际应用）</a>》</p>
+<h1 id="生成对抗网络-—-GANs"><a href="#生成对抗网络-—-GANs" class="headerlink" title="生成对抗网络 — GANs"></a>生成对抗网络 — GANs</h1><p>假设一个城市治安混乱，很快，这个城市里就会出现无数的小偷。在这些小偷中，有的可能是盗窃高手，有的可能毫无技术可言。假如这个城市开始整饬其治安，突然开展一场打击犯罪的「运动」，警察们开始恢复城市中的巡逻，很快，一批「学艺不精」的小偷就被捉住了。之所以捉住的是那些没有技术含量的小偷，是因为警察们的技术也不行了，在捉住一批低端小偷后，城市的治安水平变得怎样倒还不好说，但很明显，城市里小偷们的平均水平已经大大提高了。</p>
+<p>警察们开始继续训练自己的破案技术，开始抓住那些越来越狡猾的小偷。随着这些职业惯犯们的落网，警察们也练就了特别的本事，他们能很快能从一群人中发现可疑人员，于是上前盘查，并最终逮捕嫌犯；小偷们的日子也不好过了，因为警察们的水平大大提高，如果还想以前那样表现得鬼鬼祟祟，那么很快就会被警察捉住。为了避免被捕，小偷们努力表现得不那么「可疑」，而魔高一尺、道高一丈，警察也在不断提高自己的水平，争取将小偷和无辜的普通群众区分开。随着警察和小偷之间的这种「交流」与「切磋」，小偷们都变得非常谨慎，他们有着极高的偷窃技巧，表现得跟普通群众一模一样，而警察们都练就了「火眼金睛」，一旦发现可疑人员，就能马上发现并及时控制 — — 最终，我们同时得到了最强的小偷和最强的警察。</p>
+<p><img src="https://miro.medium.com/max/2250/0*L7tBTFe4oHJ6pmWk.png" alt="Image for post"></p>
+<p>了解更多《<a href="https://easyai.tech/ai-definition/gan/" target="_blank" rel="noopener">什么是生成对抗网络 — GAN？（基本概念+工作原理）</a>》</p>
+<h1 id="深度强化学习-—-RL"><a href="#深度强化学习-—-RL" class="headerlink" title="深度强化学习 — RL"></a>深度强化学习 — RL</h1><p>强化学习算法的思路非常简单，以游戏为例，如果在游戏中采取某种策略可以取得较高的得分，那么就进一步「强化」这种策略，以期继续取得较好的结果。这种策略与日常生活中的各种「绩效奖励」非常类似。我们平时也常常用这样的策略来提高自己的游戏水平。</p>
+<p>在 Flappy bird 这个游戏中，我们需要简单的点击操作来控制小鸟，躲过各种水管，飞的越远越好，因为飞的越远就能获得更高的积分奖励。</p>
+<p>这就是一个典型的强化学习场景：</p>
+<ul>
+<li>机器有一个明确的小鸟角色 — — 代理</li>
+<li>需要控制小鸟飞的更远 — — 目标</li>
+<li>整个游戏过程中需要躲避各种水管 — — 环境</li>
+<li>躲避水管的方法是让小鸟用力飞一下 — — 行动</li>
+<li>飞的越远，就会获得越多的积分 — — 奖励</li>
+</ul>
+<p><img src="https://miro.medium.com/max/2250/0*PPQ2hIfYDkWLTZOr.png" alt="Image for post"></p>
+<p>你会发现，强化学习和监督学习、无监督学习 最大的不同就是不需要大量的“数据喂养”。而是通过自己不停的尝试来学会某些技能。</p>
+<p>了解更多：《<a href="https://easyai.tech/ai-definition/reinforcement-learning/" target="_blank" rel="noopener">一文看懂什么是强化学习？（基本概念+应用场景+主流算法）</a>》</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>深度学习属于机器学习的范畴，深度学习可以说是在传统神经网络基础上的升级，约等于神经网络。</p>
+<p>深度学习和传统机器学习在数据预处理上都是类似的。核心差别在特征提取环节，深度学习由机器自己完成特征提取，不需要人工提取。</p>
+<p><strong>深度学习的优点：</strong></p>
+<ol>
+<li>学习能力强</li>
+<li>覆盖范围广，适应性好</li>
+<li>数据驱动，上限高</li>
+<li>可移植性好</li>
+</ol>
+<p><strong>深度学习的缺点：</strong></p>
+<ol>
+<li>计算量大，便携性差</li>
+<li>硬件需求高</li>
+<li>模型设计复杂</li>
+<li>没有”人性”，容易存在偏见</li>
+</ol>
+<p><strong>深度学习的4种典型算法：</strong></p>
+<ol>
+<li>卷积神经网络 — CNN</li>
+<li>循环神经网络 — RNN</li>
+<li>生成对抗网络 — GANs</li>
+<li>深度强化学习 — RL</li>
+</ol>
+]]></content>
+      <categories>
+        <category>转载文章</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -475,6 +631,204 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（2）主机规划与磁盘分区</title>
+    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%882%EF%BC%89%E4%B8%BB%E6%9C%BA%E8%A7%84%E5%88%92%E4%B8%8E%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
+    <content><![CDATA[<h1 id="Linux与硬件的搭配"><a href="#Linux与硬件的搭配" class="headerlink" title="Linux与硬件的搭配"></a>Linux与硬件的搭配</h1><p>在安装Linux之前，应该先了解下你的Linux主要是想完成哪方面的工作，这样在选购硬件的时候才能知道哪个硬件是最重要的。</p>
+<h2 id="选择与Linux搭配的主机配置"><a href="#选择与Linux搭配的主机配置" class="headerlink" title="选择与Linux搭配的主机配置"></a>选择与Linux搭配的主机配置</h2><ul>
+<li><p>一般小型主机且不含X Window系统：</p>
+<ul>
+<li><p>用途：家庭用NAT主机（IP分享器功能）或小型企业之非图形接口小型主机</p>
+</li>
+<li><p>CPU：五年内出产的产品即可</p>
+</li>
+<li><p>RAM：521MB~1GB</p>
+</li>
+<li><p>网卡：一般的以太网卡即可</p>
+</li>
+<li><p>显卡：只要能够被Linux捕捉到的显卡即可</p>
+</li>
+<li><p>硬盘：20GB以上即可</p>
+<a id="more"></a>
+</li>
+</ul>
+</li>
+<li><p>桌上型Linux系统/含X Window：</p>
+<ul>
+<li>用途：Linux的练习机或工作机</li>
+<li>CPU：最好等级高点，如Intel i5，i7以上等级</li>
+<li>RAM：大于1GB</li>
+<li>网卡：普通的以太网卡即可</li>
+<li>显卡：入门级显卡即可</li>
+<li>硬盘：越大越好</li>
+</ul>
+</li>
+<li><p>中型以上Linux服务器：</p>
+<ul>
+<li>用途：中小型企业/学校单位的FTP/mail/www等网络服务主机</li>
+<li>CPU：最好等级高点，如Intel i5，i7以上的多核心系统</li>
+<li>RAM：大于1GB</li>
+<li>网卡：intel或broadcom的品牌较好</li>
+<li>显卡：入门级显卡即可</li>
+<li>硬盘：越大越好，可能的话使用磁盘阵列</li>
+</ul>
+</li>
+</ul>
+<h2 id="各硬件设备在Linux中的文件名"><a href="#各硬件设备在Linux中的文件名" class="headerlink" title="各硬件设备在Linux中的文件名"></a>各硬件设备在Linux中的文件名</h2><p><strong>在Linux中，每个设备都被当成一个文件来对待</strong>，在Linux中，几乎所有的硬件设备文件都在<strong>/dev</strong>这个目录下。常见的硬件设备在Linux中的文件名如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>设备在Linux内的文件名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SAS/SATA/USB硬盘</td>
+<td>/dev/sd[a-p]</td>
+</tr>
+<tr>
+<td>U盘</td>
+<td>/dev/sd[a-p] （与SATA相同）</td>
+</tr>
+<tr>
+<td>VirtI/O接口</td>
+<td>/dev/vd[a-p] （用于虚拟机内）</td>
+</tr>
+<tr>
+<td>软盘</td>
+<td>/dev/fd[0-7]</td>
+</tr>
+<tr>
+<td>打印机</td>
+<td>/dev/lp[0-2] （25针打印机）            /dev/usb/lp[0-15] （USB接口）</td>
+</tr>
+<tr>
+<td>鼠标</td>
+<td>/dev/input/mouse[0-15] （通用）           /dev/mouse （当前鼠标）</td>
+</tr>
+<tr>
+<td>CDROM/DVDROM</td>
+<td>/dev/scd[0-1] （通用）      /dev/cdrom （当前CDROM)）     /dev/sr[0-1]（通用，Centos较常见）</td>
+</tr>
+<tr>
+<td>IDE硬盘</td>
+<td>/dev/hd[a-d]（旧式系统才有）</td>
+</tr>
+</tbody></table>
+<h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><h2 id="磁盘连接的方式与设备文件名的关系"><a href="#磁盘连接的方式与设备文件名的关系" class="headerlink" title="磁盘连接的方式与设备文件名的关系"></a>磁盘连接的方式与设备文件名的关系</h2><p>目前主流的磁盘接口是SATA接口，如今大部分的Linux distribution已经将ide接口的磁盘文件名也仿真成了SATA接口了。</p>
+<p>正常的实体机器上的磁盘文件名大概都是/dev/sd[a-p]，而在虚拟机环境下，磁盘文件名大概就是/dev/vd[a-p]。</p>
+<p>如果一个计算机系统内有多个SATA/USB/SAS接口的磁盘，由于他们的设备文件名都是/dev/sd[a-p]，故这些磁盘的设备文件名取决于Linux核心侦测到磁盘的顺序。</p>
+<h2 id="MBR和GPT磁盘分区表"><a href="#MBR和GPT磁盘分区表" class="headerlink" title="MBR和GPT磁盘分区表"></a>MBR和GPT磁盘分区表</h2><p>磁盘的第一个扇区记录整颗磁盘的重要信息。早期磁盘第一个扇区里含有的重要信息我们称之为MBR格式。如今随着需求的变化，我们称这些重要信息为GPT。</p>
+<ul>
+<li><p>MBR</p>
+<p>早期的Linux为了相同于Windows的磁盘，因此使用的是支持Windows的MBR的方式来处理开机管理程序和分区表。故磁盘的第一个扇区（512 Byte）存放了两个重要数据</p>
+<ul>
+<li>主要开机记录区（MBR）：可以安装开机管理程序的地方，有446 Bytes</li>
+<li>分区表：记录整颗磁盘分区的状态，有64 Bytes</li>
+</ul>
+<p>由于分区表只有64 Bytes，故最多只能写入4组分区信息，每组分区信息记录了该分区的开始与结束的柱面号码，这四组分区称之为<strong>主要或延伸分区</strong>，分区的最小单位为通常为柱面。当系统要写入磁盘时，一定会参考磁盘分区表，才能针对某个分区进行数据的处理。</p>
+<p>如果我们要将磁盘划分出4个以上的分区，就要借助于延伸分区。<strong>延伸分区的思想是：既然第一个扇区所在的分区表只能记录4组分区信息，那就利用额外的扇区来记录更多的分区信息。</strong>延伸分区本身不能被格式化，而是通过延伸分区所指向的那个区块继续做分区的记录。<strong>延伸分区最多只能有一个。</strong></p>
+<img src="http://linux.vbird.org/linux_basic/0130designlinux/partition-2.png" alt="磁盘分区表的作用" style="zoom: 80%;" />
+
+<p>如上图所示，右下方的那个区块又继续分区出5个分区，这5个分区称为<strong>逻辑分区</strong>。逻辑分区的柱面范围就是延伸分区所设置的范围。上图分区的设备文件名如下：</p>
+<ul>
+<li>p1:/dev/sda1</li>
+<li>p2:/dev/sda2</li>
+<li>L1:/dev/sda5</li>
+<li>L2:/dev/sda6</li>
+<li>L3:/dev/sda7</li>
+<li>L4:/dev/sda8</li>
+<li>L5:/dev/sda9</li>
+</ul>
+<p><strong>注意：前4个分区号码是保留给主要和延伸分区的。</strong></p>
+</li>
+<li><p>GPT</p>
+<p>为了解决MBR分区表无法记录2.2T以上的磁盘的问题，引入了GPT分区表。</p>
+<img src="http://linux.vbird.org/linux_basic/0130designlinux/gpt_partition_1.jpg" alt="GPT分区表结构" style="zoom:80%;" />
+
+<p>GPT使用了34个LBA<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>区块来记录分区信息，并且利用磁盘的最后33个LBA作为分区信息的备份。</p>
+<ul>
+<li><p>LBA0（MBR相容区块）</p>
+<p>该分区放入一个特殊标记，用来表示该磁盘为GPT格式，如果不懂GPT分区表的磁盘管理程序，就不会认识该磁盘。进一步保护了该磁盘。</p>
+</li>
+<li><p>LBA1（GPT表头记录）</p>
+<p>记录了分区表的位置与大小，同时记录了备份用的GPT分区表所放置的位置，同时放置了分区表的校验机制码。</p>
+</li>
+<li><p>LBA2-33（实际记录分区信息处）</p>
+<p>从LBA2区块开始，每个LBA记录了4笔分区记录，故在默认情况下，可以有4*32 = 128笔分区记录。由于每个LBA有512 Bytes，故每笔记录用到了128 Bytes的空间。</p>
+</li>
+</ul>
+<p>不同于MBR，GPT中没有延伸，主要，逻辑分区的概念，每个分区都是独立的，都可以进行格式化。</p>
+</li>
+</ul>
+<h2 id="开机检测程序：BIOS与UEFI"><a href="#开机检测程序：BIOS与UEFI" class="headerlink" title="开机检测程序：BIOS与UEFI"></a>开机检测程序：BIOS与UEFI</h2><ul>
+<li><p>BIOS搭配MBR/GPT的开机流程</p>
+<ol>
+<li>BIOS：开机的时候主动执行BIOS，根据使用者的设定取得能够开机的硬盘</li>
+<li>MBR：BIOS读取第一个可开机设备的第一个扇区的开机记录区块，执行开机管理程序</li>
+<li>开机管理程序：载入核心文件</li>
+<li>核心文件：开始OS的功能</li>
+</ol>
+<p>对于第2点，如果分区表为GPT格式的话，那么BIOS会从LBA0的MBR相容区块读取第一阶段的开机管理程序，如果开机管理程序能够认识GPT的话，那么使用BIOS同样可以读取到正确的OS核心。</p>
+<p><strong>开机管理程序除了可以安装在MBR之外，还可以安装在每个分区的开机扇区，通过特色才能造就“多重开机“。开机管理程序的功能是：提供菜单；载入核心文件；转交其他的loader。</strong></p>
+</li>
+<li><p>UEFI搭配GPT开机的流程</p>
+<p>BIOS不懂GPT，必须要通过GPT提供的MBR相容区块才能够读写该磁盘设备。因此，对比BIOS，UEFI虽然可以直接取得GPT的分区表，不过最好依旧拥有BIOS boot的分区支持。</p>
+</li>
+</ul>
+<h2 id="Linux安装模式下，磁盘分区的选择"><a href="#Linux安装模式下，磁盘分区的选择" class="headerlink" title="Linux安装模式下，磁盘分区的选择"></a>Linux安装模式下，磁盘分区的选择</h2><ul>
+<li><p>目录树结构</p>
+<p>所谓的目录树结构就是以根目录/为主，然后向下呈现分枝状的目录结构的一种文件架构。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0130designlinux/dirtree.gif" alt="目录树结构"></p>
+<p>上图中，长方形为目录，波浪形为文件。可见，所有的文件都是由根目录（/）发起，而次目录下还能够有其他的数据存在。</p>
+</li>
+<li><p>文件系统与目录树的关系（挂载）</p>
+<p>所谓的”挂载“就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下。简单来说，就是进入该目录就可以读取该分区的意思。这个进入点的目录称之为<strong>”挂载点“</strong>。</p>
+<img src="http://linux.vbird.org/linux_basic/0130designlinux/dir_3.png" alt="目录树与分区间的关系" style="zoom:80%;" />
+
+</li>
+</ul>
+<h1 id="主机硬盘的规划"><a href="#主机硬盘的规划" class="headerlink" title="主机硬盘的规划"></a>主机硬盘的规划</h1><ul>
+<li>最简单的分区方法：仅分区出根目录（/）与内存交换空间（swap）即可。然后，预留一些剩余的磁盘供后续的联系使用。</li>
+<li>较麻烦的分区方法：先分析该主机的未来用途，然后根据用途去分析需要较大容量的目录，以及读写较为频繁的目录，将这些重要的目录独立出来而不与根目录（/）放在一起。使得当这些读写较为频繁的磁盘分区出现问题时，不会影响到根目录的系统数据。在默认的Centos环境中，下面的目录是比较符合容量大且读写频繁的目录：<ul>
+<li>/boot</li>
+<li>/</li>
+<li>/home</li>
+<li>/var</li>
+<li>Swap</li>
+</ul>
+</li>
+</ul>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
+<li><p>一部计算机主机是否只要CPU够快，整体速度就会提高？</p>
+<p><em>错！一部计算机系统的速度与整体计算机系统的运行有关，每个元件都会影响计算机的速度。包括了内存，CPU，AGP与显卡速度，硬盘的速度以及其他相关的I/O接口等。</em></p>
+</li>
+<li><p>一部好的主机在安装之前，最好先进行规划，哪些是必须要主要的Linux主机规划事项？</p>
+<p><em>Linux主机在安装之前，一定要规划Linux主机的定位与角色！因此，Linux的主机是否开放网络服务？未来是否会进行大量的运算？该主机是否需要提供很大的硬盘容量来服务客户端的使用？这些都是要经过考虑的。</em></p>
+</li>
+<li><p>请写出下列设备，在Linux的设备文件名：SATA硬盘；CDROM；打印机；软盘；</p>
+<p><em>SATA硬盘：/dev/sd[a-p]</em></p>
+<p><em>CDROM：/dev/cdrom，/dev/sr[0-1]，/dev/scd[0-1]</em></p>
+<p><em>打印机：/dev/lp[0-2]</em></p>
+<p><em>软盘：/dev/fd[0-1]</em></p>
+</li>
+<li><p>目前在PC上面常见的硬盘与主板的连接接口有那两个？</p>
+<p><em>有内置的SATA接口与外接式的USB接口</em></p>
+</li>
+</ol>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">逻辑区块地址，GPT将磁盘所有区块以LBA（默认为512 Bytes）来规划，第一个LBA称为LBA0</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
         <category>技术文章</category>
       </categories>
@@ -764,198 +1118,6 @@
     <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
     <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（2）主机规划与磁盘分区</title>
-    <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%882%EF%BC%89%E4%B8%BB%E6%9C%BA%E8%A7%84%E5%88%92%E4%B8%8E%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
-    <content><![CDATA[<h1 id="Linux与硬件的搭配"><a href="#Linux与硬件的搭配" class="headerlink" title="Linux与硬件的搭配"></a>Linux与硬件的搭配</h1><p>在安装Linux之前，应该先了解下你的Linux主要是想完成哪方面的工作，这样在选购硬件的时候才能知道哪个硬件是最重要的。</p>
-<h2 id="选择与Linux搭配的主机配置"><a href="#选择与Linux搭配的主机配置" class="headerlink" title="选择与Linux搭配的主机配置"></a>选择与Linux搭配的主机配置</h2><ul>
-<li><p>一般小型主机且不含X Window系统：</p>
-<ul>
-<li><p>用途：家庭用NAT主机（IP分享器功能）或小型企业之非图形接口小型主机</p>
-</li>
-<li><p>CPU：五年内出产的产品即可</p>
-</li>
-<li><p>RAM：521MB~1GB</p>
-</li>
-<li><p>网卡：一般的以太网卡即可</p>
-</li>
-<li><p>显卡：只要能够被Linux捕捉到的显卡即可</p>
-</li>
-<li><p>硬盘：20GB以上即可</p>
-<a id="more"></a>
-</li>
-</ul>
-</li>
-<li><p>桌上型Linux系统/含X Window：</p>
-<ul>
-<li>用途：Linux的练习机或工作机</li>
-<li>CPU：最好等级高点，如Intel i5，i7以上等级</li>
-<li>RAM：大于1GB</li>
-<li>网卡：普通的以太网卡即可</li>
-<li>显卡：入门级显卡即可</li>
-<li>硬盘：越大越好</li>
-</ul>
-</li>
-<li><p>中型以上Linux服务器：</p>
-<ul>
-<li>用途：中小型企业/学校单位的FTP/mail/www等网络服务主机</li>
-<li>CPU：最好等级高点，如Intel i5，i7以上的多核心系统</li>
-<li>RAM：大于1GB</li>
-<li>网卡：intel或broadcom的品牌较好</li>
-<li>显卡：入门级显卡即可</li>
-<li>硬盘：越大越好，可能的话使用磁盘阵列</li>
-</ul>
-</li>
-</ul>
-<h2 id="各硬件设备在Linux中的文件名"><a href="#各硬件设备在Linux中的文件名" class="headerlink" title="各硬件设备在Linux中的文件名"></a>各硬件设备在Linux中的文件名</h2><p><strong>在Linux中，每个设备都被当成一个文件来对待</strong>，在Linux中，几乎所有的硬件设备文件都在<strong>/dev</strong>这个目录下。常见的硬件设备在Linux中的文件名如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th>设备</th>
-<th>设备在Linux内的文件名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>SAS/SATA/USB硬盘</td>
-<td>/dev/sd[a-p]</td>
-</tr>
-<tr>
-<td>U盘</td>
-<td>/dev/sd[a-p] （与SATA相同）</td>
-</tr>
-<tr>
-<td>VirtI/O接口</td>
-<td>/dev/vd[a-p] （用于虚拟机内）</td>
-</tr>
-<tr>
-<td>软盘</td>
-<td>/dev/fd[0-7]</td>
-</tr>
-<tr>
-<td>打印机</td>
-<td>/dev/lp[0-2] （25针打印机）            /dev/usb/lp[0-15] （USB接口）</td>
-</tr>
-<tr>
-<td>鼠标</td>
-<td>/dev/input/mouse[0-15] （通用）           /dev/mouse （当前鼠标）</td>
-</tr>
-<tr>
-<td>CDROM/DVDROM</td>
-<td>/dev/scd[0-1] （通用）      /dev/cdrom （当前CDROM)）     /dev/sr[0-1]（通用，Centos较常见）</td>
-</tr>
-<tr>
-<td>IDE硬盘</td>
-<td>/dev/hd[a-d]（旧式系统才有）</td>
-</tr>
-</tbody></table>
-<h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><h2 id="磁盘连接的方式与设备文件名的关系"><a href="#磁盘连接的方式与设备文件名的关系" class="headerlink" title="磁盘连接的方式与设备文件名的关系"></a>磁盘连接的方式与设备文件名的关系</h2><p>目前主流的磁盘接口是SATA接口，如今大部分的Linux distribution已经将ide接口的磁盘文件名也仿真成了SATA接口了。</p>
-<p>正常的实体机器上的磁盘文件名大概都是/dev/sd[a-p]，而在虚拟机环境下，磁盘文件名大概就是/dev/vd[a-p]。</p>
-<p>如果一个计算机系统内有多个SATA/USB/SAS接口的磁盘，由于他们的设备文件名都是/dev/sd[a-p]，故这些磁盘的设备文件名取决于Linux核心侦测到磁盘的顺序。</p>
-<h2 id="MBR和GPT磁盘分区表"><a href="#MBR和GPT磁盘分区表" class="headerlink" title="MBR和GPT磁盘分区表"></a>MBR和GPT磁盘分区表</h2><p>磁盘的第一个扇区记录整颗磁盘的重要信息。早期磁盘第一个扇区里含有的重要信息我们称之为MBR格式。如今随着需求的变化，我们称这些重要信息为GPT。</p>
-<ul>
-<li><p>MBR</p>
-<p>早期的Linux为了相同于Windows的磁盘，因此使用的是支持Windows的MBR的方式来处理开机管理程序和分区表。故磁盘的第一个扇区（512 Byte）存放了两个重要数据</p>
-<ul>
-<li>主要开机记录区（MBR）：可以安装开机管理程序的地方，有446 Bytes</li>
-<li>分区表：记录整颗磁盘分区的状态，有64 Bytes</li>
-</ul>
-<p>由于分区表只有64 Bytes，故最多只能写入4组分区信息，每组分区信息记录了该分区的开始与结束的柱面号码，这四组分区称之为<strong>主要或延伸分区</strong>，分区的最小单位为通常为柱面。当系统要写入磁盘时，一定会参考磁盘分区表，才能针对某个分区进行数据的处理。</p>
-<p>如果我们要将磁盘划分出4个以上的分区，就要借助于延伸分区。<strong>延伸分区的思想是：既然第一个扇区所在的分区表只能记录4组分区信息，那就利用额外的扇区来记录更多的分区信息。</strong>延伸分区本身不能被格式化，而是通过延伸分区所指向的那个区块继续做分区的记录。<strong>延伸分区最多只能有一个。</strong></p>
-<img src="http://linux.vbird.org/linux_basic/0130designlinux/partition-2.png" alt="磁盘分区表的作用" style="zoom: 80%;" />
-
-<p>如上图所示，右下方的那个区块又继续分区出5个分区，这5个分区称为<strong>逻辑分区</strong>。逻辑分区的柱面范围就是延伸分区所设置的范围。上图分区的设备文件名如下：</p>
-<ul>
-<li>p1:/dev/sda1</li>
-<li>p2:/dev/sda2</li>
-<li>L1:/dev/sda5</li>
-<li>L2:/dev/sda6</li>
-<li>L3:/dev/sda7</li>
-<li>L4:/dev/sda8</li>
-<li>L5:/dev/sda9</li>
-</ul>
-<p><strong>注意：前4个分区号码是保留给主要和延伸分区的。</strong></p>
-</li>
-<li><p>GPT</p>
-<p>为了解决MBR分区表无法记录2.2T以上的磁盘的问题，引入了GPT分区表。</p>
-<img src="http://linux.vbird.org/linux_basic/0130designlinux/gpt_partition_1.jpg" alt="GPT分区表结构" style="zoom:80%;" />
-
-<p>GPT使用了34个LBA<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>区块来记录分区信息，并且利用磁盘的最后33个LBA作为分区信息的备份。</p>
-<ul>
-<li><p>LBA0（MBR相容区块）</p>
-<p>该分区放入一个特殊标记，用来表示该磁盘为GPT格式，如果不懂GPT分区表的磁盘管理程序，就不会认识该磁盘。进一步保护了该磁盘。</p>
-</li>
-<li><p>LBA1（GPT表头记录）</p>
-<p>记录了分区表的位置与大小，同时记录了备份用的GPT分区表所放置的位置，同时放置了分区表的校验机制码。</p>
-</li>
-<li><p>LBA2-33（实际记录分区信息处）</p>
-<p>从LBA2区块开始，每个LBA记录了4笔分区记录，故在默认情况下，可以有4*32 = 128笔分区记录。由于每个LBA有512 Bytes，故每笔记录用到了128 Bytes的空间。</p>
-</li>
-</ul>
-<p>不同于MBR，GPT中没有延伸，主要，逻辑分区的概念，每个分区都是独立的，都可以进行格式化。</p>
-</li>
-</ul>
-<h2 id="开机检测程序：BIOS与UEFI"><a href="#开机检测程序：BIOS与UEFI" class="headerlink" title="开机检测程序：BIOS与UEFI"></a>开机检测程序：BIOS与UEFI</h2><ul>
-<li><p>BIOS搭配MBR/GPT的开机流程</p>
-<ol>
-<li>BIOS：开机的时候主动执行BIOS，根据使用者的设定取得能够开机的硬盘</li>
-<li>MBR：BIOS读取第一个可开机设备的第一个扇区的开机记录区块，执行开机管理程序</li>
-<li>开机管理程序：载入核心文件</li>
-<li>核心文件：开始OS的功能</li>
-</ol>
-<p>对于第2点，如果分区表为GPT格式的话，那么BIOS会从LBA0的MBR相容区块读取第一阶段的开机管理程序，如果开机管理程序能够认识GPT的话，那么使用BIOS同样可以读取到正确的OS核心。</p>
-<p><strong>开机管理程序除了可以安装在MBR之外，还可以安装在每个分区的开机扇区，通过特色才能造就“多重开机“。开机管理程序的功能是：提供菜单；载入核心文件；转交其他的loader。</strong></p>
-</li>
-<li><p>UEFI搭配GPT开机的流程</p>
-<p>BIOS不懂GPT，必须要通过GPT提供的MBR相容区块才能够读写该磁盘设备。因此，对比BIOS，UEFI虽然可以直接取得GPT的分区表，不过最好依旧拥有BIOS boot的分区支持。</p>
-</li>
-</ul>
-<h2 id="Linux安装模式下，磁盘分区的选择"><a href="#Linux安装模式下，磁盘分区的选择" class="headerlink" title="Linux安装模式下，磁盘分区的选择"></a>Linux安装模式下，磁盘分区的选择</h2><ul>
-<li><p>目录树结构</p>
-<p>所谓的目录树结构就是以根目录/为主，然后向下呈现分枝状的目录结构的一种文件架构。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0130designlinux/dirtree.gif" alt="目录树结构"></p>
-<p>上图中，长方形为目录，波浪形为文件。可见，所有的文件都是由根目录（/）发起，而次目录下还能够有其他的数据存在。</p>
-</li>
-<li><p>文件系统与目录树的关系（挂载）</p>
-<p>所谓的”挂载“就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下。简单来说，就是进入该目录就可以读取该分区的意思。这个进入点的目录称之为<strong>”挂载点“</strong>。</p>
-<img src="http://linux.vbird.org/linux_basic/0130designlinux/dir_3.png" alt="目录树与分区间的关系" style="zoom:80%;" />
-
-</li>
-</ul>
-<h1 id="主机硬盘的规划"><a href="#主机硬盘的规划" class="headerlink" title="主机硬盘的规划"></a>主机硬盘的规划</h1><ul>
-<li>最简单的分区方法：仅分区出根目录（/）与内存交换空间（swap）即可。然后，预留一些剩余的磁盘供后续的联系使用。</li>
-<li>较麻烦的分区方法：先分析该主机的未来用途，然后根据用途去分析需要较大容量的目录，以及读写较为频繁的目录，将这些重要的目录独立出来而不与根目录（/）放在一起。使得当这些读写较为频繁的磁盘分区出现问题时，不会影响到根目录的系统数据。在默认的Centos环境中，下面的目录是比较符合容量大且读写频繁的目录：<ul>
-<li>/boot</li>
-<li>/</li>
-<li>/home</li>
-<li>/var</li>
-<li>Swap</li>
-</ul>
-</li>
-</ul>
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
-<li><p>一部计算机主机是否只要CPU够快，整体速度就会提高？</p>
-<p><em>错！一部计算机系统的速度与整体计算机系统的运行有关，每个元件都会影响计算机的速度。包括了内存，CPU，AGP与显卡速度，硬盘的速度以及其他相关的I/O接口等。</em></p>
-</li>
-<li><p>一部好的主机在安装之前，最好先进行规划，哪些是必须要主要的Linux主机规划事项？</p>
-<p><em>Linux主机在安装之前，一定要规划Linux主机的定位与角色！因此，Linux的主机是否开放网络服务？未来是否会进行大量的运算？该主机是否需要提供很大的硬盘容量来服务客户端的使用？这些都是要经过考虑的。</em></p>
-</li>
-<li><p>请写出下列设备，在Linux的设备文件名：SATA硬盘；CDROM；打印机；软盘；</p>
-<p><em>SATA硬盘：/dev/sd[a-p]</em></p>
-<p><em>CDROM：/dev/cdrom，/dev/sr[0-1]，/dev/scd[0-1]</em></p>
-<p><em>打印机：/dev/lp[0-2]</em></p>
-<p><em>软盘：/dev/fd[0-1]</em></p>
-</li>
-<li><p>目前在PC上面常见的硬盘与主板的连接接口有那两个？</p>
-<p><em>有内置的SATA接口与外接式的USB接口</em></p>
-</li>
-</ol>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">逻辑区块地址，GPT将磁盘所有区块以LBA（默认为512 Bytes）来规划，第一个LBA称为LBA0</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
         <category>技术文章</category>
       </categories>
