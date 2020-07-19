@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo折腾记（2）——NexT设置背景图片</title>
+    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94NexT%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h1 id="设置背景图片（NexT-5-x）"><a href="#设置背景图片（NexT-5-x）" class="headerlink" title="设置背景图片（NexT 5.x）"></a>设置背景图片（NexT 5.x）</h1><p>NexT主题本身是没有背景图片的，设置一个个性化的背景图片，会让blog变得更加美观。</p>
+<p>可以通过以下的方式为NexT主题设置背景图片。</p>
+<ol>
+<li><p>将想要的背景图片放入<code>themes/next/source/images</code>。</p>
+</li>
+<li><p>打开<code>themes/next/source/css/ _custom/custom.styl</code>文件，该文件是NexT提供给用户进行个性化定制的文件。在该文件中添加如下代码：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//background设置</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(/images/EtretatSunrise.jpg);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	background-repeat: no-repeat;  //不重复</span><br><span class="line">	background-attachment: fixed; //固定</span><br><span class="line">	background-size: 100% 100%;   //图片大小随浏览器变化</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>background:url</code> 为图片路径，也可以直接使用链接。</li>
+<li><code>background-repeat</code>：若果背景图片不能全屏，那么是否平铺显示，充满屏幕</li>
+<li><code>background-attachment</code>：背景是否随着网页上下滚动而滚动，fixed 为固定</li>
+<li><code>background-size</code>：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示。</li>
+</ul>
+</li>
+<li><p>设置背景后，可以考虑将博客文件降低透明度，这样可以更好地表现背景图片。</p>
+<p>在<code>themes/next/source/css/_custom/custom.styl</code> 中添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//博客内容透明化</span><br><span class="line">//文章内容的透明度设置</span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//侧边框的透明度设置</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//搜索框（local-search）的透明度设置</span><br><span class="line"><span class="selector-class">.popup</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="设置背景图片（NexT-7-x）"><a href="#设置背景图片（NexT-7-x）" class="headerlink" title="设置背景图片（NexT 7.x）"></a>设置背景图片（NexT 7.x）</h1><p>在NexT 7.x下设置背景图片的方式已经发生了变化。具体的设置方法如下：</p>
+<ol>
+<li><p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，找到<code>custom_file_path</code>配置项目，取消该项目下的<strong>style</strong>前的注释。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<strong>博客根目录下</strong>创建文件<mark class="label primary">your_blog/source/_data/styles.styl</mark>，然后在该文件中添加自定义配置。具体配置如下所示：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//背景图</span><br><span class="line"><span class="selector-tag">body</span> &#123; </span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/MarleyBeach.jpg);</span><br><span class="line">    background-attachment: fixed; // 不随屏幕滚动而滚动fixed,scroll,inherit</span><br><span class="line">    background-repeat: no-repeat; // 如果背景图不够屏幕大小则重复铺，no-repeat则表示不重复</span><br><span class="line">    background-size: cover; // contain等比例铺满屏幕 //cover拉伸铺满</span><br><span class="line">    background-position: bottom;//x,y轴调整</span><br><span class="line">    +<span class="selector-tag">mobile</span>()&#123;</span><br><span class="line">      //background-position: 0% -20%;https://i.loli.net/2018/12/29/5c270a0523154.jpg</span><br><span class="line">      //https://i.loli.net/2018/12/29/5c270fc2bfcad.png</span><br><span class="line">      background-image: url(/images/MarleyBeach.jpg);</span><br><span class="line">      <span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改文章块透明度</span><br><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow-inner;</span><br><span class="line">	border-radius: $border-radius-inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Comments blocks.</span><br><span class="line"><span class="selector-class">.comments</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	<span class="attribute">margin</span>: initial;</span><br><span class="line">	<span class="attribute">margin-top</span>: sboffset;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow;</span><br><span class="line">	border-radius: $border-radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改菜单栏透明度</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar-inner</span> &#123;</span><br><span class="line">   	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <div class="note info"><p>以后想自定义博客外观的话，都可以在该文件中进行修改，而不需要改动其他的文件</p>
+</div></li>
+</ol>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo折腾记（1）——安装与使用NexT主题</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8NexT%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<h1 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装NexT</h1><p>Next的安装分为三步骤：</p>
@@ -64,88 +107,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（2）——NexT设置背景图片</title>
-    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94NexT%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<h1 id="设置背景图片（NexT-5-x）"><a href="#设置背景图片（NexT-5-x）" class="headerlink" title="设置背景图片（NexT 5.x）"></a>设置背景图片（NexT 5.x）</h1><p>NexT主题本身是没有背景图片的，设置一个个性化的背景图片，会让blog变得更加美观。</p>
-<p>可以通过以下的方式为NexT主题设置背景图片。</p>
-<ol>
-<li><p>将想要的背景图片放入<code>themes/next/source/images</code>。</p>
-</li>
-<li><p>打开<code>themes/next/source/css/ _custom/custom.styl</code>文件，该文件是NexT提供给用户进行个性化定制的文件。在该文件中添加如下代码：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//background设置</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(/images/EtretatSunrise.jpg);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	background-repeat: no-repeat;  //不重复</span><br><span class="line">	background-attachment: fixed; //固定</span><br><span class="line">	background-size: 100% 100%;   //图片大小随浏览器变化</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>background:url</code> 为图片路径，也可以直接使用链接。</li>
-<li><code>background-repeat</code>：若果背景图片不能全屏，那么是否平铺显示，充满屏幕</li>
-<li><code>background-attachment</code>：背景是否随着网页上下滚动而滚动，fixed 为固定</li>
-<li><code>background-size</code>：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示。</li>
-</ul>
-</li>
-<li><p>设置背景后，可以考虑将博客文件降低透明度，这样可以更好地表现背景图片。</p>
-<p>在<code>themes/next/source/css/_custom/custom.styl</code> 中添加以下内容：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//博客内容透明化</span><br><span class="line">//文章内容的透明度设置</span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//侧边框的透明度设置</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//搜索框（local-search）的透明度设置</span><br><span class="line"><span class="selector-class">.popup</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="设置背景图片（NexT-7-x）"><a href="#设置背景图片（NexT-7-x）" class="headerlink" title="设置背景图片（NexT 7.x）"></a>设置背景图片（NexT 7.x）</h1><p>在NexT 7.x下设置背景图片的方式已经发生了变化。具体的设置方法如下：</p>
-<ol>
-<li><p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，找到<code>custom_file_path</code>配置项目，取消该项目下的<strong>style</strong>前的注释。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<strong>博客根目录下</strong>创建文件<mark class="label primary">your_blog/source/_data/styles.styl</mark>，然后在该文件中添加自定义配置。具体配置如下所示：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//背景图</span><br><span class="line"><span class="selector-tag">body</span> &#123; </span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/MarleyBeach.jpg);</span><br><span class="line">    background-attachment: fixed; // 不随屏幕滚动而滚动fixed,scroll,inherit</span><br><span class="line">    background-repeat: no-repeat; // 如果背景图不够屏幕大小则重复铺，no-repeat则表示不重复</span><br><span class="line">    background-size: cover; // contain等比例铺满屏幕 //cover拉伸铺满</span><br><span class="line">    background-position: bottom;//x,y轴调整</span><br><span class="line">    +<span class="selector-tag">mobile</span>()&#123;</span><br><span class="line">      //background-position: 0% -20%;https://i.loli.net/2018/12/29/5c270a0523154.jpg</span><br><span class="line">      //https://i.loli.net/2018/12/29/5c270fc2bfcad.png</span><br><span class="line">      background-image: url(/images/MarleyBeach.jpg);</span><br><span class="line">      <span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改文章块透明度</span><br><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow-inner;</span><br><span class="line">	border-radius: $border-radius-inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Comments blocks.</span><br><span class="line"><span class="selector-class">.comments</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	<span class="attribute">margin</span>: initial;</span><br><span class="line">	<span class="attribute">margin-top</span>: sboffset;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow;</span><br><span class="line">	border-radius: $border-radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改菜单栏透明度</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar-inner</span> &#123;</span><br><span class="line">   	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
- <div class="note info"><p>以后想自定义博客外观的话，都可以在该文件中进行修改，而不需要改动其他的文件</p>
-</div></li>
-</ol>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo折腾记（4）——添加脚注的方法</title>
-    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
-<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
-
-<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
-<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
-</div> 
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【我不是药神】生来平凡，诚勇无惧</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
     <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
@@ -201,6 +162,30 @@
 <p><img src="/images/avata_rotate.webp" alt="头像旋转"></p>
 </li>
 </ol>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo折腾记（4）——添加脚注的方法</title>
+    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
+<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
+
+<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
+<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
+</div> 
 ]]></content>
       <categories>
         <category>博客搭建</category>
@@ -271,11 +256,11 @@
       </tags>
   </entry>
   <entry>
-    <title>【我的团长我的团】岂曰无衣，与子同袍</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E7%9A%84%E5%9B%A2%E9%95%BF%E6%88%91%E7%9A%84%E5%9B%A2%E3%80%91%E5%B2%82%E6%9B%B0%E6%97%A0%E8%A1%A3%EF%BC%8C%E4%B8%8E%E5%AD%90%E5%90%8C%E8%A2%8D/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/3V16FAtsS24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>炮弹打不下春苗般的生机<br>铁翼下的种子徒生些抗力<br>应声站起来大时代的战士<br>高塔般竖立在我们的土地<br>什么力也瞬灭不了火炭般的眼睛<br>什么声也遮蔽不住愤怒的吼声<br>烟火里孕育着复兴的幼芽<br>真的，生存要从死里来争取<br>鲜血培养起自由之花<br>我们要在暗夜竖立火炬</p>
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
 ]]></content>
       <categories>
         <category>光影岁月</category>
@@ -297,6 +282,21 @@
       </categories>
       <tags>
         <tag>music</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【我的团长我的团】岂曰无衣，与子同袍</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E7%9A%84%E5%9B%A2%E9%95%BF%E6%88%91%E7%9A%84%E5%9B%A2%E3%80%91%E5%B2%82%E6%9B%B0%E6%97%A0%E8%A1%A3%EF%BC%8C%E4%B8%8E%E5%AD%90%E5%90%8C%E8%A2%8D/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/3V16FAtsS24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>炮弹打不下春苗般的生机<br>铁翼下的种子徒生些抗力<br>应声站起来大时代的战士<br>高塔般竖立在我们的土地<br>什么力也瞬灭不了火炭般的眼睛<br>什么声也遮蔽不住愤怒的吼声<br>烟火里孕育着复兴的幼芽<br>真的，生存要从死里来争取<br>鲜血培养起自由之花<br>我们要在暗夜竖立火炬</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -456,11 +456,6 @@
       </tags>
   </entry>
   <entry>
-    <title>白话深度学习与TensorFlow（2）——初识深度学习</title>
-    <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>白话深度学习与TensorFlowow（1）——初识机器学习</title>
     <url>/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlowow%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p>机器学习就是人类定义一定的计算机算法，让计算机根据输入的样本和一些人类的干预来总结并归纳其特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反应的过程。</p>
@@ -503,6 +498,82 @@
 <p>传统的机器学习通常是需要人提前先来做特征提取，把提取过的特征向量化后再丢给模型去训练，这里人要做相当的前置工作。</p>
 <p>深度学习通常可以采用End-to-End的学习方式，输入的内容只需要做很少的一些归一化（normalization）、白化（whitening）等处理就可以丢给模型去训练，通常不需要人来做特征提取的工作。而这个特征提取的动作可以由整个深度学习的网络模型帮我们自动完成。</p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">就是查全率，即检索出的相关样本和样本库（待测对象库）中所有的相关样本的比率</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">就是查准率，检索出的相关样本数与检索出的样本总数的比率</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>DLearning</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白话深度学习与TensorFlow（2）——初识深度学习</title>
+    <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="深度学习是什么"><a href="#深度学习是什么" class="headerlink" title="深度学习是什么"></a>深度学习是什么</h1><p>要了解深度学习必须先了解神经网络。</p>
+<h2 id="神经网络是什么"><a href="#神经网络是什么" class="headerlink" title="神经网络是什么"></a>神经网络是什么</h2><p>神经网络是一种人类由于受到生物神经细胞结构启发而研究出的一种算法体系。神经网络的最基本组成单元——神经元。</p>
+<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>一个最简单的神经元如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00018.jpg" alt="神经元"></p>
+<p>有一个输入，一个输出，所以它所表达的含义跟一个普通的函数没有什么区别。不过请注意，现在我们使用的<strong>神经元通常有两个部分组成，一个是“线性模型”，另一个是“激励函数”</strong>。</p>
+<ol>
+<li><p>线性模型</p>
+<p>假设该神经元的输入为一个n维向量，那么我们可以建立一个有n个输入项的神经元f（x1 ，x2 ，…，xn ），设输出函数值output，则output = f（x），我们可以把该函数的处理写做：<strong>f（x）=wx+b</strong>。</p>
+<p>这种方式也是神经元最核心部分对x所做的线性处理，其中x是一个1×n的矩阵，而w是一个n×1的权重矩阵，b是偏置项。</p>
+</li>
+<li><p>激励函数</p>
+<p>也称作激活函数。激励函数在一个神经元当中跟随在f（x）= wx + b函数之后，用来加入一些非线性的因素。激励函数在神经元中的作用如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00030.jpg" alt="激励函数"></p>
+</li>
+</ol>
+<h3 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h3><p>激励函数有很多，但是常用的并不多，主要有以下几种：</p>
+<ol>
+<li><p>sigmoid函数</p>
+<p>定义如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00026.jpg" alt="sigmoid函数"></p>
+<p>或者可以写成如下形式：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00027.jpg" alt="sigmoid函数2"></p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00028.jpg" alt="sigmoid函数图像"></p>
+<p>该图中横轴为z，纵轴为f（z）。可见该激励函数将激励值最终投射到了0和1两个值上。通过这种方式引入了非线性因素。其中的“1”表示完全激活的状态，“0”表示完全不激活的状态，其他各种输出值就介于两者之间，表示其激活程度不同。</p>
+<div class="note info"><p>为什么要引入非线性因素？</p>
+<p>因为最终用一个大的函数“网络”去拟合一个对应的关系的时候你会发现，如果仅有线性函数来拟合的话，那么拟合的结果一定仅仅包含各种各样的线性关系。一旦这个客观的、我们要求解的关系中本就含有非线性关系的话，那么这个网络必定严重欠拟合。</p>
+</div>
+</li>
+<li><p>Tanh函数</p>
+<p>定义如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00031.jpg" alt="双曲正切函数"></p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00032.jpg" alt="函数图像"></p>
+<p>Tanh函数是把输入值投射到-1和1上去。其中“-1”表示完全不激活，“1”表示完全激活，中间其他值也是不同的激活程度的描述。<strong>除了映射区间不同以外，跟Sigmoid似乎区别不是很大。</strong></p>
+</li>
+<li><p>ReLU函数</p>
+<p>定义为：y = max（x，0）。</p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00033.jpg" alt="ReLU函数图像"></p>
+<p>大部分的卷积神经网络中喜欢使用该激励函数。</p>
+<p>这个函数的原点左侧部分斜率为0，在右侧则是一条斜率为1的直线，x小于0时输出一律为0，x大于0时输出就是输入值。</p>
+</li>
+</ol>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><p><strong>多个神经元首尾连接形成</strong>一个类似网络的结构来协同工作的时候，那就可以被称为神经网络了。对于该网络必须有多少层，每层有多少个神经元结点，并没有做出明确规定，而是根据不同的场景依据经验与相关理论进行尝试，最后得到一个适应当前场景的网络设计。</p>
+<p>神经网络的结构通常可以分为以下几层：输入层，隐藏层，输出层。如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00035.jpg" alt="神经网络结构"></p>
+<p><strong>输入层</strong>在整个网络的最前端部分，直接接受输入的向量，它不对数据做任何处理，<strong>该层通常不计入层数</strong>。</p>
+<p><strong>隐藏层</strong>可以有一层或多层。</p>
+<p><strong>输出层</strong>是最后一层用来输出整个网络处理的值，这个值可能是一个分类向量值，也可能是一个类似线性回归那样产生的连续的值，也可能是别的复杂类型的值或者向量，根据不同的需求输出层的构造也不尽相同。</p>
+<h2 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h2><p>深度学习（Deep Learning）就是<strong>基于深度神经网络的学习</strong>。这个Deep指的是神经网络的深度。</p>
+<p>{ % note info %} </p>
+<p>深度学习vs传统机器学习</p>
+<p>传统机器学习在工作的过程中具有非常好的解释特性，或者说你知道模型在做什么，处理的是什么特征，其中任何一个指标值的大小变化的意义会有良好的解释。而且，传统机器学习在训练的过程中需要很少的样本向量，通常都是百级或者千级就够了，这对于深度学习来说也是无法做到的——它需要数以万计的样本来做训练。</p>
+<p>{ % endnote %}</p>
+<h2 id="深度学习为什么这么强"><a href="#深度学习为什么这么强" class="headerlink" title="深度学习为什么这么强"></a>深度学习为什么这么强</h2><p>深度神经网络能够通过大量的线性分类器和非线性关系的组合来完成平时非常棘手的线性不可分的问题。</p>
+<h3 id="不用再提取特征"><a href="#不用再提取特征" class="headerlink" title="不用再提取特征"></a>不用再提取特征</h3><p>在神经网络中，由于巨量的线性分类器的堆叠（并行和串行）以及卷积网络的使用，它对噪声的忍耐能力、对多通道数据上投射出来的不同特征偏向的敏感程度会自动重视或者忽略。这样我们在处理的时候，人类所需要使用的技巧就没有那么高要求了，也就是我们通常所说的End-to-End<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>的训练方式。</p>
+<h3 id="处理线性不可分"><a href="#处理线性不可分" class="headerlink" title="处理线性不可分"></a>处理线性不可分</h3><p>神经网络还有一个最神奇的地方，那就是用大量的线性分类器的堆叠使得整个模型可以将线性不可分的问题变得可分。</p>
+<p>随着维度的加大，深度的加深，所能描述的分类器的复杂程度也会随之增加，所以传统分类模型中无法通过简单的线性分类器和非线性分类器处理的复杂学习场景（例如图形、视频、音频等）就能够通过海量<strong>分类器的叠加</strong>来实现。</p>
+<p>例如，在二维空间中有这样一个不规则的四边形，如果我们想用一条线（一个线性分类器）把它分开，并保证其一侧是这个四边形内所有的点，我们称为“类别1”，另一侧是其他的点，我们称为“类别0”，这简直是不可能的，因为不管怎么画，这一条线都会使得其中至少有一个类非常“不纯”。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00041.jpg" alt="图1"></p>
+<p>解决方法是画4条线即可。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00042.jpg" alt="图2"></p>
+<p>用这4条线把它围起来，也就是必须同时满足4个分类器的1分类标准才算是我们要约束的1分类——每条直线的表达式都是形如f（x）=wx+b的线性分类器。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">指那些不经过人为处理，直接把输入和期望输出作为网络训练的工作模式的训练方法。这种方法通常需要的样本数量极大。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
         <category>读书总结</category>
       </categories>
@@ -796,22 +867,6 @@
       </tags>
   </entry>
   <entry>
-    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
-    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>阿飞学Linux——（2）主机规划与磁盘分区</title>
     <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%882%EF%BC%89%E4%B8%BB%E6%9C%BA%E8%A7%84%E5%88%92%E4%B8%8E%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
     <content><![CDATA[<h1 id="Linux与硬件的搭配"><a href="#Linux与硬件的搭配" class="headerlink" title="Linux与硬件的搭配"></a>Linux与硬件的搭配</h1><p>在安装Linux之前，应该先了解下你的Linux主要是想完成哪方面的工作，这样在选购硬件的时候才能知道哪个硬件是最重要的。</p>
@@ -1005,6 +1060,163 @@
       </tags>
   </entry>
   <entry>
+    <title>阿飞学Markdown</title>
+    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
+    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
+<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
+<a id="more"></a>
+
+<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
+<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
+<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
+<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
+<li>标题<ul>
+<li>语法：<code># + 空格 + 标题内容</code></li>
+<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
+</ul>
+</li>
+<li>粗体<ul>
+<li>语法：<code>**+加粗内容+**</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+<li>斜体<ul>
+<li>语法：<code>*+斜体内容+*</code></li>
+<li>说明：在*的后面不带有空格</li>
+</ul>
+</li>
+</ol>
+<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
+<li><p>列表</p>
+<ul>
+<li>有序列表<ul>
+<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>无须列表<ul>
+<li>语法：<code>* + 空格 + 列表内容</code></li>
+</ul>
+</li>
+<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
+</ul>
+</li>
+<li><p>分割线</p>
+<ul>
+<li>语法：<code>---</code></li>
+<li>说明：至少要有三个以上的 - 来标记</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li>语法：<code>![图片替代文字](图片地址)</code></li>
+<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
+</ul>
+</li>
+<li><p>链接</p>
+<ul>
+<li><p>文字链接</p>
+<ul>
+<li>语法：<code>[链接文字]（链接地址）</code></li>
+<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
+</ul>
+</li>
+<li><p>引用链接</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
+</li>
+</ul>
+</li>
+<li><p>网址链接</p>
+<ul>
+<li>语法：<code>&lt;url&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>行内代码</p>
+</li>
+<li><p>语法：&#39;代码&#39;</p>
+</li>
+<li><p>代码块</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+<ul>
+<li>语法：<code>&gt;+应用内容</code></li>
+<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
+</ul>
+</li>
+</ol>
+<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
+<li><p>删除线</p>
+<ul>
+<li>语法：<code>~~被删除的文字~~</code></li>
+</ul>
+</li>
+<li><p>Emoji表情</p>
+<ul>
+<li>语法：<code>:表情代码:</code></li>
+</ul>
+</li>
+<li><p>表格</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明：块级元素不能插入表格中</p>
+</li>
+</ul>
+</li>
+<li><p>任务列表</p>
+<ul>
+<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
+</ul>
+</li>
+<li><p>锚点（书签）</p>
+<ul>
+<li>语法：<code>[锚点描述](#锚点名)</code> </li>
+</ul>
+</li>
+<li><p>上标和下标</p>
+<ul>
+<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
+</ul>
+</li>
+<li><p>脚注</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿飞学Linux——（3）安装Centos7.x</title>
     <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
     <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
@@ -1182,160 +1394,19 @@
       </tags>
   </entry>
   <entry>
-    <title>阿飞学Markdown</title>
-    <url>/2020/06/13/%E9%98%BF%E9%A3%9E%E5%AD%A6Markdown/</url>
-    <content><![CDATA[<h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown就是由一些简单的符号（如***** /-&gt; [] （）#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
-<p>Markdown的语法分为，基础语法和扩展语法。在众多的扩展语法中GFM是最流行的，它扩展了包括表格，任务列表，删除线，围栏代码，Emoji等在内的语法。</p>
-<a id="more"></a>
-
-<h2 id="Markdown的工作流程"><a href="#Markdown的工作流程" class="headerlink" title="Markdown的工作流程"></a>Markdown的工作流程</h2><p><img src="/images/Image00007.jpg" alt="Markdown工作流程"></p>
-<h2 id="Markdown的编辑器"><a href="#Markdown的编辑器" class="headerlink" title="Markdown的编辑器"></a>Markdown的编辑器</h2><p>这里推荐两个流行的Markdown编辑器，分别是Typora和vs Code.下载地址如下:</p>
-<p>typora:  <a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
-<p>vs Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<h1 id="Markdown的基础语法"><a href="#Markdown的基础语法" class="headerlink" title="Markdown的基础语法"></a>Markdown的基础语法</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ol>
-<li>标题<ul>
-<li>语法：<code># + 空格 + 标题内容</code></li>
-<li>说明：#的个数表示了标题的等级，建议在#后加一个空格</li>
-</ul>
-</li>
-<li>粗体<ul>
-<li>语法：<code>**+加粗内容+**</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-<li>斜体<ul>
-<li>语法：<code>*+斜体内容+*</code></li>
-<li>说明：在*的后面不带有空格</li>
-</ul>
-</li>
-</ol>
-<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ol>
-<li><p>列表</p>
-<ul>
-<li>有序列表<ul>
-<li>语法：<code>数字序号 + . + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>无须列表<ul>
-<li>语法：<code>* + 空格 + 列表内容</code></li>
-</ul>
-</li>
-<li>说明：列表可相互嵌套，有序列表和无序列表之间也可以相互嵌套。（<em>建议在列表前/后都空1行</em>）</li>
-</ul>
-</li>
-<li><p>分割线</p>
-<ul>
-<li>语法：<code>---</code></li>
-<li>说明：至少要有三个以上的 - 来标记</li>
-</ul>
-</li>
-<li><p>图片</p>
-<ul>
-<li>语法：<code>![图片替代文字](图片地址)</code></li>
-<li>说明：图片地址可以是本地图片(<a href="[http://www.theoak.online/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/](http://www.theoak.online/2020/03/13/hexo本地图片不显示/)">关于hexo引用本地图片无法显示</a>)的路径或是网络图片的地址；支持绝对路径和相对路径两种方式.</li>
-</ul>
-</li>
-<li><p>链接</p>
-<ul>
-<li><p>文字链接</p>
-<ul>
-<li>语法：<code>[链接文字]（链接地址）</code></li>
-<li>说明：在扩展语法GFM中，可以只输入url，也能被自动识别为网络链接</li>
-</ul>
-</li>
-<li><p>引用链接</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文字</span>][<span class="symbol">链接标记</span>]</span><br><span class="line">[<span class="symbol">链接标记</span>]:<span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：链接地址为网络地址时要以http开头，否则会被识别为本地地址</p>
-</li>
-</ul>
-</li>
-<li><p>网址链接</p>
-<ul>
-<li>语法：<code>&lt;url&gt;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>行内代码</p>
-</li>
-<li><p>语法：&#39;代码&#39;</p>
-</li>
-<li><p>代码块</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">···语言</span><br><span class="line">代码</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>引用</p>
-<ul>
-<li>语法：<code>&gt;+应用内容</code></li>
-<li>说明：引用可以嵌套；建议在&gt;之后加一个空格；不要在引用中添加空行</li>
-</ul>
-</li>
-</ol>
-<h1 id="Markdown的扩展语法"><a href="#Markdown的扩展语法" class="headerlink" title="Markdown的扩展语法"></a>Markdown的扩展语法</h1><ol>
-<li><p>删除线</p>
-<ul>
-<li>语法：<code>~~被删除的文字~~</code></li>
-</ul>
-</li>
-<li><p>Emoji表情</p>
-<ul>
-<li>语法：<code>:表情代码:</code></li>
-</ul>
-</li>
-<li><p>表格</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|表头1|表头2|表头3|</span><br><span class="line">|----|----|----|</span><br><span class="line">|内容1|内容2|内容3|</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明：块级元素不能插入表格中</p>
-</li>
-</ul>
-</li>
-<li><p>任务列表</p>
-<ul>
-<li>语法：<code>- + 空格 + [ + 空格/x + ] 任务内容</code></li>
-</ul>
-</li>
-<li><p>锚点（书签）</p>
-<ul>
-<li>语法：<code>[锚点描述](#锚点名)</code> </li>
-</ul>
-</li>
-<li><p>上标和下标</p>
-<ul>
-<li>语法：<code>~下标内容~</code>      <code>^上标内容^</code></li>
-</ul>
-</li>
-<li><p>注释</p>
-<ul>
-<li>语法：<code>&lt;!--注释内容--&gt;</code></li>
-</ul>
-</li>
-<li><p>脚注</p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">欲添加脚注的内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注</span>]:<span class="link">这段文字是对脚注的描述</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
+    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>技术文章</category>
       </categories>
       <tags>
-        <tag>Markdown</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>

@@ -23,20 +23,31 @@
   </script>
 
 
-  <meta name="description" content="Why not?">
+  <meta name="description" content="初识深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="白话深度学习与TensorFlow（2）——初识深度学习">
 <meta property="og:url" content="http://huowilliam.github.io/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="美女剑豪带着肉">
-<meta property="og:description" content="Why not?">
+<meta property="og:description" content="初识深度学习">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00018.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00030.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00026.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00027.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00028.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00031.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00032.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00033.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00035.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00041.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00042.jpg">
 <meta property="article:published_time" content="2020-07-19T08:19:33.000Z">
-<meta property="article:modified_time" content="2020-07-19T08:19:34.004Z">
+<meta property="article:modified_time" content="2020-07-19T15:02:33.118Z">
 <meta property="article:author" content="William">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="Linux，以及各类资源分享">
+<meta property="article:tag" content="DLearning">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00018.jpg">
 
 <link rel="canonical" href="http://huowilliam.github.io/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
 
@@ -198,7 +209,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -210,6 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习是什么"><span class="nav-number">1.</span> <span class="nav-text">深度学习是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络是什么"><span class="nav-number">1.1.</span> <span class="nav-text">神经网络是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#神经元"><span class="nav-number">1.1.1.</span> <span class="nav-text">神经元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激励函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">激励函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络"><span class="nav-number">1.1.3.</span> <span class="nav-text">神经网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度神经网络"><span class="nav-number">1.2.</span> <span class="nav-text">深度神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习为什么这么强"><span class="nav-number">1.3.</span> <span class="nav-text">深度学习为什么这么强</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用再提取特征"><span class="nav-number">1.3.1.</span> <span class="nav-text">不用再提取特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理线性不可分"><span class="nav-number">1.3.2.</span> <span class="nav-text">处理线性不可分</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -321,10 +333,20 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-19 16:19:33 / 修改时间：16:19:34" itemprop="dateCreated datePublished" datetime="2020-07-19T16:19:33+08:00">2020-07-19</time>
+              <time title="创建时间：2020-07-19 16:19:33 / 修改时间：23:02:33" itemprop="dateCreated datePublished" datetime="2020-07-19T16:19:33+08:00">2020-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
+                </span>
             </span>
 
           
+            <div class="post-description">初识深度学习</div>
 
         </div>
       </header>
@@ -335,7 +357,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="深度学习是什么"><a href="#深度学习是什么" class="headerlink" title="深度学习是什么"></a>深度学习是什么</h1><p>要了解深度学习必须先了解神经网络。</p>
+<h2 id="神经网络是什么"><a href="#神经网络是什么" class="headerlink" title="神经网络是什么"></a>神经网络是什么</h2><p>神经网络是一种人类由于受到生物神经细胞结构启发而研究出的一种算法体系。神经网络的最基本组成单元——神经元。</p>
+<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>一个最简单的神经元如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00018.jpg" alt="神经元"></p>
+<p>有一个输入，一个输出，所以它所表达的含义跟一个普通的函数没有什么区别。不过请注意，现在我们使用的<strong>神经元通常有两个部分组成，一个是“线性模型”，另一个是“激励函数”</strong>。</p>
+<ol>
+<li><p>线性模型</p>
+<p>假设该神经元的输入为一个n维向量，那么我们可以建立一个有n个输入项的神经元f（x1 ，x2 ，…，xn ），设输出函数值output，则output = f（x），我们可以把该函数的处理写做：<strong>f（x）=wx+b</strong>。</p>
+<p>这种方式也是神经元最核心部分对x所做的线性处理，其中x是一个1×n的矩阵，而w是一个n×1的权重矩阵，b是偏置项。</p>
+</li>
+<li><p>激励函数</p>
+<p>也称作激活函数。激励函数在一个神经元当中跟随在f（x）= wx + b函数之后，用来加入一些非线性的因素。激励函数在神经元中的作用如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00030.jpg" alt="激励函数"></p>
+</li>
+</ol>
+<h3 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h3><p>激励函数有很多，但是常用的并不多，主要有以下几种：</p>
+<ol>
+<li><p>sigmoid函数</p>
+<p>定义如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00026.jpg" alt="sigmoid函数"></p>
+<p>或者可以写成如下形式：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00027.jpg" alt="sigmoid函数2"></p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00028.jpg" alt="sigmoid函数图像"></p>
+<p>该图中横轴为z，纵轴为f（z）。可见该激励函数将激励值最终投射到了0和1两个值上。通过这种方式引入了非线性因素。其中的“1”表示完全激活的状态，“0”表示完全不激活的状态，其他各种输出值就介于两者之间，表示其激活程度不同。</p>
+<div class="note info"><p>为什么要引入非线性因素？</p>
+<p>因为最终用一个大的函数“网络”去拟合一个对应的关系的时候你会发现，如果仅有线性函数来拟合的话，那么拟合的结果一定仅仅包含各种各样的线性关系。一旦这个客观的、我们要求解的关系中本就含有非线性关系的话，那么这个网络必定严重欠拟合。</p>
+</div>
+</li>
+<li><p>Tanh函数</p>
+<p>定义如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00031.jpg" alt="双曲正切函数"></p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00032.jpg" alt="函数图像"></p>
+<p>Tanh函数是把输入值投射到-1和1上去。其中“-1”表示完全不激活，“1”表示完全激活，中间其他值也是不同的激活程度的描述。<strong>除了映射区间不同以外，跟Sigmoid似乎区别不是很大。</strong></p>
+</li>
+<li><p>ReLU函数</p>
+<p>定义为：y = max（x，0）。</p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00033.jpg" alt="ReLU函数图像"></p>
+<p>大部分的卷积神经网络中喜欢使用该激励函数。</p>
+<p>这个函数的原点左侧部分斜率为0，在右侧则是一条斜率为1的直线，x小于0时输出一律为0，x大于0时输出就是输入值。</p>
+</li>
+</ol>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><p><strong>多个神经元首尾连接形成</strong>一个类似网络的结构来协同工作的时候，那就可以被称为神经网络了。对于该网络必须有多少层，每层有多少个神经元结点，并没有做出明确规定，而是根据不同的场景依据经验与相关理论进行尝试，最后得到一个适应当前场景的网络设计。</p>
+<p>神经网络的结构通常可以分为以下几层：输入层，隐藏层，输出层。如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00035.jpg" alt="神经网络结构"></p>
+<p><strong>输入层</strong>在整个网络的最前端部分，直接接受输入的向量，它不对数据做任何处理，<strong>该层通常不计入层数</strong>。</p>
+<p><strong>隐藏层</strong>可以有一层或多层。</p>
+<p><strong>输出层</strong>是最后一层用来输出整个网络处理的值，这个值可能是一个分类向量值，也可能是一个类似线性回归那样产生的连续的值，也可能是别的复杂类型的值或者向量，根据不同的需求输出层的构造也不尽相同。</p>
+<h2 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h2><p>深度学习（Deep Learning）就是<strong>基于深度神经网络的学习</strong>。这个Deep指的是神经网络的深度。</p>
+<p>{ % note info %} </p>
+<p>深度学习vs传统机器学习</p>
+<p>传统机器学习在工作的过程中具有非常好的解释特性，或者说你知道模型在做什么，处理的是什么特征，其中任何一个指标值的大小变化的意义会有良好的解释。而且，传统机器学习在训练的过程中需要很少的样本向量，通常都是百级或者千级就够了，这对于深度学习来说也是无法做到的——它需要数以万计的样本来做训练。</p>
+<p>{ % endnote %}</p>
+<h2 id="深度学习为什么这么强"><a href="#深度学习为什么这么强" class="headerlink" title="深度学习为什么这么强"></a>深度学习为什么这么强</h2><p>深度神经网络能够通过大量的线性分类器和非线性关系的组合来完成平时非常棘手的线性不可分的问题。</p>
+<h3 id="不用再提取特征"><a href="#不用再提取特征" class="headerlink" title="不用再提取特征"></a>不用再提取特征</h3><p>在神经网络中，由于巨量的线性分类器的堆叠（并行和串行）以及卷积网络的使用，它对噪声的忍耐能力、对多通道数据上投射出来的不同特征偏向的敏感程度会自动重视或者忽略。这样我们在处理的时候，人类所需要使用的技巧就没有那么高要求了，也就是我们通常所说的End-to-End<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>的训练方式。</p>
+<h3 id="处理线性不可分"><a href="#处理线性不可分" class="headerlink" title="处理线性不可分"></a>处理线性不可分</h3><p>神经网络还有一个最神奇的地方，那就是用大量的线性分类器的堆叠使得整个模型可以将线性不可分的问题变得可分。</p>
+<p>随着维度的加大，深度的加深，所能描述的分类器的复杂程度也会随之增加，所以传统分类模型中无法通过简单的线性分类器和非线性分类器处理的复杂学习场景（例如图形、视频、音频等）就能够通过海量<strong>分类器的叠加</strong>来实现。</p>
+<p>例如，在二维空间中有这样一个不规则的四边形，如果我们想用一条线（一个线性分类器）把它分开，并保证其一侧是这个四边形内所有的点，我们称为“类别1”，另一侧是其他的点，我们称为“类别0”，这简直是不可能的，因为不管怎么画，这一条线都会使得其中至少有一个类非常“不纯”。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00041.jpg" alt="图1"></p>
+<p>解决方法是画4条线即可。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00042.jpg" alt="图2"></p>
+<p>用这4条线把它围起来，也就是必须同时满足4个分类器的1分类标准才算是我们要约束的1分类——每条直线的表达式都是形如f（x）=wx+b的线性分类器。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">指那些不经过人为处理，直接把输入和期望输出作为网络训练的工作模式的训练方法。这种方法通常需要的样本数量极大。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -343,6 +429,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DLearning/" rel="tag"><i class="fa fa-tag"></i> DLearning</a>
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+          </div>
 
         
 
