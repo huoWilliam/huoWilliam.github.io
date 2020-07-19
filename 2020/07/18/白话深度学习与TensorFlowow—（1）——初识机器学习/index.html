@@ -23,20 +23,25 @@
   </script>
 
 
-  <meta name="description" content="为文章设置加密访问">
+  <meta name="description" content="初识机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo折腾记（5）——设置加密访问">
-<meta property="og:url" content="http://huowilliam.github.io/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/index.html">
+<meta property="og:title" content="白话深度学习与TensorFlowow—（1）——初识机器学习">
+<meta property="og:url" content="http://huowilliam.github.io/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlowow%E2%80%94%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="美女剑豪带着肉">
-<meta property="og:description" content="为文章设置加密访问">
+<meta property="og:description" content="初识机器学习">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-02T14:37:37.000Z">
-<meta property="article:modified_time" content="2020-07-02T14:50:20.669Z">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00009.jpg">
+<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00011.jpg">
+<meta property="article:published_time" content="2020-07-18T15:04:03.000Z">
+<meta property="article:modified_time" content="2020-07-19T07:51:58.267Z">
 <meta property="article:author" content="William">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="DLearning">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg">
 
-<link rel="canonical" href="http://huowilliam.github.io/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/">
+<link rel="canonical" href="http://huowilliam.github.io/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlowow%E2%80%94%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -49,7 +54,7 @@
   };
 </script>
 
-  <title>Hexo折腾记（5）——设置加密访问 | 美女剑豪带着肉</title>
+  <title>白话深度学习与TensorFlowow—（1）——初识机器学习 | 美女剑豪带着肉</title>
   
 
 
@@ -208,7 +213,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设置加密访问"><span class="nav-number">1.</span> <span class="nav-text">设置加密访问</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习是什么"><span class="nav-number">1.</span> <span class="nav-text">机器学习是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#聚类"><span class="nav-number">1.1.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">1.2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">1.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统机器学习与深度学习"><span class="nav-number">1.4.</span> <span class="nav-text">传统机器学习与深度学习</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -296,7 +301,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE/">
+    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlowow%E2%80%94%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_luffy.jpg">
@@ -309,7 +314,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo折腾记（5）——设置加密访问
+          白话深度学习与TensorFlowow—（1）——初识机器学习
         </h1>
 
         <div class="post-meta">
@@ -318,22 +323,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-02 22:37:37 / 修改时间：22:50:20" itemprop="dateCreated datePublished" datetime="2020-07-02T22:37:37+08:00">2020-07-02</time>
+              <time title="创建时间：2020-07-18 23:04:03" itemprop="dateCreated datePublished" datetime="2020-07-18T23:04:03+08:00">2020-07-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-19 15:51:58" itemprop="dateModified" datetime="2020-07-19T15:51:58+08:00">2020-07-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">为文章设置加密访问</div>
+            <div class="post-description">初识机器学习</div>
 
         </div>
       </header>
@@ -344,31 +355,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="设置加密访问"><a href="#设置加密访问" class="headerlink" title="设置加密访问"></a>设置加密访问</h1><p>设置加密访问可以通过hexo-blog-encrypt这个插件来实现，具体的设置与使用方法如下。</p>
+        <h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p>机器学习就是人类定义一定的计算机算法，让计算机根据输入的样本和一些人类的干预来总结并归纳其特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反应的过程。</p>
+<p>机器学习的目的是让机器可以<strong>独立或至少半独立地</strong>进行相对复杂或者高要求的工作。不同于传统的算法依据事先编写好的代码执行，机器学习具有“一定的智能性”。</p>
+<p>以监督学习的过程为例。首先，给与模型一定数量的<strong>训练样本</strong>（训练集），让模型根据这些训练样本进行<strong>训练</strong>，从而得到一个判断标准。之后，利用验证集<strong>验证</strong>该标准是否具有泛化性。</p>
+<p>机器学习可以分为两种，分别是<strong>监督学习和无监督学习</strong>。</p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类，是一种典型的“无监督学习”，是把物理对象或抽象对象的集合分组为由彼此类似的对象组成的多个类的分析过程。简单来说，就是一种<strong>归纳总结</strong>的思想。</p>
+<p>比较常用的聚类算法有K-Means、DBSCAN等几种，<strong>基本思路都是利用每个向量之间的“距离”</strong>——空间中的欧氏距离或者曼哈顿距离，从远近判断是否从属于同一类别。</p>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>回归，是一种“学习”方法。简单来说就是一种<strong>“由果索因”</strong>的过程，是一种归纳的思想——当我看到大量的事实所呈现的样态，我推断出原因或客观蕴含的关系是如何的。</p>
+<p>常用的回归有两大类，分别是<strong>线性回归和非线性回归</strong>。</p>
 <ol>
-<li><p>安装插件</p>
-<p>设置加密访问必须先安装hexo-blog-encrypt这个插件。进入站点根目录，启动Git，运行如下代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+<li><p>线性回归</p>
+<p>所谓线性回归，就是在观察和归纳样本的过程中认为向量和最终的函数值呈现线性的关系。而后设计这种关系为：</p>
+<p>y=f（x）=wx+b</p>
+<p>这里的w和x分别是1×n和n×1的矩阵，wx则指的是这两个矩阵的内积。</p>
+<p>我们所要做的事情就是对w矩阵的内容和偏置b的内容求出一个<strong>使得Loss最小的解</strong>出来，越小就说明该映射关系描述越精确。Loss为一个全局范围内由f（x）映射得到的y和我真实观测到的那个y的差距加和，表达式如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg" alt="Loss函数"></p>
+<div class="note info"><p>使用线性回归的前提是数据呈现出线性关系。否则，会产生欠拟合现象。 </p>
+</div>
 </li>
-<li><p>在<mark class="label primary"> 站点配置文件_config.yml</mark>中启用该插件。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encrypt</span></span><br><span class="line"><span class="attr">encrypt:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">default_message:</span> <span class="string">输入密码，查看文章。</span></span><br><span class="line">    <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>default_message：设置默认提示信息</li>
-<li>wrong_pass_message：设置密码输入错误提示信息</li>
-</ul>
-</li>
-<li><p>在文章头部添加对应的字段，如password，abstrat等。就可以在blog中开启加密访问了。具体案例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章加密</span><br><span class="line">date: 2019-01-04T22:20:13.000Z</span><br><span class="line">category: 教程</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  - </span>博客</span><br><span class="line"><span class="bullet">  - </span>Hexo</span><br><span class="line">keywords: 博客文章密码</span><br><span class="line">password: TloveY</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
+<li><p>非线性回归</p>
+<p>非线性回归类中，在机器学习领域应用最多的当属逻辑回归。与线性回归不同，在这种模型中观察者假设的前提是y只有两种值：一种是1，一种是0，或者说“是”或“否”的这种判断。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00009.jpg" alt="逻辑回归"></p>
+<p>这里面的wx+b和前面线性回归中所说的wx+b是一个概念，都是指一个w矩阵和x做了内积再和偏置b做了加和。</p>
+<p>令<strong>z = wx + b，则横轴是z，纵轴是y，</strong>那么函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00011.jpg" alt="逻辑回归函数图像"></p>
+<p>训练的过程跟普通线性回归也是一样的，只不过损失函数的形式不同。但是，它的损失函数的含义仍旧是表示这种拟合残差与待定系数的关系，并通过相应的手段进行迭代式的优化，最后通过逐步调整待定系数减小残差。</p>
 </li>
 </ol>
-<p>该插件也可以<strong>根据标签进行加密访问设置</strong>。设置方法是在<mark class="label primary"> 站点配置文件_config.yml</mark>中进行如下修改：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="attr">encrypt:</span> <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">有东西被加密了,</span> <span class="string">请输入密码查看.</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#123;name:</span> <span class="string">tagName,</span> <span class="attr">password:</span> <span class="string">密码A&#125;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#123;name:</span> <span class="string">tagName,</span> <span class="attr">password:</span> <span class="string">密码B&#125;</span></span><br><span class="line">  <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br></pre></td></tr></table></figure>
-
-
-
-
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>分类，通常我们把分类算法叫做”分类器“。</p>
+<p>分类的原理就相当于一个黑盒子，有个入口，有个出口。我们在入口丢进去一个“样本”，在出口<strong>期望得到一个分类的“标签”</strong>。分类的训练过程和回归的训练过程一样，都是极为套路化的程序。</p>
+<ol>
+<li>输入样本和分类标签</li>
+<li>建立映射假说的某个y = f（x）的模型</li>
+<li>求解出全局的损失函数Loss和待定系数w的映射关系，Loss = g（w）</li>
+<li>通过迭代优化逐步降低Loss，最终找到一个w能使召回率和精确率满足当前场景需要。注意，这里尤其指在验证数据集上的表现。</li>
+</ol>
+<p>我们在编写代码教会分类器怎么做学习的时候，其实是在教它如何建立一种输入到输出的映射逻辑，以及让它自己调整这种逻辑关系，使得逻辑更为合理。而合理与否的判断也非常明确，那就是<strong>召回率</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>和<strong>精确率</strong><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>两个指标。</p>
+<h2 id="传统机器学习与深度学习"><a href="#传统机器学习与深度学习" class="headerlink" title="传统机器学习与深度学习"></a>传统机器学习与深度学习</h2><p>机器学习可以粗略地分为传统的机器学习和深度学习。</p>
+<p>传统的机器学习通常是需要人提前先来做特征提取，把提取过的特征向量化后再丢给模型去训练，这里人要做相当的前置工作。</p>
+<p>深度学习通常可以采用End-to-End的学习方式，输入的内容只需要做很少的一些归一化（normalization）、白化（whitening）等处理就可以丢给模型去训练，通常不需要人来做特征提取的工作。而这个特征提取的动作可以由整个深度学习的网络模型帮我们自动完成。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">就是查全率，即检索出的相关样本和样本库（待测对象库）中所有的相关样本的比率</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">就是查准率，检索出的相关样本数与检索出的样本总数的比率</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -377,7 +403,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/DLearning/" rel="tag"><i class="fa fa-tag"></i> DLearning</a>
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
           </div>
 
         
@@ -386,13 +413,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="Hexo折腾记（4）——添加脚注的方法">
-      <i class="fa fa-chevron-left"></i> Hexo折腾记（4）——添加脚注的方法
+    <a href="/2020/07/10/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="prev" title="一文看懂深度学习">
+      <i class="fa fa-chevron-left"></i> 一文看懂深度学习
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/" rel="next" title="阿飞学Linux——（4）初次使用Centos">
-      阿飞学Linux——（4）初次使用Centos <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
