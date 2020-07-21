@@ -64,49 +64,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（2）——NexT设置背景图片</title>
-    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94NexT%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<h1 id="设置背景图片（NexT-5-x）"><a href="#设置背景图片（NexT-5-x）" class="headerlink" title="设置背景图片（NexT 5.x）"></a>设置背景图片（NexT 5.x）</h1><p>NexT主题本身是没有背景图片的，设置一个个性化的背景图片，会让blog变得更加美观。</p>
-<p>可以通过以下的方式为NexT主题设置背景图片。</p>
-<ol>
-<li><p>将想要的背景图片放入<code>themes/next/source/images</code>。</p>
-</li>
-<li><p>打开<code>themes/next/source/css/ _custom/custom.styl</code>文件，该文件是NexT提供给用户进行个性化定制的文件。在该文件中添加如下代码：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//background设置</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(/images/EtretatSunrise.jpg);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	background-repeat: no-repeat;  //不重复</span><br><span class="line">	background-attachment: fixed; //固定</span><br><span class="line">	background-size: 100% 100%;   //图片大小随浏览器变化</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>background:url</code> 为图片路径，也可以直接使用链接。</li>
-<li><code>background-repeat</code>：若果背景图片不能全屏，那么是否平铺显示，充满屏幕</li>
-<li><code>background-attachment</code>：背景是否随着网页上下滚动而滚动，fixed 为固定</li>
-<li><code>background-size</code>：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示。</li>
-</ul>
-</li>
-<li><p>设置背景后，可以考虑将博客文件降低透明度，这样可以更好地表现背景图片。</p>
-<p>在<code>themes/next/source/css/_custom/custom.styl</code> 中添加以下内容：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//博客内容透明化</span><br><span class="line">//文章内容的透明度设置</span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//侧边框的透明度设置</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//搜索框（local-search）的透明度设置</span><br><span class="line"><span class="selector-class">.popup</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="设置背景图片（NexT-7-x）"><a href="#设置背景图片（NexT-7-x）" class="headerlink" title="设置背景图片（NexT 7.x）"></a>设置背景图片（NexT 7.x）</h1><p>在NexT 7.x下设置背景图片的方式已经发生了变化。具体的设置方法如下：</p>
-<ol>
-<li><p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，找到<code>custom_file_path</code>配置项目，取消该项目下的<strong>style</strong>前的注释。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<strong>博客根目录下</strong>创建文件<mark class="label primary">your_blog/source/_data/styles.styl</mark>，然后在该文件中添加自定义配置。具体配置如下所示：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//背景图</span><br><span class="line"><span class="selector-tag">body</span> &#123; </span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/MarleyBeach.jpg);</span><br><span class="line">    background-attachment: fixed; // 不随屏幕滚动而滚动fixed,scroll,inherit</span><br><span class="line">    background-repeat: no-repeat; // 如果背景图不够屏幕大小则重复铺，no-repeat则表示不重复</span><br><span class="line">    background-size: cover; // contain等比例铺满屏幕 //cover拉伸铺满</span><br><span class="line">    background-position: bottom;//x,y轴调整</span><br><span class="line">    +<span class="selector-tag">mobile</span>()&#123;</span><br><span class="line">      //background-position: 0% -20%;https://i.loli.net/2018/12/29/5c270a0523154.jpg</span><br><span class="line">      //https://i.loli.net/2018/12/29/5c270fc2bfcad.png</span><br><span class="line">      background-image: url(/images/MarleyBeach.jpg);</span><br><span class="line">      <span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改文章块透明度</span><br><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow-inner;</span><br><span class="line">	border-radius: $border-radius-inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Comments blocks.</span><br><span class="line"><span class="selector-class">.comments</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	<span class="attribute">margin</span>: initial;</span><br><span class="line">	<span class="attribute">margin-top</span>: sboffset;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow;</span><br><span class="line">	border-radius: $border-radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改菜单栏透明度</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar-inner</span> &#123;</span><br><span class="line">   	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
- <div class="note info"><p>以后想自定义博客外观的话，都可以在该文件中进行修改，而不需要改动其他的文件</p>
-</div></li>
-</ol>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
     <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
@@ -171,6 +128,49 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo折腾记（2）——NexT设置背景图片</title>
+    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94NexT%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h1 id="设置背景图片（NexT-5-x）"><a href="#设置背景图片（NexT-5-x）" class="headerlink" title="设置背景图片（NexT 5.x）"></a>设置背景图片（NexT 5.x）</h1><p>NexT主题本身是没有背景图片的，设置一个个性化的背景图片，会让blog变得更加美观。</p>
+<p>可以通过以下的方式为NexT主题设置背景图片。</p>
+<ol>
+<li><p>将想要的背景图片放入<code>themes/next/source/images</code>。</p>
+</li>
+<li><p>打开<code>themes/next/source/css/ _custom/custom.styl</code>文件，该文件是NexT提供给用户进行个性化定制的文件。在该文件中添加如下代码：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//background设置</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(/images/EtretatSunrise.jpg);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	background-repeat: no-repeat;  //不重复</span><br><span class="line">	background-attachment: fixed; //固定</span><br><span class="line">	background-size: 100% 100%;   //图片大小随浏览器变化</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>background:url</code> 为图片路径，也可以直接使用链接。</li>
+<li><code>background-repeat</code>：若果背景图片不能全屏，那么是否平铺显示，充满屏幕</li>
+<li><code>background-attachment</code>：背景是否随着网页上下滚动而滚动，fixed 为固定</li>
+<li><code>background-size</code>：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示。</li>
+</ul>
+</li>
+<li><p>设置背景后，可以考虑将博客文件降低透明度，这样可以更好地表现背景图片。</p>
+<p>在<code>themes/next/source/css/_custom/custom.styl</code> 中添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">//博客内容透明化</span><br><span class="line">//文章内容的透明度设置</span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//侧边框的透明度设置</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//搜索框（local-search）的透明度设置</span><br><span class="line"><span class="selector-class">.popup</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="设置背景图片（NexT-7-x）"><a href="#设置背景图片（NexT-7-x）" class="headerlink" title="设置背景图片（NexT 7.x）"></a>设置背景图片（NexT 7.x）</h1><p>在NexT 7.x下设置背景图片的方式已经发生了变化。具体的设置方法如下：</p>
+<ol>
+<li><p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，找到<code>custom_file_path</code>配置项目，取消该项目下的<strong>style</strong>前的注释。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<strong>博客根目录下</strong>创建文件<mark class="label primary">your_blog/source/_data/styles.styl</mark>，然后在该文件中添加自定义配置。具体配置如下所示：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//背景图</span><br><span class="line"><span class="selector-tag">body</span> &#123; </span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/MarleyBeach.jpg);</span><br><span class="line">    background-attachment: fixed; // 不随屏幕滚动而滚动fixed,scroll,inherit</span><br><span class="line">    background-repeat: no-repeat; // 如果背景图不够屏幕大小则重复铺，no-repeat则表示不重复</span><br><span class="line">    background-size: cover; // contain等比例铺满屏幕 //cover拉伸铺满</span><br><span class="line">    background-position: bottom;//x,y轴调整</span><br><span class="line">    +<span class="selector-tag">mobile</span>()&#123;</span><br><span class="line">      //background-position: 0% -20%;https://i.loli.net/2018/12/29/5c270a0523154.jpg</span><br><span class="line">      //https://i.loli.net/2018/12/29/5c270fc2bfcad.png</span><br><span class="line">      background-image: url(/images/MarleyBeach.jpg);</span><br><span class="line">      <span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改文章块透明度</span><br><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow-inner;</span><br><span class="line">	border-radius: $border-radius-inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Comments blocks.</span><br><span class="line"><span class="selector-class">.comments</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: $content-desktop-padding;</span><br><span class="line">	<span class="attribute">margin</span>: initial;</span><br><span class="line">	<span class="attribute">margin-top</span>: sboffset;</span><br><span class="line">	background: rgba(255,255,255,0.9);   //white;</span><br><span class="line">	box-shadow: $box-shadow;</span><br><span class="line">	border-radius: $border-radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改菜单栏透明度</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar-inner</span> &#123;</span><br><span class="line">   	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <div class="note info"><p>以后想自定义博客外观的话，都可以在该文件中进行修改，而不需要改动其他的文件</p>
+</div></li>
+</ol>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo折腾记（4）——添加脚注的方法</title>
     <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
@@ -192,47 +192,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【我不是药神】生来平凡，诚勇无惧</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/06/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -271,17 +230,44 @@
       </tags>
   </entry>
   <entry>
-    <title>【霸王别姬】不疯魔，不成活</title>
-    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <title>Hello World</title>
+    <url>/2020/06/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
 
-<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
 ]]></content>
       <categories>
         <category>光影岁月</category>
       </categories>
       <tags>
         <tag>music</tag>
+        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -300,54 +286,17 @@
       </tags>
   </entry>
   <entry>
-    <title>白话深度学习与TensorFlow（1）——初识机器学习</title>
-    <url>/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p>机器学习就是人类定义一定的计算机算法，让计算机根据输入的样本和一些人类的干预来总结并归纳其特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反应的过程。</p>
-<p>机器学习的目的是让机器可以<strong>独立或至少半独立地</strong>进行相对复杂或者高要求的工作。不同于传统的算法依据事先编写好的代码执行，机器学习具有“一定的智能性”。</p>
-<p>以监督学习的过程为例。首先，给与模型一定数量的<strong>训练样本</strong>（训练集），让模型根据这些训练样本进行<strong>训练</strong>，从而得到一个判断标准。之后，利用验证集<strong>验证</strong>该标准是否具有泛化性。</p>
-<p>机器学习可以分为两种，分别是<strong>监督学习和无监督学习</strong>。</p>
-<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类，是一种典型的“无监督学习”，是把物理对象或抽象对象的集合分组为由彼此类似的对象组成的多个类的分析过程。简单来说，就是一种<strong>归纳总结</strong>的思想。</p>
-<p>比较常用的聚类算法有K-Means、DBSCAN等几种，<strong>基本思路都是利用每个向量之间的“距离”</strong>——空间中的欧氏距离或者曼哈顿距离，从远近判断是否从属于同一类别。</p>
-<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>回归，是一种“学习”方法。简单来说就是一种<strong>“由果索因”</strong>的过程，是一种归纳的思想——当我看到大量的事实所呈现的样态，我推断出原因或客观蕴含的关系是如何的。</p>
-<p>常用的回归有两大类，分别是<strong>线性回归和非线性回归</strong>。</p>
-<ol>
-<li><p>线性回归</p>
-<p>所谓线性回归，就是在观察和归纳样本的过程中认为向量和最终的函数值呈现线性的关系。而后设计这种关系为：</p>
-<p>y=f（x）=wx+b</p>
-<p>这里的w和x分别是1×n和n×1的矩阵，wx则指的是这两个矩阵的内积。</p>
-<p>我们所要做的事情就是对w矩阵的内容和偏置b的内容求出一个<strong>使得Loss最小的解</strong>出来，越小就说明该映射关系描述越精确。Loss为一个全局范围内由f（x）映射得到的y和我真实观测到的那个y的差距加和，表达式如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg" alt="Loss函数"></p>
-<div class="note info"><p>使用线性回归的前提是数据呈现出线性关系。否则，会产生欠拟合现象。 </p>
-</div>
-</li>
-<li><p>非线性回归</p>
-<p>非线性回归类中，在机器学习领域应用最多的当属逻辑回归。与线性回归不同，在这种模型中观察者假设的前提是y只有两种值：一种是1，一种是0，或者说“是”或“否”的这种判断。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00009.jpg" alt="逻辑回归"></p>
-<p>这里面的wx+b和前面线性回归中所说的wx+b是一个概念，都是指一个w矩阵和x做了内积再和偏置b做了加和。</p>
-<p>令<strong>z = wx + b，则横轴是z，纵轴是y，</strong>那么函数图像如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00011.jpg" alt="逻辑回归函数图像"></p>
-<p>训练的过程跟普通线性回归也是一样的，只不过损失函数的形式不同。但是，它的损失函数的含义仍旧是表示这种拟合残差与待定系数的关系，并通过相应的手段进行迭代式的优化，最后通过逐步调整待定系数减小残差。</p>
-</li>
-</ol>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>分类，通常我们把分类算法叫做”分类器“。</p>
-<p>分类的原理就相当于一个黑盒子，有个入口，有个出口。我们在入口丢进去一个“样本”，在出口<strong>期望得到一个分类的“标签”</strong>。分类的训练过程和回归的训练过程一样，都是极为套路化的程序。</p>
-<ol>
-<li>输入样本和分类标签</li>
-<li>建立映射假说的某个y = f（x）的模型</li>
-<li>求解出全局的损失函数Loss和待定系数w的映射关系，Loss = g（w）</li>
-<li>通过迭代优化逐步降低Loss，最终找到一个w能使召回率和精确率满足当前场景需要。注意，这里尤其指在验证数据集上的表现。</li>
-</ol>
-<p>我们在编写代码教会分类器怎么做学习的时候，其实是在教它如何建立一种输入到输出的映射逻辑，以及让它自己调整这种逻辑关系，使得逻辑更为合理。而合理与否的判断也非常明确，那就是<strong>召回率</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>和<strong>精确率</strong><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>两个指标。</p>
-<h2 id="传统机器学习与深度学习"><a href="#传统机器学习与深度学习" class="headerlink" title="传统机器学习与深度学习"></a>传统机器学习与深度学习</h2><p>机器学习可以粗略地分为传统的机器学习和深度学习。</p>
-<p>传统的机器学习通常是需要人提前先来做特征提取，把提取过的特征向量化后再丢给模型去训练，这里<strong>人要做相当的前置工作</strong>。并且传统机器学习在工作的过程中具<strong>有非常好的解释特性</strong>，或者说你知道模型在做什么，处理的是什么特征，其中任何一个指标值的大小变化的意义会有良好的解释。而且，传统机器学习在训练的过程中<strong>需要很少的样本向量</strong>，通常都是百级或者千级就够了，这对于深度学习来说也是无法做到的——它需要数以万计的样本来做训练。</p>
-<p>深度学习通常可以采用End-to-End的学习方式，输入的内容只需要做很少的一些归一化（normalization）、白化（whitening）等处理就可以丢给模型去训练，通常<strong>不需要人来做特征提取的工作</strong>。而这个特征提取的动作可以由整个深度学习的网络模型帮我们自动完成。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">就是查全率，即检索出的相关样本和样本库（待测对象库）中所有的相关样本的比率</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">就是查准率，检索出的相关样本数与检索出的样本总数的比率</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    <title>【霸王别姬】不疯魔，不成活</title>
+    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
+]]></content>
       <categories>
-        <category>读书总结</category>
+        <category>光影岁月</category>
       </categories>
       <tags>
-        <tag>AI</tag>
-        <tag>DLearning</tag>
+        <tag>music</tag>
       </tags>
   </entry>
   <entry>
@@ -502,14 +451,104 @@
         <category>转载文章</category>
       </categories>
       <tags>
-        <tag>AI</tag>
         <tag>DLearning</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
     <title>白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装</title>
     <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94TensorFlow%E6%A1%86%E6%9E%B6%E7%89%B9%E6%80%A7%E4%B8%8E%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="TensorFlow简介"><a href="#TensorFlow简介" class="headerlink" title="TensorFlow简介"></a>TensorFlow简介</h1><p>TensorFlow是一个<strong>采用数据流图</strong>，用于数值计算的开源软件库。</p>
+<p><strong>节点（nodes）</strong>在图中表示数学操作，但也可以表示数据输入的起点/输出的终点，或者读取/写入持久变量（persistent variable）的终点。图中的线（edges）则表示在节点间相互联系的多维数据数组，即<strong>张量（tensor）</strong>。张量从图中流过的直观图像是这个工具取名为“TensorFlow”的原因。一旦输入端的所有张量准备好，节点将被分配到各种计算设备完成异步并行运算。</p>
+<img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00055.jpg" alt="TensorFlow" style="zoom: 50%;" />
+
+<h1 id="对比其他框架"><a href="#对比其他框架" class="headerlink" title="对比其他框架"></a>对比其他框架</h1><ol>
+<li>TensorFlow：深度学习最流行的库之一，是谷歌在深刻总结了其前身DistBelief的经验教训上形成的；它不仅便携、高效、可扩展，还能在不同计算机上运行：小到智能手机，大到计算机集群；它是一款轻量级的软件，可以立刻生成你的训练模型，也能重新实现它；TensorFlow有强大的社区、企业支持，因此它广泛用于从个人到企业、从初创公司到大公司等不同群体。</li>
+<li>Caffe：卷积神经网络框架，专注于卷积神经网络和图像处理，是用C++语言写成的，执行速度非常快。</li>
+<li>Torch：是一个专注于GPU实现的机器学习库，得到了像Facebook、谷歌、Twitter这样的大公司的研究团队的支持。</li>
+<li>Nervana Neo：是一个高效的Python机器学习库，它能够在单个机器上使用多个GPU。</li>
+<li>Theano：是一个用Python编写的极其灵活的Python机器学习库，用它定义复杂的模型相当容易，因此它在研究中极其流行。</li>
+</ol>
+<h1 id="其他特点"><a href="#其他特点" class="headerlink" title="其他特点"></a>其他特点</h1><ol>
+<li><p>多环境与集群支持</p>
+</li>
+<li><p>TensorBoard——看得见的训练</p>
+</li>
+<li><p>TensorFlow Serving——模型</p>
+</li>
+</ol>
+<h1 id="如何选择好的框架"><a href="#如何选择好的框架" class="headerlink" title="如何选择好的框架"></a>如何选择好的框架</h1><p>目前框架之间的差别主要体现在以下几个地方：</p>
+<ol>
+<li><p>性能方面</p>
+<p>该属性主要由底层的实现语言决定，运行速度较快的仍旧是C/C++一类。但这并不碍事，主要影响效率的是样本数量，网络设计等方面。</p>
+</li>
+<li><p>社区活跃度</p>
+<p>活跃的社区意味着有更多的人正在使用这样一个项目，会有更多的人贡献代码，提交Bug，遇到错误你也很容易找到前人踩坑留下的垫坑石。因而做起项目来风险也相对比较小，学习起来进步也会快一些。</p>
+</li>
+<li><p>语言</p>
+<p>这几乎是最不重要的一个方面，因为不管什么语言，实现的框架大多都会支持Python的“驱动”，或者我们称接口。</p>
+</li>
+</ol>
+<h1 id="安装TensorFlow"><a href="#安装TensorFlow" class="headerlink" title="安装TensorFlow"></a>安装TensorFlow</h1><p><a href="https://www.tensorflow.org/install?hl=zh-cn" target="_blank" rel="noopener">TensorFlow安装教程</a></p>
+]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>DLearning</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白话深度学习与TensorFlow（1）——初识机器学习</title>
+    <url>/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p>机器学习就是人类定义一定的计算机算法，让计算机根据输入的样本和一些人类的干预来总结并归纳其特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反应的过程。</p>
+<p>机器学习的目的是让机器可以<strong>独立或至少半独立地</strong>进行相对复杂或者高要求的工作。不同于传统的算法依据事先编写好的代码执行，机器学习具有“一定的智能性”。</p>
+<p>以监督学习的过程为例。首先，给与模型一定数量的<strong>训练样本</strong>（训练集），让模型根据这些训练样本进行<strong>训练</strong>，从而得到一个判断标准。之后，利用验证集<strong>验证</strong>该标准是否具有泛化性。</p>
+<p>机器学习可以分为两种，分别是<strong>监督学习和无监督学习</strong>。</p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类，是一种典型的“无监督学习”，是把物理对象或抽象对象的集合分组为由彼此类似的对象组成的多个类的分析过程。简单来说，就是一种<strong>归纳总结</strong>的思想。</p>
+<p>比较常用的聚类算法有K-Means、DBSCAN等几种，<strong>基本思路都是利用每个向量之间的“距离”</strong>——空间中的欧氏距离或者曼哈顿距离，从远近判断是否从属于同一类别。</p>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>回归，是一种“学习”方法。简单来说就是一种<strong>“由果索因”</strong>的过程，是一种归纳的思想——当我看到大量的事实所呈现的样态，我推断出原因或客观蕴含的关系是如何的。</p>
+<p>常用的回归有两大类，分别是<strong>线性回归和非线性回归</strong>。</p>
+<ol>
+<li><p>线性回归</p>
+<p>所谓线性回归，就是在观察和归纳样本的过程中认为向量和最终的函数值呈现线性的关系。而后设计这种关系为：</p>
+<p>y=f（x）=wx+b</p>
+<p>这里的w和x分别是1×n和n×1的矩阵，wx则指的是这两个矩阵的内积。</p>
+<p>我们所要做的事情就是对w矩阵的内容和偏置b的内容求出一个<strong>使得Loss最小的解</strong>出来，越小就说明该映射关系描述越精确。Loss为一个全局范围内由f（x）映射得到的y和我真实观测到的那个y的差距加和，表达式如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg" alt="Loss函数"></p>
+<div class="note info"><p>使用线性回归的前提是数据呈现出线性关系。否则，会产生欠拟合现象。 </p>
+</div>
+</li>
+<li><p>非线性回归</p>
+<p>非线性回归类中，在机器学习领域应用最多的当属逻辑回归。与线性回归不同，在这种模型中观察者假设的前提是y只有两种值：一种是1，一种是0，或者说“是”或“否”的这种判断。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00009.jpg" alt="逻辑回归"></p>
+<p>这里面的wx+b和前面线性回归中所说的wx+b是一个概念，都是指一个w矩阵和x做了内积再和偏置b做了加和。</p>
+<p>令<strong>z = wx + b，则横轴是z，纵轴是y，</strong>那么函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00011.jpg" alt="逻辑回归函数图像"></p>
+<p>训练的过程跟普通线性回归也是一样的，只不过损失函数的形式不同。但是，它的损失函数的含义仍旧是表示这种拟合残差与待定系数的关系，并通过相应的手段进行迭代式的优化，最后通过逐步调整待定系数减小残差。</p>
+</li>
+</ol>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>分类，通常我们把分类算法叫做”分类器“。</p>
+<p>分类的原理就相当于一个黑盒子，有个入口，有个出口。我们在入口丢进去一个“样本”，在出口<strong>期望得到一个分类的“标签”</strong>。分类的训练过程和回归的训练过程一样，都是极为套路化的程序。</p>
+<ol>
+<li>输入样本和分类标签</li>
+<li>建立映射假说的某个y = f（x）的模型</li>
+<li>求解出全局的损失函数Loss和待定系数w的映射关系，Loss = g（w）</li>
+<li>通过迭代优化逐步降低Loss，最终找到一个w能使召回率和精确率满足当前场景需要。注意，这里尤其指在验证数据集上的表现。</li>
+</ol>
+<p>我们在编写代码教会分类器怎么做学习的时候，其实是在教它如何建立一种输入到输出的映射逻辑，以及让它自己调整这种逻辑关系，使得逻辑更为合理。而合理与否的判断也非常明确，那就是<strong>召回率</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>和<strong>精确率</strong><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>两个指标。</p>
+<h2 id="传统机器学习与深度学习"><a href="#传统机器学习与深度学习" class="headerlink" title="传统机器学习与深度学习"></a>传统机器学习与深度学习</h2><p>机器学习可以粗略地分为传统的机器学习和深度学习。</p>
+<p>传统的机器学习通常是需要人提前先来做特征提取，把提取过的特征向量化后再丢给模型去训练，这里<strong>人要做相当的前置工作</strong>。并且传统机器学习在工作的过程中具<strong>有非常好的解释特性</strong>，或者说你知道模型在做什么，处理的是什么特征，其中任何一个指标值的大小变化的意义会有良好的解释。而且，传统机器学习在训练的过程中<strong>需要很少的样本向量</strong>，通常都是百级或者千级就够了，这对于深度学习来说也是无法做到的——它需要数以万计的样本来做训练。</p>
+<p>深度学习通常可以采用End-to-End的学习方式，输入的内容只需要做很少的一些归一化（normalization）、白化（whitening）等处理就可以丢给模型去训练，通常<strong>不需要人来做特征提取的工作</strong>。而这个特征提取的动作可以由整个深度学习的网络模型帮我们自动完成。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">就是查全率，即检索出的相关样本和样本库（待测对象库）中所有的相关样本的比率</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">就是查准率，检索出的相关样本数与检索出的样本总数的比率</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>DLearning</tag>
+        <tag>AI</tag>
+      </tags>
   </entry>
   <entry>
     <title>白话深度学习与TensorFlow（2）——初识深度学习</title>
@@ -580,8 +619,8 @@
         <category>读书总结</category>
       </categories>
       <tags>
-        <tag>AI</tag>
         <tag>DLearning</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -1062,6 +1101,11 @@
       </tags>
   </entry>
   <entry>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>阿飞学Linux——（3）安装Centos7.x</title>
     <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
     <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
@@ -1248,11 +1292,6 @@
       <tags>
         <tag>Linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>阿飞学Markdown</title>
