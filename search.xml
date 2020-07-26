@@ -64,70 +64,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
-    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
-    <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
-<ol>
-<li><del>打开文件<code>/themes/next/layout/_macro/post.swig</code>,搜索关键字<mark class="label primary">rel=tag>#</mark></del></li>
-<li><del>将关键字中的<strong>#</strong>替换为<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></del></li>
-</ol>
-<p>对于NexT 7.x的设置方法已经发生了变化，具体的设置方法如下：</p>
-<ol>
-<li><p>打开文件<code>/themes/next/layout/_macro/post.njk</code>。</p>
-</li>
-<li><p>修改代码如下所示</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- set tag_indicate &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; if theme.tag_icon else &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>显示效果如下图所示：</p>
-<p><img src="/images/image-20200701000751413.png" alt="Hexo底部标签样式"></p>
-<h1 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h1><ol>
-<li><p>打开侧边栏头像显示</p>
-<p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，搜寻关键字avatar，将它的值设置成头像的连接地址。头像的链接地址可以是：</p>
-<table>
-<thead>
-<tr>
-<th align="left">地址</th>
-<th align="left">值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">完整的互联网 URI</td>
-<td align="left"><code>http://example.com/avatar.png</code></td>
-</tr>
-<tr>
-<td align="left">站点内的地址</td>
-<td align="left">将头像放置主题目录下的 <code>source/uploads/</code> （新建 uploads 目录若不存在） 配置为：<code>avatar: /uploads/avatar.png</code>或者 放置在 <code>source/images/</code> 目录下 配置为：<code>avatar: /images/avatar.png</code></td>
-</tr>
-</tbody></table>
-</li>
-<li><p>设置头像为圆形显示，并且鼠标放置上去后可旋转(optional)</p>
-<p>默认的头像是以方形为边框，通过以下方法，可以将头像的边框设置为圆形的。</p>
-<ul>
-<li><p>打开文件<code>/themes/next/source/css/_commom/components/sidebar/sidebar-author.styl</code></p>
-</li>
-<li><p>修改<mark class="label primary">.site-author-image</mark>的设置，如下所示</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/*start*/</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">60%</span></span><br><span class="line">  transition: <span class="number">2s</span> all;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.site-author-image</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*end*/</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<div class="note info"><p>在NexT 7.x.x版本后，已经不需要进行上述复杂的操作，只需在主题配置文件中的avatar元素内，将rounded与rotated的值设置为true即可。</p>
-</div>
-
-<p>效果如下所示：</p>
-<p><img src="/images/avata_rotate.webp" alt="头像旋转"></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo折腾记（2）——NexT设置背景图片</title>
     <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94NexT%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<h1 id="设置背景图片（NexT-5-x）"><a href="#设置背景图片（NexT-5-x）" class="headerlink" title="设置背景图片（NexT 5.x）"></a>设置背景图片（NexT 5.x）</h1><p>NexT主题本身是没有背景图片的，设置一个个性化的背景图片，会让blog变得更加美观。</p>
@@ -230,6 +166,85 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
+    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
+    <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
+<ol>
+<li><del>打开文件<code>/themes/next/layout/_macro/post.swig</code>,搜索关键字<mark class="label primary">rel=tag>#</mark></del></li>
+<li><del>将关键字中的<strong>#</strong>替换为<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></del></li>
+</ol>
+<p>对于NexT 7.x的设置方法已经发生了变化，具体的设置方法如下：</p>
+<ol>
+<li><p>打开文件<code>/themes/next/layout/_macro/post.njk</code>。</p>
+</li>
+<li><p>修改代码如下所示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- set tag_indicate &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; if theme.tag_icon else &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>显示效果如下图所示：</p>
+<p><img src="/images/image-20200701000751413.png" alt="Hexo底部标签样式"></p>
+<h1 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h1><ol>
+<li><p>打开侧边栏头像显示</p>
+<p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，搜寻关键字avatar，将它的值设置成头像的连接地址。头像的链接地址可以是：</p>
+<table>
+<thead>
+<tr>
+<th align="left">地址</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">完整的互联网 URI</td>
+<td align="left"><code>http://example.com/avatar.png</code></td>
+</tr>
+<tr>
+<td align="left">站点内的地址</td>
+<td align="left">将头像放置主题目录下的 <code>source/uploads/</code> （新建 uploads 目录若不存在） 配置为：<code>avatar: /uploads/avatar.png</code>或者 放置在 <code>source/images/</code> 目录下 配置为：<code>avatar: /images/avatar.png</code></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>设置头像为圆形显示，并且鼠标放置上去后可旋转(optional)</p>
+<p>默认的头像是以方形为边框，通过以下方法，可以将头像的边框设置为圆形的。</p>
+<ul>
+<li><p>打开文件<code>/themes/next/source/css/_commom/components/sidebar/sidebar-author.styl</code></p>
+</li>
+<li><p>修改<mark class="label primary">.site-author-image</mark>的设置，如下所示</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/*start*/</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">60%</span></span><br><span class="line">  transition: <span class="number">2s</span> all;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.site-author-image</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*end*/</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<div class="note info"><p>在NexT 7.x.x版本后，已经不需要进行上述复杂的操作，只需在主题配置文件中的avatar元素内，将rounded与rotated的值设置为true即可。</p>
+</div>
+
+<p>效果如下所示：</p>
+<p><img src="/images/avata_rotate.webp" alt="头像旋转"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/06/11/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -253,21 +268,6 @@
       </categories>
       <tags>
         <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【我不是药神】生来平凡，诚勇无惧</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -551,70 +551,47 @@
       </tags>
   </entry>
   <entry>
-    <title>白话深度学习与TensorFlow（2）——初识深度学习</title>
-    <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="深度学习是什么"><a href="#深度学习是什么" class="headerlink" title="深度学习是什么"></a>深度学习是什么</h1><p>要了解深度学习必须先了解神经网络。</p>
-<h2 id="神经网络是什么"><a href="#神经网络是什么" class="headerlink" title="神经网络是什么"></a>神经网络是什么</h2><p>神经网络是一种人类由于受到生物神经细胞结构启发而研究出的一种算法体系。神经网络的最基本组成单元——神经元。</p>
-<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>一个最简单的神经元如下图所示：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00018.jpg" alt="神经元"></p>
-<p>有一个输入，一个输出，所以它所表达的含义跟一个普通的函数没有什么区别。不过请注意，现在我们使用的<strong>神经元通常有两个部分组成，一个是“线性模型”，另一个是“激励函数”</strong>。</p>
-<ol>
-<li><p>线性模型</p>
-<p>假设该神经元的输入为一个n维向量，那么我们可以建立一个有n个输入项的神经元f（x1 ，x2 ，…，xn ），设输出函数值output，则output = f（x），我们可以把该函数的处理写做：<strong>f（x）=wx+b</strong>。</p>
-<p>这种方式也是神经元最核心部分对x所做的线性处理，其中x是一个1×n的矩阵，而w是一个n×1的权重矩阵，b是偏置项。</p>
+    <title>白话深度学习与TensorFlow（4）——前馈神经网络</title>
+    <url>/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="前馈神经网络"><a href="#前馈神经网络" class="headerlink" title="前馈神经网络"></a>前馈神经网络</h1><p>在该神经网络中，各神经元从输入层开始，接收前一级输入，并输入到下一级，直至输出层。整个网络中无反馈，可用一个有向无环图（directed acyclic graph，DAG）表示。</p>
+<p>前馈神经网络有两种：一种叫Back Propagation Networks——<strong>反向传播网络（以下简称BP网络）</strong>，一种叫RBF Network——<strong>径向基函数神经网络</strong>。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg" alt="BP网络结构"></p>
+<p>在上图的两种网络都是前馈神经网络结构。一个向量从左边进入，经过网络的运算从右边产生一个输出结果。</p>
+<h2 id="线性回归的训练"><a href="#线性回归的训练" class="headerlink" title="线性回归的训练"></a>线性回归的训练</h2><ol>
+<li><p>样本</p>
+<p>假设我们具有一堆样本数据（x，y），这些样本数据符合线性关系：y = wx + b，之后的问题便是求解待定系数w和b。</p>
 </li>
-<li><p>激励函数</p>
-<p>也称作激活函数。激励函数在一个神经元当中跟随在f（x）= wx + b函数之后，用来加入一些非线性的因素。激励函数在神经元中的作用如下图所示：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00030.jpg" alt="激励函数"></p>
-</li>
-</ol>
-<h3 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h3><p>激励函数有很多，但是常用的并不多，主要有以下几种：</p>
-<ol>
-<li><p>sigmoid函数</p>
-<p>定义如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00026.jpg" alt="sigmoid函数"></p>
-<p>或者可以写成如下形式：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00027.jpg" alt="sigmoid函数2"></p>
-<p>函数图像如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00028.jpg" alt="sigmoid函数图像"></p>
-<p>该图中横轴为z，纵轴为f（z）。可见该激励函数将激励值最终投射到了0和1两个值上。通过这种方式引入了非线性因素。其中的“1”表示完全激活的状态，“0”表示完全不激活的状态，其他各种输出值就介于两者之间，表示其激活程度不同。</p>
-<div class="note info"><p>为什么要引入非线性因素？</p>
-<p>因为最终用一个大的函数“网络”去拟合一个对应的关系的时候你会发现，如果仅有线性函数来拟合的话，那么拟合的结果一定仅仅包含各种各样的线性关系。一旦这个客观的、我们要求解的关系中本就含有非线性关系的话，那么这个网络必定严重欠拟合。</p>
+<li><p>开始训练</p>
+<p>目前的问题是求解y = wx + b中的w和b。假设在拟合的过程中有一个参数e，表示误差，则线性关系可表示为：<strong>y = wx + b + e</strong></p>
+<p>当我取定任何一个w和b的时候，只要代入一个x和对应的y就一定会产生一个e来表示这个误差。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00114.jpg" alt="误差"></p>
+<p>我们将n（假设n=10）个e的大小做加和来表示一个全局的误差总量，表达式如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00115.jpg" alt="误差总量"></p>
+<p><strong>注意</strong>，e表示的是误差，也就是说e是正数是误差，e是负数也是误差，这种误差我们称为<strong>残差</strong>。既然e本身是正是负都应该算作残差，那么让其内部正负抵消显然不合适，这种情况下应该把每个e都做一个非负的处理，或者取绝对值或者取平方，都能达到类似的效果。我们在这里就取平方看看会有什么结果。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00116.jpg" alt="残差"></p>
+<p>对于残差平方展开后得到的多项式中，x和y都是已知的样本数据，故Loss可以改写为如下形式：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00117.jpg" alt="全局Loss函数"></p>
+<p>其中的A，B，C，D，E，F全部都是常数系数，w和b是未知数。</p>
+<p>现在要做一件事，那就是找到一个比较好的w和一个比较好的b，使得整个Loss尽可能小，越接近0越好，说明拟合的误差越小。</p>
+<p>我们可以通过迭代不断地学习，来逐渐逼近这个模型中待定系数w和b的最佳值位置。首先初始化一个w<del>0</del>和一个b<del>0</del>，将其带入到</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00119.jpg" alt="Loss"></p>
+<p>得到一个值Loss<del>0</del>。这个时候（w<del>0</del>，b<del>0</del>，Loss<del>0</del>）会出现在Loss函数图像上的某个位置，这个位置可能距离我们要找的极值点还差很多，所以要继续迭代。我们可以使用<strong>梯度下降</strong>的方法来求解，这是一种用来<strong>解决凸优化问题</strong>的通用方法。梯度下降的方法如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00121.jpg" alt="梯度下降法"></p>
+<p>这表示的是一个更新逻辑过程，xn+1 和xn 分别表示两个临近迭代中的x值，xn+1 是xn 更新后的下一次迭代的值。其中希腊字母η，称为“学习率”，是挪动“步长”的基数，设得大就挪动得多，设得小就挪动得少，在学习伊始由编程序的人给赋值。</p>
+<p>一轮一轮进行迭代，直到每次更新的值非常小，损失值不在明显减少就可以判断为训练结束。此时得到的（w，b）值就是我们要求的模型。</p>
+<div class="note info"><p>注意：不求梯度（偏导数）的情况下，通过改变w或b的值是一定能够比较出来移动的方向的，但是问题是不知道移动多少比较适宜。而有了偏导数与学习率η的乘积后，当这个点逐步接近“碗底”的时候，偏导数也随之降低，移动的步伐也会慢慢减小，收敛更为平缓，不会轻易出现“步子太大”而越过最低点的情况。</p>
 </div>
 </li>
-<li><p>Tanh函数</p>
-<p>定义如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00031.jpg" alt="双曲正切函数"></p>
-<p>函数图像如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00032.jpg" alt="函数图像"></p>
-<p>Tanh函数是把输入值投射到-1和1上去。其中“-1”表示完全不激活，“1”表示完全激活，中间其他值也是不同的激活程度的描述。<strong>除了映射区间不同以外，跟Sigmoid似乎区别不是很大。</strong></p>
-</li>
-<li><p>ReLU函数</p>
-<p>定义为：y = max（x，0）。</p>
-<p>函数图像如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00033.jpg" alt="ReLU函数图像"></p>
-<p>大部分的卷积神经网络中喜欢使用该激励函数。</p>
-<p>这个函数的原点左侧部分斜率为0，在右侧则是一条斜率为1的直线，x小于0时输出一律为0，x大于0时输出就是输入值。</p>
+<li><p>模型工作</p>
+<p>把一个输入的x带入到训练好的y = wx + b中，使它输出一个y。</p>
 </li>
 </ol>
-<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><p><strong>多个神经元首尾连接形成</strong>一个类似网络的结构来协同工作的时候，那就可以被称为神经网络了。对于该网络必须有多少层，每层有多少个神经元结点，并没有做出明确规定，而是根据不同的场景依据经验与相关理论进行尝试，最后得到一个适应当前场景的网络设计。</p>
-<p>神经网络的结构通常可以分为以下几层：输入层，隐藏层，输出层。如下图所示：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00035.jpg" alt="神经网络结构"></p>
-<p><strong>输入层</strong>在整个网络的最前端部分，直接接受输入的向量，它不对数据做任何处理，<strong>该层通常不计入层数</strong>。</p>
-<p><strong>隐藏层</strong>可以有一层或多层。</p>
-<p><strong>输出层</strong>是最后一层用来输出整个网络处理的值，这个值可能是一个分类向量值，也可能是一个类似线性回归那样产生的连续的值，也可能是别的复杂类型的值或者向量，根据不同的需求输出层的构造也不尽相同。</p>
-<h2 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h2><p>深度学习（Deep Learning）就是<strong>基于深度神经网络的学习</strong>。这个Deep指的是神经网络的深度。</p>
-<p>要注意，深度学习并不是在任何情况下都比传统机器学习表现好。</p>
-<h2 id="深度学习为什么这么强"><a href="#深度学习为什么这么强" class="headerlink" title="深度学习为什么这么强"></a>深度学习为什么这么强</h2><p>深度神经网络能够通过大量的线性分类器和非线性关系的组合来完成平时非常棘手的线性不可分的问题。</p>
-<h3 id="不用再提取特征"><a href="#不用再提取特征" class="headerlink" title="不用再提取特征"></a>不用再提取特征</h3><p>在神经网络中，由于巨量的线性分类器的堆叠（并行和串行）以及卷积网络的使用，它对噪声的忍耐能力、对多通道数据上投射出来的不同特征偏向的敏感程度会自动重视或者忽略。这样我们在处理的时候，人类所需要使用的技巧就没有那么高要求了，也就是我们通常所说的End-to-End<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>的训练方式。</p>
-<h3 id="处理线性不可分"><a href="#处理线性不可分" class="headerlink" title="处理线性不可分"></a>处理线性不可分</h3><p>神经网络还有一个最神奇的地方，那就是用大量的线性分类器的堆叠使得整个模型可以将线性不可分的问题变得可分。</p>
-<p>随着维度的加大，深度的加深，所能描述的分类器的复杂程度也会随之增加，所以传统分类模型中无法通过简单的线性分类器和非线性分类器处理的复杂学习场景（例如图形、视频、音频等）就能够通过海量<strong>分类器的叠加</strong>来实现。</p>
-<p>例如，在二维空间中有这样一个不规则的四边形，如果我们想用一条线（一个线性分类器）把它分开，并保证其一侧是这个四边形内所有的点，我们称为“类别1”，另一侧是其他的点，我们称为“类别0”，这简直是不可能的，因为不管怎么画，这一条线都会使得其中至少有一个类非常“不纯”。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00041.jpg" alt="图1"></p>
-<p>解决方法是画4条线即可。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00042.jpg" alt="图2"></p>
-<p>用这4条线把它围起来，也就是必须同时满足4个分类器的1分类标准才算是我们要约束的1分类——每条直线的表达式都是形如f（x）=wx+b的线性分类器。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">指那些不经过人为处理，直接把输入和期望输出作为网络训练的工作模式的训练方法。这种方法通常需要的样本数量极大。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+<h2 id="神经网络的训练"><a href="#神经网络的训练" class="headerlink" title="神经网络的训练"></a>神经网络的训练</h2><p>有一两层的神经网络如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00162.jpg" alt="神经网络"></p>
+<p>该网络用函数表达式去写的话如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00163.jpg" alt="函数表示"></p>
+<p>把整个网络里所有的待定系数wh 、bh 、wo 、bo 都初始化一个值，然后照猫画虎地按照刚才的套路，定义一个描述误差的损失函数，然后将wh 、bh 、wo 、bo 逐步变化，直到损失函数减小到足够小就OK了。</p>
+]]></content>
       <categories>
         <category>读书总结</category>
       </categories>
@@ -807,6 +784,79 @@
       </tags>
   </entry>
   <entry>
+    <title>白话深度学习与TensorFlow（2）——初识深度学习</title>
+    <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="深度学习是什么"><a href="#深度学习是什么" class="headerlink" title="深度学习是什么"></a>深度学习是什么</h1><p>要了解深度学习必须先了解神经网络。</p>
+<h2 id="神经网络是什么"><a href="#神经网络是什么" class="headerlink" title="神经网络是什么"></a>神经网络是什么</h2><p>神经网络是一种人类由于受到生物神经细胞结构启发而研究出的一种算法体系。神经网络的最基本组成单元——神经元。</p>
+<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>一个最简单的神经元如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00018.jpg" alt="神经元"></p>
+<p>有一个输入，一个输出，所以它所表达的含义跟一个普通的函数没有什么区别。不过请注意，现在我们使用的<strong>神经元通常有两个部分组成，一个是“线性模型”，另一个是“激励函数”</strong>。</p>
+<ol>
+<li><p>线性模型</p>
+<p>假设该神经元的输入为一个n维向量，那么我们可以建立一个有n个输入项的神经元f（x1 ，x2 ，…，xn ），设输出函数值output，则output = f（x），我们可以把该函数的处理写做：<strong>f（x）=wx+b</strong>。</p>
+<p>这种方式也是神经元最核心部分对x所做的线性处理，其中x是一个1×n的矩阵，而w是一个n×1的权重矩阵，b是偏置项。</p>
+</li>
+<li><p>激励函数</p>
+<p>也称作激活函数。激励函数在一个神经元当中跟随在f（x）= wx + b函数之后，用来加入一些非线性的因素。激励函数在神经元中的作用如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00030.jpg" alt="激励函数"></p>
+</li>
+</ol>
+<h3 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h3><p>激励函数有很多，但是常用的并不多，主要有以下几种：</p>
+<ol>
+<li><p>sigmoid函数</p>
+<p>定义如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00026.jpg" alt="sigmoid函数"></p>
+<p>或者可以写成如下形式：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00027.jpg" alt="sigmoid函数2"></p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00028.jpg" alt="sigmoid函数图像"></p>
+<p>该图中横轴为z，纵轴为f（z）。可见该激励函数将激励值最终投射到了0和1两个值上。通过这种方式引入了非线性因素。其中的“1”表示完全激活的状态，“0”表示完全不激活的状态，其他各种输出值就介于两者之间，表示其激活程度不同。</p>
+<div class="note info"><p>为什么要引入非线性因素？</p>
+<p>因为最终用一个大的函数“网络”去拟合一个对应的关系的时候你会发现，如果仅有线性函数来拟合的话，那么拟合的结果一定仅仅包含各种各样的线性关系。一旦这个客观的、我们要求解的关系中本就含有非线性关系的话，那么这个网络必定严重欠拟合。</p>
+</div>
+</li>
+<li><p>Tanh函数</p>
+<p>定义如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00031.jpg" alt="双曲正切函数"></p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00032.jpg" alt="函数图像"></p>
+<p>Tanh函数是把输入值投射到-1和1上去。其中“-1”表示完全不激活，“1”表示完全激活，中间其他值也是不同的激活程度的描述。<strong>除了映射区间不同以外，跟Sigmoid似乎区别不是很大。</strong></p>
+</li>
+<li><p>ReLU函数</p>
+<p>定义为：y = max（x，0）。</p>
+<p>函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00033.jpg" alt="ReLU函数图像"></p>
+<p>大部分的卷积神经网络中喜欢使用该激励函数。</p>
+<p>这个函数的原点左侧部分斜率为0，在右侧则是一条斜率为1的直线，x小于0时输出一律为0，x大于0时输出就是输入值。</p>
+</li>
+</ol>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><p><strong>多个神经元首尾连接形成</strong>一个类似网络的结构来协同工作的时候，那就可以被称为神经网络了。对于该网络必须有多少层，每层有多少个神经元结点，并没有做出明确规定，而是根据不同的场景依据经验与相关理论进行尝试，最后得到一个适应当前场景的网络设计。</p>
+<p>神经网络的结构通常可以分为以下几层：输入层，隐藏层，输出层。如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00035.jpg" alt="神经网络结构"></p>
+<p><strong>输入层</strong>在整个网络的最前端部分，直接接受输入的向量，它不对数据做任何处理，<strong>该层通常不计入层数</strong>。</p>
+<p><strong>隐藏层</strong>可以有一层或多层。</p>
+<p><strong>输出层</strong>是最后一层用来输出整个网络处理的值，这个值可能是一个分类向量值，也可能是一个类似线性回归那样产生的连续的值，也可能是别的复杂类型的值或者向量，根据不同的需求输出层的构造也不尽相同。</p>
+<h2 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h2><p>深度学习（Deep Learning）就是<strong>基于深度神经网络的学习</strong>。这个Deep指的是神经网络的深度。</p>
+<p>要注意，深度学习并不是在任何情况下都比传统机器学习表现好。</p>
+<h2 id="深度学习为什么这么强"><a href="#深度学习为什么这么强" class="headerlink" title="深度学习为什么这么强"></a>深度学习为什么这么强</h2><p>深度神经网络能够通过大量的线性分类器和非线性关系的组合来完成平时非常棘手的线性不可分的问题。</p>
+<h3 id="不用再提取特征"><a href="#不用再提取特征" class="headerlink" title="不用再提取特征"></a>不用再提取特征</h3><p>在神经网络中，由于巨量的线性分类器的堆叠（并行和串行）以及卷积网络的使用，它对噪声的忍耐能力、对多通道数据上投射出来的不同特征偏向的敏感程度会自动重视或者忽略。这样我们在处理的时候，人类所需要使用的技巧就没有那么高要求了，也就是我们通常所说的End-to-End<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>的训练方式。</p>
+<h3 id="处理线性不可分"><a href="#处理线性不可分" class="headerlink" title="处理线性不可分"></a>处理线性不可分</h3><p>神经网络还有一个最神奇的地方，那就是用大量的线性分类器的堆叠使得整个模型可以将线性不可分的问题变得可分。</p>
+<p>随着维度的加大，深度的加深，所能描述的分类器的复杂程度也会随之增加，所以传统分类模型中无法通过简单的线性分类器和非线性分类器处理的复杂学习场景（例如图形、视频、音频等）就能够通过海量<strong>分类器的叠加</strong>来实现。</p>
+<p>例如，在二维空间中有这样一个不规则的四边形，如果我们想用一条线（一个线性分类器）把它分开，并保证其一侧是这个四边形内所有的点，我们称为“类别1”，另一侧是其他的点，我们称为“类别0”，这简直是不可能的，因为不管怎么画，这一条线都会使得其中至少有一个类非常“不纯”。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00041.jpg" alt="图1"></p>
+<p>解决方法是画4条线即可。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00042.jpg" alt="图2"></p>
+<p>用这4条线把它围起来，也就是必须同时满足4个分类器的1分类标准才算是我们要约束的1分类——每条直线的表达式都是形如f（x）=wx+b的线性分类器。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">指那些不经过人为处理，直接把输入和期望输出作为网络训练的工作模式的训练方法。这种方法通常需要的样本数量极大。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>DLearning</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿飞学Linux——（1）初识Linux</title>
     <url>/2020/06/27/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%881%EF%BC%89%E5%88%9D%E8%AF%86Linux/</url>
     <content><![CDATA[<h1 id="初识Linux"><a href="#初识Linux" class="headerlink" title="初识Linux"></a>初识Linux</h1><h2 id="什么是Linux"><a href="#什么是Linux" class="headerlink" title="什么是Linux"></a>什么是Linux</h2><p>Linux是一种OS，于1991年，由芬兰的Linus Torvalds开发而成，具有“可移植性”和良好的稳定性。</p>
@@ -897,6 +947,199 @@
 </li>
 <li><p>什么是POSIX?为何说Linux使用POSIX对于发展有很好的影响？</p>
 <p><em>POSIX是一种标准规范，主要针对在Unix上面运行的程序进行规范。若OS符合POSIX，则符合POSIX的程序就可以在该OS上运行。Linux由于支持POSIX，故很多的Unix上的程序可以直接在Linux上运行，因此程序的移植相对简单。</em></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
+    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（3）安装Centos7.x</title>
+    <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
+    <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
+<li><p>该主机的定位：用来练习Linux的相关技术，所以几乎所有的数据都要安装进来。故选择Everything的Distribution版本。</p>
+</li>
+<li><p>选择的distribution：CentOS 7.x</p>
+<div class="note info"><p>阿里云镜像下载网址：&lt; <a href="http://mirrors.aliyun.com/centos/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/</a> &gt; </p>
+</div>
+</li>
+<li><p>硬件配置：</p>
+<ul>
+<li>CPU：intel i5-8250U，<em>这里使用的CPU是我电脑上的</em></li>
+<li>内存：1.2G左右</li>
+<li>硬盘：一颗40GB左右的VirtI/O芯片组的磁盘</li>
+<li>网卡：使用桥接的方式设置了对外网卡，Centos本身就有提供驱动程序，所以可以直接抓到网卡</li>
+<li>显卡：入门级显卡即可</li>
+<li>I/O设备：不做要求</li>
+</ul>
+</li>
+<li><p>磁盘分区规划</p>
+<p>设置成使用GPT分区表来配置磁盘。虽然开机检测程序UEFI可以直接识别GPT分区表，但是开机检测程序BIOS只能读取第一阶段的boot loader。所以，对于GPT格式的磁盘，BIOS boot这个分区还是建议划分的。</p>
+<table>
+<thead>
+<tr>
+<th>所需目录/装置</th>
+<th>磁盘容量</th>
+<th>文件系统</th>
+<th>分区格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BIOS boot</td>
+<td>2MB</td>
+<td>系统自订</td>
+<td>标准分区</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>1GB</td>
+<td>xfs</td>
+<td>标准分区</td>
+</tr>
+<tr>
+<td>/</td>
+<td>10GB</td>
+<td>xfs</td>
+<td>LVM 方式</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>5GB</td>
+<td>xfs</td>
+<td>LVM 方式</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>1GB</td>
+<td>swap</td>
+<td>LVM 方式</td>
+</tr>
+</tbody></table>
+<p>如果，你的开机检测程序为UEFI的话，那么还需要划分出一个UEFI支持的分区。</p>
+</li>
+<li><p>选择软件：含有x接口的服务器软件的方式来安装。</p>
+</li>
+<li><p>开机检测程序：BIOS</p>
+</li>
+</ol>
+<h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><ol>
+<li>虚拟机软件：virtualbox</li>
+<li>系统：centos7.x</li>
+</ol>
+<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li>调整开机媒体（BIOS）：使用CD/DVD光盘开机</li>
+<li>选择安装模式与开机</li>
+<li>选择语系</li>
+<li>软件选择</li>
+<li>磁盘分区</li>
+<li>开机管理程序，网络，时区设置与root密码</li>
+<li>安装后的首次设置：包括使用者与防火墙等</li>
+</ol>
+<h2 id="虚拟机创建与调整开机媒体"><a href="#虚拟机创建与调整开机媒体" class="headerlink" title="虚拟机创建与调整开机媒体"></a>虚拟机创建与调整开机媒体</h2><ol>
+<li><p>新建虚拟机</p>
+<p><img src="/images/image-20200704163911908.png" alt="image-20200704163911908"></p>
+<p><img src="/images/image-20200704164238660.png" alt="image-20200704164238660"></p>
+</li>
+<li><p>创建虚拟硬盘</p>
+<p><img src="/images/image-20200704164403712.png" alt="image-20200704164403712"></p>
+</li>
+<li><p>至此成功创建一台虚拟机，点击设置，先将镜像文件载入光盘</p>
+<p><img src="/images/image-20200704164843754.png" alt="image-20200704164843754"></p>
+</li>
+<li><p>调整开机媒体顺序</p>
+<p><img src="/images/image-20200704165042839.png" alt="image-20200704165042839"></p>
+</li>
+<li><p>调整网络</p>
+<p><img src="/images/image-20200704165424029.png" alt="image-20200704165424029"></p>
+</li>
+</ol>
+<h2 id="选择安装模式与开机"><a href="#选择安装模式与开机" class="headerlink" title="选择安装模式与开机"></a>选择安装模式与开机</h2><p>使用光盘镜像文件开机后，就会出现如下画面：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_01.jpg" alt="选择安装模式"></p>
+<p>图中选项从上而下，分别是：</p>
+<ol>
+<li>正常安装</li>
+<li>测试光盘后再安装系统</li>
+<li>进入出错模式，该模式下有更多的选项，分别是<ul>
+<li>以图形接口安装系统</li>
+<li>救援模式</li>
+<li>内存测试</li>
+<li>有本机磁盘开机，不由光盘开机</li>
+</ul>
+</li>
+</ol>
+<p>由于我们的磁盘容量只有40GB，系统会默认使用MBR分区表，为了改用GPT分区表，我们需要在开机核心参数内添加<code>inst.gpt</code>字段。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_02.jpg" alt="添加核心参数修改安装程序"></p>
+<p>之后，按下回车，系统会开始侦测你的硬件信息。之后就进入到正式的安装流程。安装画面的如下：</p>
+<img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_05.jpg" alt="安装画面" style="zoom:80%;" />
+
+<p>对于上图中的在地设定，软件等设置很是简单，不多做描写。</p>
+<h2 id="磁盘分区与文件系统设置"><a href="#磁盘分区与文件系统设置" class="headerlink" title="磁盘分区与文件系统设置"></a>磁盘分区与文件系统设置</h2><p>点选“系统”项目下的“安装目的地”，之后便会进入如下画面：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_11.jpg" alt="选择要安装Linux的硬盘，并选择手动分区模式"></p>
+<p>如果硬盘中存在旧系统，则在安装Centos之前要清除旧的系统，即删掉旧分区。如果是全新的硬盘就可以省略该步骤。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_12.jpg" alt="删除旧的分区"></p>
+<p>之后开始安装磁盘分区规划对磁盘进行分区。</p>
+<p><strong>注意，如果开机检测程序为UEFI，则要划分出一个UEFI支持分区。</strong></p>
+<blockquote>
+<p>设备类型分为3种：</p>
+<ol>
+<li>标准分区：类似/dev/sda1之类的分区</li>
+<li>LVM：一种可以弹性增加/削减文件系统容量的设备设置。</li>
+<li>LVM简单配置：与传统LVM直接分配固定的容量不同，它可以让你在使用多少容量时才分配磁盘多少容量给你。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>文件系统分为以下几种：</p>
+<ol>
+<li>ext2/ext3/ext4：Linux早期使用的文件系统类型。ext3/ext4多了日志的记录，复原系统比较快。由于磁盘容量越来越大，该文件系统已经较少使用。</li>
+<li>swap：磁盘仿真为内存，不需要指定挂载点</li>
+<li>BIOS boot：GPT分区表可能会使用到的项目，如果使用MBR分区，就不需要该项目</li>
+<li>xfs：CentOS默认的文件系统，对于大容量的磁盘管理非常好，格式化速度快。</li>
+<li>vfat：同时被Linux与Windows支持的文件系统类型。</li>
+</ol>
+</blockquote>
+<p>最终完成分区应该如下图所示：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_24.jpg" alt="完成分区"></p>
+<h2 id="核心管理与网络设置"><a href="#核心管理与网络设置" class="headerlink" title="核心管理与网络设置"></a>核心管理与网络设置</h2><p>KDUMP，主要在处理，当Linux系统因为核心问题导致的死机事件时，会将该死机时间的内存数据存储起来的一项功能。可以开启，也可以不开启。</p>
+<p>网络设置如下图所示：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_27.jpg" alt="网络设置"></p>
+<p>设置开机自动启动网络的方式如下：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_28.jpg" alt="开机自启网络"></p>
+<p>之后按如下方式配置网卡：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_29.jpg" alt="手动配置ip"></p>
+<p>修改主机名称：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_30.jpg" alt="修改主机名称"></p>
+<p>至此，所有的设置都已完成，开始安装OS。</p>
+<p>接下来的开机之后的首次设置较为简单，可以照系统提示完成。</p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><ol>
+<li><p>默认使用MBR分区方式的情况下，在第二颗SATA磁盘中，分区“六个有用”的分区（具有文件系统的），此外，已知有两个primary的分区类型。请问六个分区的文件名？</p>
+<p><em>/dev/sdb1 (primary)</em></p>
+<p><em>/dev/sdb2 (primary)</em></p>
+<p><em>/dev/sdb3 (extended)</em></p>
+<p><em>/dev/sdb5,/dev/sdb6,/dev/sdb7,/dev/sdb8 (logical)</em></p>
+<p><em>其中逻辑分区的容量总和为/dev/sdb3的容量大小</em></p>
+</li>
+<li><p>软件磁盘阵列的设备文件名为何？</p>
+<p><em>RAID：/dev/md[0-127]</em></p>
 </li>
 </ol>
 ]]></content>
@@ -1093,199 +1336,6 @@
 </li>
 </ol>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">逻辑区块地址，GPT将磁盘所有区块以LBA（默认为512 Bytes）来规划，第一个LBA称为LBA0</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（3）安装Centos7.x</title>
-    <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
-    <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
-<li><p>该主机的定位：用来练习Linux的相关技术，所以几乎所有的数据都要安装进来。故选择Everything的Distribution版本。</p>
-</li>
-<li><p>选择的distribution：CentOS 7.x</p>
-<div class="note info"><p>阿里云镜像下载网址：&lt; <a href="http://mirrors.aliyun.com/centos/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/</a> &gt; </p>
-</div>
-</li>
-<li><p>硬件配置：</p>
-<ul>
-<li>CPU：intel i5-8250U，<em>这里使用的CPU是我电脑上的</em></li>
-<li>内存：1.2G左右</li>
-<li>硬盘：一颗40GB左右的VirtI/O芯片组的磁盘</li>
-<li>网卡：使用桥接的方式设置了对外网卡，Centos本身就有提供驱动程序，所以可以直接抓到网卡</li>
-<li>显卡：入门级显卡即可</li>
-<li>I/O设备：不做要求</li>
-</ul>
-</li>
-<li><p>磁盘分区规划</p>
-<p>设置成使用GPT分区表来配置磁盘。虽然开机检测程序UEFI可以直接识别GPT分区表，但是开机检测程序BIOS只能读取第一阶段的boot loader。所以，对于GPT格式的磁盘，BIOS boot这个分区还是建议划分的。</p>
-<table>
-<thead>
-<tr>
-<th>所需目录/装置</th>
-<th>磁盘容量</th>
-<th>文件系统</th>
-<th>分区格式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BIOS boot</td>
-<td>2MB</td>
-<td>系统自订</td>
-<td>标准分区</td>
-</tr>
-<tr>
-<td>/boot</td>
-<td>1GB</td>
-<td>xfs</td>
-<td>标准分区</td>
-</tr>
-<tr>
-<td>/</td>
-<td>10GB</td>
-<td>xfs</td>
-<td>LVM 方式</td>
-</tr>
-<tr>
-<td>/home</td>
-<td>5GB</td>
-<td>xfs</td>
-<td>LVM 方式</td>
-</tr>
-<tr>
-<td>swap</td>
-<td>1GB</td>
-<td>swap</td>
-<td>LVM 方式</td>
-</tr>
-</tbody></table>
-<p>如果，你的开机检测程序为UEFI的话，那么还需要划分出一个UEFI支持的分区。</p>
-</li>
-<li><p>选择软件：含有x接口的服务器软件的方式来安装。</p>
-</li>
-<li><p>开机检测程序：BIOS</p>
-</li>
-</ol>
-<h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><ol>
-<li>虚拟机软件：virtualbox</li>
-<li>系统：centos7.x</li>
-</ol>
-<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li>调整开机媒体（BIOS）：使用CD/DVD光盘开机</li>
-<li>选择安装模式与开机</li>
-<li>选择语系</li>
-<li>软件选择</li>
-<li>磁盘分区</li>
-<li>开机管理程序，网络，时区设置与root密码</li>
-<li>安装后的首次设置：包括使用者与防火墙等</li>
-</ol>
-<h2 id="虚拟机创建与调整开机媒体"><a href="#虚拟机创建与调整开机媒体" class="headerlink" title="虚拟机创建与调整开机媒体"></a>虚拟机创建与调整开机媒体</h2><ol>
-<li><p>新建虚拟机</p>
-<p><img src="/images/image-20200704163911908.png" alt="image-20200704163911908"></p>
-<p><img src="/images/image-20200704164238660.png" alt="image-20200704164238660"></p>
-</li>
-<li><p>创建虚拟硬盘</p>
-<p><img src="/images/image-20200704164403712.png" alt="image-20200704164403712"></p>
-</li>
-<li><p>至此成功创建一台虚拟机，点击设置，先将镜像文件载入光盘</p>
-<p><img src="/images/image-20200704164843754.png" alt="image-20200704164843754"></p>
-</li>
-<li><p>调整开机媒体顺序</p>
-<p><img src="/images/image-20200704165042839.png" alt="image-20200704165042839"></p>
-</li>
-<li><p>调整网络</p>
-<p><img src="/images/image-20200704165424029.png" alt="image-20200704165424029"></p>
-</li>
-</ol>
-<h2 id="选择安装模式与开机"><a href="#选择安装模式与开机" class="headerlink" title="选择安装模式与开机"></a>选择安装模式与开机</h2><p>使用光盘镜像文件开机后，就会出现如下画面：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_01.jpg" alt="选择安装模式"></p>
-<p>图中选项从上而下，分别是：</p>
-<ol>
-<li>正常安装</li>
-<li>测试光盘后再安装系统</li>
-<li>进入出错模式，该模式下有更多的选项，分别是<ul>
-<li>以图形接口安装系统</li>
-<li>救援模式</li>
-<li>内存测试</li>
-<li>有本机磁盘开机，不由光盘开机</li>
-</ul>
-</li>
-</ol>
-<p>由于我们的磁盘容量只有40GB，系统会默认使用MBR分区表，为了改用GPT分区表，我们需要在开机核心参数内添加<code>inst.gpt</code>字段。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_02.jpg" alt="添加核心参数修改安装程序"></p>
-<p>之后，按下回车，系统会开始侦测你的硬件信息。之后就进入到正式的安装流程。安装画面的如下：</p>
-<img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_05.jpg" alt="安装画面" style="zoom:80%;" />
-
-<p>对于上图中的在地设定，软件等设置很是简单，不多做描写。</p>
-<h2 id="磁盘分区与文件系统设置"><a href="#磁盘分区与文件系统设置" class="headerlink" title="磁盘分区与文件系统设置"></a>磁盘分区与文件系统设置</h2><p>点选“系统”项目下的“安装目的地”，之后便会进入如下画面：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_11.jpg" alt="选择要安装Linux的硬盘，并选择手动分区模式"></p>
-<p>如果硬盘中存在旧系统，则在安装Centos之前要清除旧的系统，即删掉旧分区。如果是全新的硬盘就可以省略该步骤。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_12.jpg" alt="删除旧的分区"></p>
-<p>之后开始安装磁盘分区规划对磁盘进行分区。</p>
-<p><strong>注意，如果开机检测程序为UEFI，则要划分出一个UEFI支持分区。</strong></p>
-<blockquote>
-<p>设备类型分为3种：</p>
-<ol>
-<li>标准分区：类似/dev/sda1之类的分区</li>
-<li>LVM：一种可以弹性增加/削减文件系统容量的设备设置。</li>
-<li>LVM简单配置：与传统LVM直接分配固定的容量不同，它可以让你在使用多少容量时才分配磁盘多少容量给你。</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>文件系统分为以下几种：</p>
-<ol>
-<li>ext2/ext3/ext4：Linux早期使用的文件系统类型。ext3/ext4多了日志的记录，复原系统比较快。由于磁盘容量越来越大，该文件系统已经较少使用。</li>
-<li>swap：磁盘仿真为内存，不需要指定挂载点</li>
-<li>BIOS boot：GPT分区表可能会使用到的项目，如果使用MBR分区，就不需要该项目</li>
-<li>xfs：CentOS默认的文件系统，对于大容量的磁盘管理非常好，格式化速度快。</li>
-<li>vfat：同时被Linux与Windows支持的文件系统类型。</li>
-</ol>
-</blockquote>
-<p>最终完成分区应该如下图所示：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_24.jpg" alt="完成分区"></p>
-<h2 id="核心管理与网络设置"><a href="#核心管理与网络设置" class="headerlink" title="核心管理与网络设置"></a>核心管理与网络设置</h2><p>KDUMP，主要在处理，当Linux系统因为核心问题导致的死机事件时，会将该死机时间的内存数据存储起来的一项功能。可以开启，也可以不开启。</p>
-<p>网络设置如下图所示：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_27.jpg" alt="网络设置"></p>
-<p>设置开机自动启动网络的方式如下：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_28.jpg" alt="开机自启网络"></p>
-<p>之后按如下方式配置网卡：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_29.jpg" alt="手动配置ip"></p>
-<p>修改主机名称：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0157installcentos7/centos7_30.jpg" alt="修改主机名称"></p>
-<p>至此，所有的设置都已完成，开始安装OS。</p>
-<p>接下来的开机之后的首次设置较为简单，可以照系统提示完成。</p>
-<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><ol>
-<li><p>默认使用MBR分区方式的情况下，在第二颗SATA磁盘中，分区“六个有用”的分区（具有文件系统的），此外，已知有两个primary的分区类型。请问六个分区的文件名？</p>
-<p><em>/dev/sdb1 (primary)</em></p>
-<p><em>/dev/sdb2 (primary)</em></p>
-<p><em>/dev/sdb3 (extended)</em></p>
-<p><em>/dev/sdb5,/dev/sdb6,/dev/sdb7,/dev/sdb8 (logical)</em></p>
-<p><em>其中逻辑分区的容量总和为/dev/sdb3的容量大小</em></p>
-</li>
-<li><p>软件磁盘阵列的设备文件名为何？</p>
-<p><em>RAID：/dev/md[0-127]</em></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
-    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>技术文章</category>
       </categories>
