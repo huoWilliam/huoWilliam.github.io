@@ -23,31 +23,21 @@
   </script>
 
 
-  <meta name="description" content="前馈神经网络简介">
+  <meta name="description" content="实现手写板，体验神经网络的强大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="白话深度学习与TensorFlow（4）——前馈神经网络">
-<meta property="og:url" content="http://huowilliam.github.io/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:title" content="白话深度学习与TensorFlow（5）——手写板功能">
+<meta property="og:url" content="http://huowilliam.github.io/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/index.html">
 <meta property="og:site_name" content="美女剑豪带着肉">
-<meta property="og:description" content="前馈神经网络简介">
+<meta property="og:description" content="实现手写板，体验神经网络的强大">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00114.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00115.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00116.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00117.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00119.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00121.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00162.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00163.jpg">
-<meta property="article:published_time" content="2020-07-21T09:49:59.000Z">
-<meta property="article:modified_time" content="2020-07-26T15:09:50.665Z">
+<meta property="article:published_time" content="2020-07-26T15:13:10.000Z">
+<meta property="article:modified_time" content="2020-07-26T15:28:43.522Z">
 <meta property="article:author" content="William">
 <meta property="article:tag" content="DLearning">
 <meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg">
 
-<link rel="canonical" href="http://huowilliam.github.io/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+<link rel="canonical" href="http://huowilliam.github.io/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/">
 
 
 <script id="page-configurations">
@@ -60,7 +50,7 @@
   };
 </script>
 
-  <title>白话深度学习与TensorFlow（4）——前馈神经网络 | 美女剑豪带着肉</title>
+  <title>白话深度学习与TensorFlow（5）——手写板功能 | 美女剑豪带着肉</title>
   
 
 
@@ -219,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前馈神经网络"><span class="nav-number">1.</span> <span class="nav-text">前馈神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.1.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归的训练"><span class="nav-number">1.2.</span> <span class="nav-text">线性回归的训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的训练"><span class="nav-number">1.3.</span> <span class="nav-text">神经网络的训练</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#手写板功能"><span class="nav-number">1.</span> <span class="nav-text">手写板功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIST介绍"><span class="nav-number">1.1.</span> <span class="nav-text">MNIST介绍</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -307,7 +297,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_luffy.jpg">
@@ -320,7 +310,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          白话深度学习与TensorFlow（4）——前馈神经网络
+          白话深度学习与TensorFlow（5）——手写板功能
         </h1>
 
         <div class="post-meta">
@@ -329,16 +319,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-21 17:49:59" itemprop="dateCreated datePublished" datetime="2020-07-21T17:49:59+08:00">2020-07-21</time>
+              <time title="创建时间：2020-07-26 23:13:10 / 修改时间：23:28:43" itemprop="dateCreated datePublished" datetime="2020-07-26T23:13:10+08:00">2020-07-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-26 23:09:50" itemprop="dateModified" datetime="2020-07-26T23:09:50+08:00">2020-07-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -350,7 +334,7 @@
             </span>
 
           
-            <div class="post-description">前馈神经网络简介</div>
+            <div class="post-description">实现手写板，体验神经网络的强大</div>
 
         </div>
       </header>
@@ -361,44 +345,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前馈神经网络"><a href="#前馈神经网络" class="headerlink" title="前馈神经网络"></a>前馈神经网络</h1><p>在该神经网络中，各神经元从输入层开始，接收前一级输入，并输入到下一级，直至输出层。整个网络中无反馈，可用一个有向无环图（directed acyclic graph，DAG）表示。</p>
-<p>前馈神经网络有两种：一种叫Back Propagation Networks——<strong>反向传播网络（以下简称BP网络）</strong>，一种叫RBF Network——<strong>径向基函数神经网络</strong>。</p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg" alt="BP网络结构"></p>
-<p>在上图的两种网络都是前馈神经网络结构。一个向量从左边进入，经过网络的运算从右边产生一个输出结果。</p>
-<h2 id="线性回归的训练"><a href="#线性回归的训练" class="headerlink" title="线性回归的训练"></a>线性回归的训练</h2><ol>
-<li><p>样本</p>
-<p>假设我们具有一堆样本数据（x，y），这些样本数据符合线性关系：y = wx + b，之后的问题便是求解待定系数w和b。</p>
-</li>
-<li><p>开始训练</p>
-<p>目前的问题是求解y = wx + b中的w和b。假设在拟合的过程中有一个参数e，表示误差，则线性关系可表示为：<strong>y = wx + b + e</strong></p>
-<p>当我取定任何一个w和b的时候，只要代入一个x和对应的y就一定会产生一个e来表示这个误差。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00114.jpg" alt="误差"></p>
-<p>我们将n（假设n=10）个e的大小做加和来表示一个全局的误差总量，表达式如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00115.jpg" alt="误差总量"></p>
-<p><strong>注意</strong>，e表示的是误差，也就是说e是正数是误差，e是负数也是误差，这种误差我们称为<strong>残差</strong>。既然e本身是正是负都应该算作残差，那么让其内部正负抵消显然不合适，这种情况下应该把每个e都做一个非负的处理，或者取绝对值或者取平方，都能达到类似的效果。我们在这里就取平方看看会有什么结果。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00116.jpg" alt="残差"></p>
-<p>对于残差平方展开后得到的多项式中，x和y都是已知的样本数据，故Loss可以改写为如下形式：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00117.jpg" alt="全局Loss函数"></p>
-<p>其中的A，B，C，D，E，F全部都是常数系数，w和b是未知数。</p>
-<p>现在要做一件事，那就是找到一个比较好的w和一个比较好的b，使得整个Loss尽可能小，越接近0越好，说明拟合的误差越小。</p>
-<p>我们可以通过迭代不断地学习，来逐渐逼近这个模型中待定系数w和b的最佳值位置。首先初始化一个w<del>0</del>和一个b<del>0</del>，将其带入到</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00119.jpg" alt="Loss"></p>
-<p>得到一个值Loss<del>0</del>。这个时候（w<del>0</del>，b<del>0</del>，Loss<del>0</del>）会出现在Loss函数图像上的某个位置，这个位置可能距离我们要找的极值点还差很多，所以要继续迭代。我们可以使用<strong>梯度下降</strong>的方法来求解，这是一种用来<strong>解决凸优化问题</strong>的通用方法。梯度下降的方法如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00121.jpg" alt="梯度下降法"></p>
-<p>这表示的是一个更新逻辑过程，xn+1 和xn 分别表示两个临近迭代中的x值，xn+1 是xn 更新后的下一次迭代的值。其中希腊字母η，称为“学习率”，是挪动“步长”的基数，设得大就挪动得多，设得小就挪动得少，在学习伊始由编程序的人给赋值。</p>
-<p>一轮一轮进行迭代，直到每次更新的值非常小，损失值不在明显减少就可以判断为训练结束。此时得到的（w，b）值就是我们要求的模型。</p>
-<div class="note info"><p>注意：不求梯度（偏导数）的情况下，通过改变w或b的值是一定能够比较出来移动的方向的，但是问题是不知道移动多少比较适宜。而有了偏导数与学习率η的乘积后，当这个点逐步接近“碗底”的时候，偏导数也随之降低，移动的步伐也会慢慢减小，收敛更为平缓，不会轻易出现“步子太大”而越过最低点的情况。</p>
-</div>
-</li>
-<li><p>模型工作</p>
-<p>把一个输入的x带入到训练好的y = wx + b中，使它输出一个y。</p>
-</li>
-</ol>
-<h2 id="神经网络的训练"><a href="#神经网络的训练" class="headerlink" title="神经网络的训练"></a>神经网络的训练</h2><p>有一两层的神经网络如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00162.jpg" alt="神经网络"></p>
-<p>该网络用函数表达式去写的话如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00163.jpg" alt="函数表示"></p>
-<p>把整个网络里所有的待定系数wh 、bh 、wo 、bo 都初始化一个值，然后照猫画虎地按照刚才的套路，定义一个描述误差的损失函数，然后将wh 、bh 、wo 、bo 逐步变化，直到损失函数减小到足够小就OK了。</p>
+        <h1 id="手写板功能"><a href="#手写板功能" class="headerlink" title="手写板功能"></a>手写板功能</h1><p>手写板功能，一个基于MNIST数据集的神经网络实验。</p>
+<h2 id="MNIST介绍"><a href="#MNIST介绍" class="headerlink" title="MNIST介绍"></a>MNIST介绍</h2><p>MNIST，是一个非常庞大的手写数字数据库，是网上著名的公开数据集之一。在网上有不少这种数据集，都是做机器学习和深度学习的研究机构喜欢拿来做训练和测试的一些标准化项目。</p>
+<p>MNIST的官方网址是：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">点击这里</a></p>
+<p>我们需要从官方网站上下载以下4个数据文件：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>·train-images-idx3-ubyte.gz</td>
+<td>训练图片</td>
+</tr>
+<tr>
+<td>·train-labels-idx1-ubyte.gz</td>
+<td>训练标签</td>
+</tr>
+<tr>
+<td>·t10k-images-idx3-ubyte.gz</td>
+<td>测试图片</td>
+</tr>
+<tr>
+<td>·t10k-labels-idx1-ubyte.gz</td>
+<td>测试标签</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -418,12 +392,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94TensorFlow%E6%A1%86%E6%9E%B6%E7%89%B9%E6%80%A7%E4%B8%8E%E5%AE%89%E8%A3%85/" rel="prev" title="白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装">
-      <i class="fa fa-chevron-left"></i> 白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装
+    <a href="/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="prev" title="白话深度学习与TensorFlow（4）——前馈神经网络">
+      <i class="fa fa-chevron-left"></i> 白话深度学习与TensorFlow（4）——前馈神经网络
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/" rel="next" title="白话深度学习与TensorFlow（5）——手写板功能">
-      白话深度学习与TensorFlow（5）——手写板功能 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/28/%E4%B8%80%E6%89%8B%E5%A5%BD%E7%89%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A2%AB%E9%82%A3%E4%BD%8D%E4%B8%80%E6%8A%8A%E6%89%8B%E6%89%93%E7%83%82%E7%9A%84%EF%BC%9F/" rel="next" title="一手好牌，怎么被那位一把手打烂的？">
+      一手好牌，怎么被那位一把手打烂的？ <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

@@ -23,31 +23,26 @@
   </script>
 
 
-  <meta name="description" content="前馈神经网络简介">
+  <meta name="description" content="转载自中国数字时代《满手好牌，怎么被那位一把手打烂的？》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="白话深度学习与TensorFlow（4）——前馈神经网络">
-<meta property="og:url" content="http://huowilliam.github.io/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:title" content="一手好牌，怎么被那位一把手打烂的？">
+<meta property="og:url" content="http://huowilliam.github.io/2020/07/28/%E4%B8%80%E6%89%8B%E5%A5%BD%E7%89%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A2%AB%E9%82%A3%E4%BD%8D%E4%B8%80%E6%8A%8A%E6%89%8B%E6%89%93%E7%83%82%E7%9A%84%EF%BC%9F/index.html">
 <meta property="og:site_name" content="美女剑豪带着肉">
-<meta property="og:description" content="前馈神经网络简介">
+<meta property="og:description" content="转载自中国数字时代《满手好牌，怎么被那位一把手打烂的？》">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00114.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00115.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00116.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00117.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00119.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00121.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00162.jpg">
-<meta property="og:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00163.jpg">
-<meta property="article:published_time" content="2020-07-21T09:49:59.000Z">
-<meta property="article:modified_time" content="2020-07-26T15:09:50.665Z">
+<meta property="og:image" content="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D1-31-300x210.jpg">
+<meta property="og:image" content="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D2-5-300x172.jpg">
+<meta property="og:image" content="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D3-5-300x292.jpg">
+<meta property="og:image" content="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D4-5-300x268.jpg">
+<meta property="article:published_time" content="2020-07-28T08:26:14.000Z">
+<meta property="article:modified_time" content="2020-07-28T08:29:13.106Z">
 <meta property="article:author" content="William">
-<meta property="article:tag" content="DLearning">
-<meta property="article:tag" content="AI">
+<meta property="article:tag" content="politic">
+<meta property="article:tag" content="history">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg">
+<meta name="twitter:image" content="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D1-31-300x210.jpg">
 
-<link rel="canonical" href="http://huowilliam.github.io/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+<link rel="canonical" href="http://huowilliam.github.io/2020/07/28/%E4%B8%80%E6%89%8B%E5%A5%BD%E7%89%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A2%AB%E9%82%A3%E4%BD%8D%E4%B8%80%E6%8A%8A%E6%89%8B%E6%89%93%E7%83%82%E7%9A%84%EF%BC%9F/">
 
 
 <script id="page-configurations">
@@ -60,7 +55,7 @@
   };
 </script>
 
-  <title>白话深度学习与TensorFlow（4）——前馈神经网络 | 美女剑豪带着肉</title>
+  <title>一手好牌，怎么被那位一把手打烂的？ | 美女剑豪带着肉</title>
   
 
 
@@ -207,7 +202,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -219,7 +214,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前馈神经网络"><span class="nav-number">1.</span> <span class="nav-text">前馈神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.1.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归的训练"><span class="nav-number">1.2.</span> <span class="nav-text">线性回归的训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的训练"><span class="nav-number">1.3.</span> <span class="nav-text">神经网络的训练</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -307,7 +301,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/21/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/28/%E4%B8%80%E6%89%8B%E5%A5%BD%E7%89%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A2%AB%E9%82%A3%E4%BD%8D%E4%B8%80%E6%8A%8A%E6%89%8B%E6%89%93%E7%83%82%E7%9A%84%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_luffy.jpg">
@@ -320,7 +314,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          白话深度学习与TensorFlow（4）——前馈神经网络
+          一手好牌，怎么被那位一把手打烂的？
         </h1>
 
         <div class="post-meta">
@@ -329,28 +323,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-21 17:49:59" itemprop="dateCreated datePublished" datetime="2020-07-21T17:49:59+08:00">2020-07-21</time>
+              <time title="创建时间：2020-07-28 16:26:14 / 修改时间：16:29:13" itemprop="dateCreated datePublished" datetime="2020-07-28T16:26:14+08:00">2020-07-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-26 23:09:50" itemprop="dateModified" datetime="2020-07-26T23:09:50+08:00">2020-07-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
+                  <a href="/categories/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/" itemprop="url" rel="index"><span itemprop="name">转载文章</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">前馈神经网络简介</div>
+            <div class="post-description">转载自中国数字时代《满手好牌，怎么被那位一把手打烂的？》</div>
 
         </div>
       </header>
@@ -361,44 +349,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前馈神经网络"><a href="#前馈神经网络" class="headerlink" title="前馈神经网络"></a>前馈神经网络</h1><p>在该神经网络中，各神经元从输入层开始，接收前一级输入，并输入到下一级，直至输出层。整个网络中无反馈，可用一个有向无环图（directed acyclic graph，DAG）表示。</p>
-<p>前馈神经网络有两种：一种叫Back Propagation Networks——<strong>反向传播网络（以下简称BP网络）</strong>，一种叫RBF Network——<strong>径向基函数神经网络</strong>。</p>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00070.jpg" alt="BP网络结构"></p>
-<p>在上图的两种网络都是前馈神经网络结构。一个向量从左边进入，经过网络的运算从右边产生一个输出结果。</p>
-<h2 id="线性回归的训练"><a href="#线性回归的训练" class="headerlink" title="线性回归的训练"></a>线性回归的训练</h2><ol>
-<li><p>样本</p>
-<p>假设我们具有一堆样本数据（x，y），这些样本数据符合线性关系：y = wx + b，之后的问题便是求解待定系数w和b。</p>
-</li>
-<li><p>开始训练</p>
-<p>目前的问题是求解y = wx + b中的w和b。假设在拟合的过程中有一个参数e，表示误差，则线性关系可表示为：<strong>y = wx + b + e</strong></p>
-<p>当我取定任何一个w和b的时候，只要代入一个x和对应的y就一定会产生一个e来表示这个误差。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00114.jpg" alt="误差"></p>
-<p>我们将n（假设n=10）个e的大小做加和来表示一个全局的误差总量，表达式如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00115.jpg" alt="误差总量"></p>
-<p><strong>注意</strong>，e表示的是误差，也就是说e是正数是误差，e是负数也是误差，这种误差我们称为<strong>残差</strong>。既然e本身是正是负都应该算作残差，那么让其内部正负抵消显然不合适，这种情况下应该把每个e都做一个非负的处理，或者取绝对值或者取平方，都能达到类似的效果。我们在这里就取平方看看会有什么结果。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00116.jpg" alt="残差"></p>
-<p>对于残差平方展开后得到的多项式中，x和y都是已知的样本数据，故Loss可以改写为如下形式：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00117.jpg" alt="全局Loss函数"></p>
-<p>其中的A，B，C，D，E，F全部都是常数系数，w和b是未知数。</p>
-<p>现在要做一件事，那就是找到一个比较好的w和一个比较好的b，使得整个Loss尽可能小，越接近0越好，说明拟合的误差越小。</p>
-<p>我们可以通过迭代不断地学习，来逐渐逼近这个模型中待定系数w和b的最佳值位置。首先初始化一个w<del>0</del>和一个b<del>0</del>，将其带入到</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00119.jpg" alt="Loss"></p>
-<p>得到一个值Loss<del>0</del>。这个时候（w<del>0</del>，b<del>0</del>，Loss<del>0</del>）会出现在Loss函数图像上的某个位置，这个位置可能距离我们要找的极值点还差很多，所以要继续迭代。我们可以使用<strong>梯度下降</strong>的方法来求解，这是一种用来<strong>解决凸优化问题</strong>的通用方法。梯度下降的方法如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00121.jpg" alt="梯度下降法"></p>
-<p>这表示的是一个更新逻辑过程，xn+1 和xn 分别表示两个临近迭代中的x值，xn+1 是xn 更新后的下一次迭代的值。其中希腊字母η，称为“学习率”，是挪动“步长”的基数，设得大就挪动得多，设得小就挪动得少，在学习伊始由编程序的人给赋值。</p>
-<p>一轮一轮进行迭代，直到每次更新的值非常小，损失值不在明显减少就可以判断为训练结束。此时得到的（w，b）值就是我们要求的模型。</p>
-<div class="note info"><p>注意：不求梯度（偏导数）的情况下，通过改变w或b的值是一定能够比较出来移动的方向的，但是问题是不知道移动多少比较适宜。而有了偏导数与学习率η的乘积后，当这个点逐步接近“碗底”的时候，偏导数也随之降低，移动的步伐也会慢慢减小，收敛更为平缓，不会轻易出现“步子太大”而越过最低点的情况。</p>
-</div>
-</li>
-<li><p>模型工作</p>
-<p>把一个输入的x带入到训练好的y = wx + b中，使它输出一个y。</p>
-</li>
-</ol>
-<h2 id="神经网络的训练"><a href="#神经网络的训练" class="headerlink" title="神经网络的训练"></a>神经网络的训练</h2><p>有一两层的神经网络如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00162.jpg" alt="神经网络"></p>
-<p>该网络用函数表达式去写的话如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00163.jpg" alt="函数表示"></p>
-<p>把整个网络里所有的待定系数wh 、bh 、wo 、bo 都初始化一个值，然后照猫画虎地按照刚才的套路，定义一个描述误差的损失函数，然后将wh 、bh 、wo 、bo 逐步变化，直到损失函数减小到足够小就OK了。</p>
+        <p>你可能难以相信，中国人千百年来所津津乐道的<strong>“贞观之治”</strong>结束的时候，盛世大唐的国力还没有达到五十年前的水准，也就是隋朝的<strong>“开皇之治”</strong>后期的水准。</p>
+<p>原因是，贞观之治开始前，隋炀帝的已经将国力消耗殆尽，随后又引发了隋唐更迭过程中十几年的战乱，导致人口急剧减少，国家极其衰弱。</p>
+<p>社会财富的积累，人口的增长，一方面需要给百姓减负，让他们日子能够过好，能够放心地生孩子，生下孩子能够养大，休养百姓才有国家生息。另外一方面，也需要相当时间的积累，几代人、十几代人的辛勤劳动，财富代代叠加，才能形成比较充盈的国力。贞观之治的效果，也需要时间才能充分显示。隋朝开皇时代的繁荣也不是天赐，而是长时间地执行正确的政策，加上杨文的父亲一身谨小慎微，宵衣旰食才得到的。</p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D1-31-300x210.jpg" alt="img"></p>
+<p>杨广拿到了一手好牌。他可以说是非常非常幸运的，比唐太宗李世民还要幸运得多。他含着金钥匙出生，十一岁就被封为晋王，三十五岁当上了皇帝，而且他接手的这个帝国是当时世界最强大的帝国，当时的隋朝国力强盛，国势蒸蒸日上。上天给了他这样一把好得不能再好的好牌，他只要正常出牌，就能舒舒服服地做他的人生大赢家，命运对杨广已经无法更加眷顾了。</p>
+<p>不过最终他却成了输家，而且是大大的输家，输得一败涂地。他不但自身横死，而且葬送了他父亲一世心血造就的帝国，甚至不可避免地祸及妻子儿孙，也给天下百姓带来深重的灾难。他自己在年富力强的时候，被他信任的部下处死。他的皇后，被他的部下宇文化及抢去做妾，后来又被其他人辗转抢夺，做过很多人的玩物。他的子孙被造反者当作工具使用，不用以后就给予处死。强大的隋朝在他手上瓦解，国家落入李渊父子手中。他背上昏君和暴君的恶名，永远也无法洗清。</p>
+<p><strong><a href="https://chinadigitaltimes.net/chinese/tag/杨广/" target="_blank" rel="noopener">杨广</a>，他是怎么把一手好牌打成稀烂的？</strong></p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D2-5-300x172.jpg" alt="img"></p>
+<p><strong>首先，他为了获得伟大政绩和奢侈享受，不断兴建宏伟的工程。</strong>在十几年时间里，他大肆营建东都洛阳，在各地修建豪华的离宫和别馆，还有巡游各地的壮观的驰道，其中工程量最大的，当然是举世闻名的千年大计<strong>京杭大运河</strong>。这些工程无一不需要耗费大量的财富，并且需要调动大量的民众。这些工程很多并不是必要的，也有些是需要但是并不那么急迫的。大运河固然是大大有利于巩固国家一统，商品人员往来，但是短时间内完成这个巨大工程，也会给百姓带来的太过沉重的负担。</p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D3-5-300x292.jpg" alt="img"></p>
+<p><strong>其次，他不断征讨周边的民族和国家。</strong>短短十来年，他向南征讨越南、琉球，向西征讨吐谷浑，向东北征讨契丹和高句丽。其中耗费人力物力最大、损失最惨重的是三次征讨高句丽，死伤的百姓达到数百万。这些战争大部分都是主动出击，并没有十分的必要。无穷无尽的战争带来的是大量的死伤，这点终于让百姓忍无可忍了。</p>
+<p><strong>其三，他为了“万邦来朝”的假象和虚名，大肆挥霍国家财富。</strong>他带着庞大的随从队伍，摆着豪华的排场，跑到北方草原会见突厥的可汗，然后又召见北方各族的首领。这些人这么给面子远道而来，当然要赏赐，他慷慨地赏赐那些首领以无数金银财宝和绫罗绸缎。然后又同样地跑去西域，在焉支山设下豪华营地，威逼利诱西域二十余国君主前来拜见，然后还是赏大量的赏赐，让这些人满载而归。他还在洛阳招俫周边数十个国家的使节和客商，举行大规模的盛会，极尽奢华的加以招待和赏赐。<strong>高颎和贺若弼等为建立隋朝立下大功的柱国重臣，认为给突厥赏赐太多，表示非常心痛，居然就被杨广处死，家人还被流放为奴。</strong>杨广豪气冲天地大撒钱财，其实也没有落到好名声，而是被外国的当作傻瓜冤大头。当时就有外国人在街上说，中国固然富有，但是也有很多衣不蔽体的穷人，干嘛要装着钱多花不完的样子？<strong>后来，受赏赐最多的突厥甚至发兵围困落魄的隋炀帝，差点把他打死。</strong></p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D4-5-300x268.jpg" alt="img"></p>
+<p>隋炀帝在短短十几年时间里，这么一番折腾下来，终于把天下给逼反了。全国烽火四起，大大小小的造反势力多达二百多股，最后分化组合成十几支强大的割据势力。而那些王公大臣，比如宠臣宇文化及和亲表弟李渊等人，也趁机出手，开始逐鹿中原，抢夺这大好江山。</p>
+<p><strong>杨广怎么把一个富裕强大的国家快速地给折腾没了呢？</strong></p>
+<p><strong>第一，他急于向世人证明自己的能力，也过于热衷树立个人的名声。</strong>杨广是通过阴谋手段成为储君的，上台前又经历了被废掉的凶险，他急迫间快刀斩乱麻，采取了弑父杀兄的残忍措施，才得以安然登上皇位。因为这些经历，他迫切地要做一番宏伟的事业，要让天下人认识他的超凡能力，颂扬他的伟大功绩。他不但想要超过他的父亲，他甚至要超过秦皇汉武。他太过急迫了，没想到的是，急功近利的结果反而是适得其反。</p>
+<p><strong>第二，他出身富贵，不懂得百姓疾苦，更不懂得尊重百姓的财产和生命。</strong>他的高贵出身，他一帆风顺的人生经历，使得他的眼里只有君主的无上威严，国家的宏图大业，而老百姓，只不过是一群蝼蚁罢了，或者只是完成自己目标的一把棋子而已，自己可以根据需要随心所欲地进行调配运用。</p>
+<p><strong>第三，他的权力完全没有制约，甚至连劝谏和真话都被他屏蔽了。</strong>他残酷地处死说真话和提意见的人，于是劝谏的人没有了。他重用说好听话和无原则服从的人，于是身边就只有奴才而没有能人了。于是乎，他可以独居深宫，肆意畅想，为所欲为，连一丝杂音都听不到，何等畅快！何等美妙！</p>
 
     </div>
 
@@ -408,8 +376,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/DLearning/" rel="tag"><i class="fa fa-tag"></i> DLearning</a>
-              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/politic/" rel="tag"><i class="fa fa-tag"></i> politic</a>
+              <a href="/tags/history/" rel="tag"><i class="fa fa-tag"></i> history</a>
           </div>
 
         
@@ -418,13 +386,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94TensorFlow%E6%A1%86%E6%9E%B6%E7%89%B9%E6%80%A7%E4%B8%8E%E5%AE%89%E8%A3%85/" rel="prev" title="白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装">
-      <i class="fa fa-chevron-left"></i> 白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装
+    <a href="/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/" rel="prev" title="白话深度学习与TensorFlow（5）——手写板功能">
+      <i class="fa fa-chevron-left"></i> 白话深度学习与TensorFlow（5）——手写板功能
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/" rel="next" title="白话深度学习与TensorFlow（5）——手写板功能">
-      白话深度学习与TensorFlow（5）——手写板功能 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
