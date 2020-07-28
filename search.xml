@@ -44,61 +44,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
-    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
-    <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
-<ol>
-<li><del>打开文件<code>/themes/next/layout/_macro/post.swig</code>,搜索关键字<mark class="label primary">rel=tag>#</mark></del></li>
-<li><del>将关键字中的<strong>#</strong>替换为<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></del></li>
-</ol>
-<p>对于NexT 7.x的设置方法已经发生了变化，具体的设置方法如下：</p>
-<ol>
-<li><p>打开文件<code>/themes/next/layout/_macro/post.njk</code>。</p>
-</li>
-<li><p>修改代码如下所示</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- set tag_indicate &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; if theme.tag_icon else &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br></pre></td></tr></table></figure>
+    <title>Hexo折腾记（4）——添加脚注的方法</title>
+    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
+<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<p>显示效果如下图所示：</p>
-<p><img src="/images/image-20200701000751413.png" alt="Hexo底部标签样式"></p>
-<h1 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h1><ol>
-<li><p>打开侧边栏头像显示</p>
-<p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，搜寻关键字avatar，将它的值设置成头像的连接地址。头像的链接地址可以是：</p>
-<table>
-<thead>
-<tr>
-<th align="left">地址</th>
-<th align="left">值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">完整的互联网 URI</td>
-<td align="left"><code>http://example.com/avatar.png</code></td>
-</tr>
-<tr>
-<td align="left">站点内的地址</td>
-<td align="left">将头像放置主题目录下的 <code>source/uploads/</code> （新建 uploads 目录若不存在） 配置为：<code>avatar: /uploads/avatar.png</code>或者 放置在 <code>source/images/</code> 目录下 配置为：<code>avatar: /images/avatar.png</code></td>
-</tr>
-</tbody></table>
-</li>
-<li><p>设置头像为圆形显示，并且鼠标放置上去后可旋转(optional)</p>
-<p>默认的头像是以方形为边框，通过以下方法，可以将头像的边框设置为圆形的。</p>
-<ul>
-<li><p>打开文件<code>/themes/next/source/css/_commom/components/sidebar/sidebar-author.styl</code></p>
-</li>
-<li><p>修改<mark class="label primary">.site-author-image</mark>的设置，如下所示</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/*start*/</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">60%</span></span><br><span class="line">  transition: <span class="number">2s</span> all;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.site-author-image</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*end*/</span></span><br></pre></td></tr></table></figure>
+<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
+<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<div class="note info"><p>在NexT 7.x.x版本后，已经不需要进行上述复杂的操作，只需在主题配置文件中的avatar元素内，将rounded与rotated的值设置为true即可。</p>
-</div>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
 
-<p>效果如下所示：</p>
-<p><img src="/images/avata_rotate.webp" alt="头像旋转"></p>
-</li>
-</ol>
+<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
+</div> 
 ]]></content>
       <categories>
         <category>博客搭建</category>
@@ -171,27 +131,82 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo折腾记（4）——添加脚注的方法</title>
-    <url>/2020/07/02/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%B3%A8%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="添加脚注"><a href="#添加脚注" class="headerlink" title="添加脚注"></a>添加脚注</h1><p>Typora的扩展语法支持脚注。但是，Hexo并不支持脚注，因此想要在Hexo上为文章内容添加脚注，必须借助于hexo-footnotes这款插件的帮助。安装该插件与使用的方法如下：</p>
-<h2 id="安装hexo-footnotes"><a href="#安装hexo-footnotes" class="headerlink" title="安装hexo-footnotes"></a>安装hexo-footnotes</h2><p>进入站点根目录，使用Git，输入如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></table></figure>
+    <title>Hexo折腾记（3）——修改文章底部标签与设置头像</title>
+    <url>/2020/06/30/Hexo%E6%8A%98%E8%85%BE%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E4%B8%8E%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F/</url>
+    <content><![CDATA[<h1 id="修改文章底部标签"><a href="#修改文章底部标签" class="headerlink" title="修改文章底部标签"></a>修改文章底部标签</h1><p>将文章底部标签前的#，改为Font Awesome图标的方法，如下所述：</p>
+<ol>
+<li><del>打开文件<code>/themes/next/layout/_macro/post.swig</code>,搜索关键字<mark class="label primary">rel=tag>#</mark></del></li>
+<li><del>将关键字中的<strong>#</strong>替换为<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></del></li>
+</ol>
+<p>对于NexT 7.x的设置方法已经发生了变化，具体的设置方法如下：</p>
+<ol>
+<li><p>打开文件<code>/themes/next/layout/_macro/post.njk</code>。</p>
+</li>
+<li><p>修改代码如下所示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- set tag_indicate &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; if theme.tag_icon else &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br></pre></td></tr></table></figure>
 
-<p>如果，你的hexo可以自动检测所有的插件，则不需要修改<mark class="label info"> 站点配置文件_config.yml</mark>。</p>
-<p>如果，不能自动检测插件的话，那么需要在<mark class="label primary"> 站点配置文件_config.yml</mark>中添加如下代码</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-footnotes</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>显示效果如下图所示：</p>
+<p><img src="/images/image-20200701000751413.png" alt="Hexo底部标签样式"></p>
+<h1 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h1><ol>
+<li><p>打开侧边栏头像显示</p>
+<p>编辑<mark class="label primary">主题配置文件_config.yml</mark>，搜寻关键字avatar，将它的值设置成头像的连接地址。头像的链接地址可以是：</p>
+<table>
+<thead>
+<tr>
+<th align="left">地址</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">完整的互联网 URI</td>
+<td align="left"><code>http://example.com/avatar.png</code></td>
+</tr>
+<tr>
+<td align="left">站点内的地址</td>
+<td align="left">将头像放置主题目录下的 <code>source/uploads/</code> （新建 uploads 目录若不存在） 配置为：<code>avatar: /uploads/avatar.png</code>或者 放置在 <code>source/images/</code> 目录下 配置为：<code>avatar: /images/avatar.png</code></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>设置头像为圆形显示，并且鼠标放置上去后可旋转(optional)</p>
+<p>默认的头像是以方形为边框，通过以下方法，可以将头像的边框设置为圆形的。</p>
+<ul>
+<li><p>打开文件<code>/themes/next/source/css/_commom/components/sidebar/sidebar-author.styl</code></p>
+</li>
+<li><p>修改<mark class="label primary">.site-author-image</mark>的设置，如下所示</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/*start*/</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">60%</span></span><br><span class="line">  transition: <span class="number">2s</span> all;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.site-author-image</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*end*/</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>该插件的语法与Typora的脚注语法相同，具体案例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<div class="note info"><p>在NexT 7.x.x版本后，已经不需要进行上述复杂的操作，只需在主题配置文件中的avatar元素内，将rounded与rotated的值设置为true即可。</p>
+</div>
 
-<div class="note info"><p>注脚的内容最好放在文章的末尾，否则可能出错 。</p>
-</div> 
+<p>效果如下所示：</p>
+<p><img src="/images/avata_rotate.webp" alt="头像旋转"></p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【我不是药神】生来平凡，诚勇无惧</title>
+    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -230,20 +245,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【霸王别姬】不疯魔，不成活</title>
-    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/06/11/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -270,51 +271,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【我不是药神】生来平凡，诚勇无惧</title>
-    <url>/2020/07/08/%E3%80%90%E6%88%91%E4%B8%8D%E6%98%AF%E8%8D%AF%E7%A5%9E%E3%80%91%E7%94%9F%E6%9D%A5%E5%B9%B3%E5%87%A1%EF%BC%8C%E8%AF%9A%E5%8B%87%E6%97%A0%E6%83%A7/</url>
-    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/ZiuqVjRzhuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>那药假不假<br>        我们能不知道吗<br>        那药才卖五百块钱一瓶<br>        药贩子根本没赚钱<br>        谁家能不遇上个病人<br>        你就能保证你这一辈子不生病吗<br>        你们把他抓走了<br>        我们都得等死<br>        我不想死<br>        我想活着<br>        行吗</p>
-]]></content>
-      <categories>
-        <category>光影岁月</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一手好牌，怎么被那位一把手打烂的？</title>
-    <url>/2020/07/28/%E4%B8%80%E6%89%8B%E5%A5%BD%E7%89%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A2%AB%E9%82%A3%E4%BD%8D%E4%B8%80%E6%8A%8A%E6%89%8B%E6%89%93%E7%83%82%E7%9A%84%EF%BC%9F/</url>
-    <content><![CDATA[<p>你可能难以相信，中国人千百年来所津津乐道的<strong>“贞观之治”</strong>结束的时候，盛世大唐的国力还没有达到五十年前的水准，也就是隋朝的<strong>“开皇之治”</strong>后期的水准。</p>
-<p>原因是，贞观之治开始前，隋炀帝的已经将国力消耗殆尽，随后又引发了隋唐更迭过程中十几年的战乱，导致人口急剧减少，国家极其衰弱。</p>
-<p>社会财富的积累，人口的增长，一方面需要给百姓减负，让他们日子能够过好，能够放心地生孩子，生下孩子能够养大，休养百姓才有国家生息。另外一方面，也需要相当时间的积累，几代人、十几代人的辛勤劳动，财富代代叠加，才能形成比较充盈的国力。贞观之治的效果，也需要时间才能充分显示。隋朝开皇时代的繁荣也不是天赐，而是长时间地执行正确的政策，加上杨文的父亲一身谨小慎微，宵衣旰食才得到的。</p>
-<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D1-31-300x210.jpg" alt="img"></p>
-<p>杨广拿到了一手好牌。他可以说是非常非常幸运的，比唐太宗李世民还要幸运得多。他含着金钥匙出生，十一岁就被封为晋王，三十五岁当上了皇帝，而且他接手的这个帝国是当时世界最强大的帝国，当时的隋朝国力强盛，国势蒸蒸日上。上天给了他这样一把好得不能再好的好牌，他只要正常出牌，就能舒舒服服地做他的人生大赢家，命运对杨广已经无法更加眷顾了。</p>
-<p>不过最终他却成了输家，而且是大大的输家，输得一败涂地。他不但自身横死，而且葬送了他父亲一世心血造就的帝国，甚至不可避免地祸及妻子儿孙，也给天下百姓带来深重的灾难。他自己在年富力强的时候，被他信任的部下处死。他的皇后，被他的部下宇文化及抢去做妾，后来又被其他人辗转抢夺，做过很多人的玩物。他的子孙被造反者当作工具使用，不用以后就给予处死。强大的隋朝在他手上瓦解，国家落入李渊父子手中。他背上昏君和暴君的恶名，永远也无法洗清。</p>
-<p><strong><a href="https://chinadigitaltimes.net/chinese/tag/杨广/" target="_blank" rel="noopener">杨广</a>，他是怎么把一手好牌打成稀烂的？</strong></p>
-<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D2-5-300x172.jpg" alt="img"></p>
-<p><strong>首先，他为了获得伟大政绩和奢侈享受，不断兴建宏伟的工程。</strong>在十几年时间里，他大肆营建东都洛阳，在各地修建豪华的离宫和别馆，还有巡游各地的壮观的驰道，其中工程量最大的，当然是举世闻名的千年大计<strong>京杭大运河</strong>。这些工程无一不需要耗费大量的财富，并且需要调动大量的民众。这些工程很多并不是必要的，也有些是需要但是并不那么急迫的。大运河固然是大大有利于巩固国家一统，商品人员往来，但是短时间内完成这个巨大工程，也会给百姓带来的太过沉重的负担。</p>
-<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D3-5-300x292.jpg" alt="img"></p>
-<p><strong>其次，他不断征讨周边的民族和国家。</strong>短短十来年，他向南征讨越南、琉球，向西征讨吐谷浑，向东北征讨契丹和高句丽。其中耗费人力物力最大、损失最惨重的是三次征讨高句丽，死伤的百姓达到数百万。这些战争大部分都是主动出击，并没有十分的必要。无穷无尽的战争带来的是大量的死伤，这点终于让百姓忍无可忍了。</p>
-<p><strong>其三，他为了“万邦来朝”的假象和虚名，大肆挥霍国家财富。</strong>他带着庞大的随从队伍，摆着豪华的排场，跑到北方草原会见突厥的可汗，然后又召见北方各族的首领。这些人这么给面子远道而来，当然要赏赐，他慷慨地赏赐那些首领以无数金银财宝和绫罗绸缎。然后又同样地跑去西域，在焉支山设下豪华营地，威逼利诱西域二十余国君主前来拜见，然后还是赏大量的赏赐，让这些人满载而归。他还在洛阳招俫周边数十个国家的使节和客商，举行大规模的盛会，极尽奢华的加以招待和赏赐。<strong>高颎和贺若弼等为建立隋朝立下大功的柱国重臣，认为给突厥赏赐太多，表示非常心痛，居然就被杨广处死，家人还被流放为奴。</strong>杨广豪气冲天地大撒钱财，其实也没有落到好名声，而是被外国的当作傻瓜冤大头。当时就有外国人在街上说，中国固然富有，但是也有很多衣不蔽体的穷人，干嘛要装着钱多花不完的样子？<strong>后来，受赏赐最多的突厥甚至发兵围困落魄的隋炀帝，差点把他打死。</strong></p>
-<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D4-5-300x268.jpg" alt="img"></p>
-<p>隋炀帝在短短十几年时间里，这么一番折腾下来，终于把天下给逼反了。全国烽火四起，大大小小的造反势力多达二百多股，最后分化组合成十几支强大的割据势力。而那些王公大臣，比如宠臣宇文化及和亲表弟李渊等人，也趁机出手，开始逐鹿中原，抢夺这大好江山。</p>
-<p><strong>杨广怎么把一个富裕强大的国家快速地给折腾没了呢？</strong></p>
-<p><strong>第一，他急于向世人证明自己的能力，也过于热衷树立个人的名声。</strong>杨广是通过阴谋手段成为储君的，上台前又经历了被废掉的凶险，他急迫间快刀斩乱麻，采取了弑父杀兄的残忍措施，才得以安然登上皇位。因为这些经历，他迫切地要做一番宏伟的事业，要让天下人认识他的超凡能力，颂扬他的伟大功绩。他不但想要超过他的父亲，他甚至要超过秦皇汉武。他太过急迫了，没想到的是，急功近利的结果反而是适得其反。</p>
-<p><strong>第二，他出身富贵，不懂得百姓疾苦，更不懂得尊重百姓的财产和生命。</strong>他的高贵出身，他一帆风顺的人生经历，使得他的眼里只有君主的无上威严，国家的宏图大业，而老百姓，只不过是一群蝼蚁罢了，或者只是完成自己目标的一把棋子而已，自己可以根据需要随心所欲地进行调配运用。</p>
-<p><strong>第三，他的权力完全没有制约，甚至连劝谏和真话都被他屏蔽了。</strong>他残酷地处死说真话和提意见的人，于是劝谏的人没有了。他重用说好听话和无原则服从的人，于是身边就只有奴才而没有能人了。于是乎，他可以独居深宫，肆意畅想，为所欲为，连一丝杂音都听不到，何等畅快！何等美妙！</p>
-]]></content>
-      <categories>
-        <category>转载文章</category>
-      </categories>
-      <tags>
-        <tag>politic</tag>
-        <tag>history</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【我的团长我的团】岂曰无衣，与子同袍</title>
     <url>/2020/07/08/%E3%80%90%E6%88%91%E7%9A%84%E5%9B%A2%E9%95%BF%E6%88%91%E7%9A%84%E5%9B%A2%E3%80%91%E5%B2%82%E6%9B%B0%E6%97%A0%E8%A1%A3%EF%BC%8C%E4%B8%8E%E5%AD%90%E5%90%8C%E8%A2%8D/</url>
     <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/3V16FAtsS24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -327,6 +283,71 @@
       <tags>
         <tag>music</tag>
         <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【霸王别姬】不疯魔，不成活</title>
+    <url>/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/</url>
+    <content><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/SFVQgqVqeaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>一笑万古春，一啼万古愁。此境非你莫属，此貌非你莫有。</p>
+]]></content>
+      <categories>
+        <category>光影岁月</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白话深度学习与TensorFlow（1）——初识机器学习</title>
+    <url>/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p>机器学习就是人类定义一定的计算机算法，让计算机根据输入的样本和一些人类的干预来总结并归纳其特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反应的过程。</p>
+<p>机器学习的目的是让机器可以<strong>独立或至少半独立地</strong>进行相对复杂或者高要求的工作。不同于传统的算法依据事先编写好的代码执行，机器学习具有“一定的智能性”。</p>
+<p>以监督学习的过程为例。首先，给与模型一定数量的<strong>训练样本</strong>（训练集），让模型根据这些训练样本进行<strong>训练</strong>，从而得到一个判断标准。之后，利用验证集<strong>验证</strong>该标准是否具有泛化性。</p>
+<p>机器学习可以分为两种，分别是<strong>监督学习和无监督学习</strong>。</p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类，是一种典型的“无监督学习”，是把物理对象或抽象对象的集合分组为由彼此类似的对象组成的多个类的分析过程。简单来说，就是一种<strong>归纳总结</strong>的思想。</p>
+<p>比较常用的聚类算法有K-Means、DBSCAN等几种，<strong>基本思路都是利用每个向量之间的“距离”</strong>——空间中的欧氏距离或者曼哈顿距离，从远近判断是否从属于同一类别。</p>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>回归，是一种“学习”方法。简单来说就是一种<strong>“由果索因”</strong>的过程，是一种归纳的思想——当我看到大量的事实所呈现的样态，我推断出原因或客观蕴含的关系是如何的。</p>
+<p>常用的回归有两大类，分别是<strong>线性回归和非线性回归</strong>。</p>
+<ol>
+<li><p>线性回归</p>
+<p>所谓线性回归，就是在观察和归纳样本的过程中认为向量和最终的函数值呈现线性的关系。而后设计这种关系为：</p>
+<p>y=f（x）=wx+b</p>
+<p>这里的w和x分别是1×n和n×1的矩阵，wx则指的是这两个矩阵的内积。</p>
+<p>我们所要做的事情就是对w矩阵的内容和偏置b的内容求出一个<strong>使得Loss最小的解</strong>出来，越小就说明该映射关系描述越精确。Loss为一个全局范围内由f（x）映射得到的y和我真实观测到的那个y的差距加和，表达式如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg" alt="Loss函数"></p>
+<div class="note info"><p>使用线性回归的前提是数据呈现出线性关系。否则，会产生欠拟合现象。 </p>
+</div>
+</li>
+<li><p>非线性回归</p>
+<p>非线性回归类中，在机器学习领域应用最多的当属逻辑回归。与线性回归不同，在这种模型中观察者假设的前提是y只有两种值：一种是1，一种是0，或者说“是”或“否”的这种判断。</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00009.jpg" alt="逻辑回归"></p>
+<p>这里面的wx+b和前面线性回归中所说的wx+b是一个概念，都是指一个w矩阵和x做了内积再和偏置b做了加和。</p>
+<p>令<strong>z = wx + b，则横轴是z，纵轴是y，</strong>那么函数图像如下：</p>
+<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00011.jpg" alt="逻辑回归函数图像"></p>
+<p>训练的过程跟普通线性回归也是一样的，只不过损失函数的形式不同。但是，它的损失函数的含义仍旧是表示这种拟合残差与待定系数的关系，并通过相应的手段进行迭代式的优化，最后通过逐步调整待定系数减小残差。</p>
+</li>
+</ol>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>分类，通常我们把分类算法叫做”分类器“。</p>
+<p>分类的原理就相当于一个黑盒子，有个入口，有个出口。我们在入口丢进去一个“样本”，在出口<strong>期望得到一个分类的“标签”</strong>。分类的训练过程和回归的训练过程一样，都是极为套路化的程序。</p>
+<ol>
+<li>输入样本和分类标签</li>
+<li>建立映射假说的某个y = f（x）的模型</li>
+<li>求解出全局的损失函数Loss和待定系数w的映射关系，Loss = g（w）</li>
+<li>通过迭代优化逐步降低Loss，最终找到一个w能使召回率和精确率满足当前场景需要。注意，这里尤其指在验证数据集上的表现。</li>
+</ol>
+<p>我们在编写代码教会分类器怎么做学习的时候，其实是在教它如何建立一种输入到输出的映射逻辑，以及让它自己调整这种逻辑关系，使得逻辑更为合理。而合理与否的判断也非常明确，那就是<strong>召回率</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>和<strong>精确率</strong><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>两个指标。</p>
+<h2 id="传统机器学习与深度学习"><a href="#传统机器学习与深度学习" class="headerlink" title="传统机器学习与深度学习"></a>传统机器学习与深度学习</h2><p>机器学习可以粗略地分为传统的机器学习和深度学习。</p>
+<p>传统的机器学习通常是需要人提前先来做特征提取，把提取过的特征向量化后再丢给模型去训练，这里<strong>人要做相当的前置工作</strong>。并且传统机器学习在工作的过程中具<strong>有非常好的解释特性</strong>，或者说你知道模型在做什么，处理的是什么特征，其中任何一个指标值的大小变化的意义会有良好的解释。而且，传统机器学习在训练的过程中<strong>需要很少的样本向量</strong>，通常都是百级或者千级就够了，这对于深度学习来说也是无法做到的——它需要数以万计的样本来做训练。</p>
+<p>深度学习通常可以采用End-to-End的学习方式，输入的内容只需要做很少的一些归一化（normalization）、白化（whitening）等处理就可以丢给模型去训练，通常<strong>不需要人来做特征提取的工作</strong>。而这个特征提取的动作可以由整个深度学习的网络模型帮我们自动完成。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">就是查全率，即检索出的相关样本和样本库（待测对象库）中所有的相关样本的比率</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">就是查准率，检索出的相关样本数与检索出的样本总数的比率</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>DLearning</tag>
       </tags>
   </entry>
   <entry>
@@ -481,143 +502,8 @@
         <category>转载文章</category>
       </categories>
       <tags>
-        <tag>DLearning</tag>
         <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装</title>
-    <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94TensorFlow%E6%A1%86%E6%9E%B6%E7%89%B9%E6%80%A7%E4%B8%8E%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="TensorFlow简介"><a href="#TensorFlow简介" class="headerlink" title="TensorFlow简介"></a>TensorFlow简介</h1><p>TensorFlow是一个<strong>采用数据流图</strong>，用于数值计算的开源软件库。</p>
-<p><strong>节点（nodes）</strong>在图中表示数学操作，但也可以表示数据输入的起点/输出的终点，或者读取/写入持久变量（persistent variable）的终点。图中的线（edges）则表示在节点间相互联系的多维数据数组，即<strong>张量（tensor）</strong>。张量从图中流过的直观图像是这个工具取名为“TensorFlow”的原因。一旦输入端的所有张量准备好，节点将被分配到各种计算设备完成异步并行运算。</p>
-<img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00055.jpg" alt="TensorFlow" style="zoom: 50%;" />
-
-<h1 id="对比其他框架"><a href="#对比其他框架" class="headerlink" title="对比其他框架"></a>对比其他框架</h1><ol>
-<li>TensorFlow：深度学习最流行的库之一，是谷歌在深刻总结了其前身DistBelief的经验教训上形成的；它不仅便携、高效、可扩展，还能在不同计算机上运行：小到智能手机，大到计算机集群；它是一款轻量级的软件，可以立刻生成你的训练模型，也能重新实现它；TensorFlow有强大的社区、企业支持，因此它广泛用于从个人到企业、从初创公司到大公司等不同群体。</li>
-<li>Caffe：卷积神经网络框架，专注于卷积神经网络和图像处理，是用C++语言写成的，执行速度非常快。</li>
-<li>Torch：是一个专注于GPU实现的机器学习库，得到了像Facebook、谷歌、Twitter这样的大公司的研究团队的支持。</li>
-<li>Nervana Neo：是一个高效的Python机器学习库，它能够在单个机器上使用多个GPU。</li>
-<li>Theano：是一个用Python编写的极其灵活的Python机器学习库，用它定义复杂的模型相当容易，因此它在研究中极其流行。</li>
-</ol>
-<h1 id="其他特点"><a href="#其他特点" class="headerlink" title="其他特点"></a>其他特点</h1><ol>
-<li><p>多环境与集群支持</p>
-</li>
-<li><p>TensorBoard——看得见的训练</p>
-</li>
-<li><p>TensorFlow Serving——模型</p>
-</li>
-</ol>
-<h1 id="如何选择好的框架"><a href="#如何选择好的框架" class="headerlink" title="如何选择好的框架"></a>如何选择好的框架</h1><p>目前框架之间的差别主要体现在以下几个地方：</p>
-<ol>
-<li><p>性能方面</p>
-<p>该属性主要由底层的实现语言决定，运行速度较快的仍旧是C/C++一类。但这并不碍事，主要影响效率的是样本数量，网络设计等方面。</p>
-</li>
-<li><p>社区活跃度</p>
-<p>活跃的社区意味着有更多的人正在使用这样一个项目，会有更多的人贡献代码，提交Bug，遇到错误你也很容易找到前人踩坑留下的垫坑石。因而做起项目来风险也相对比较小，学习起来进步也会快一些。</p>
-</li>
-<li><p>语言</p>
-<p>这几乎是最不重要的一个方面，因为不管什么语言，实现的框架大多都会支持Python的“驱动”，或者我们称接口。</p>
-</li>
-</ol>
-<h1 id="安装TensorFlow"><a href="#安装TensorFlow" class="headerlink" title="安装TensorFlow"></a>安装TensorFlow</h1><p><a href="https://www.tensorflow.org/install?hl=zh-cn" target="_blank" rel="noopener">TensorFlow安装教程</a></p>
-]]></content>
-      <categories>
-        <category>读书总结</category>
-      </categories>
-      <tags>
         <tag>DLearning</tag>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>白话深度学习与TensorFlow（5）——手写板功能</title>
-    <url>/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<h1 id="手写板功能"><a href="#手写板功能" class="headerlink" title="手写板功能"></a>手写板功能</h1><p>手写板功能，一个基于MNIST数据集的神经网络实验。</p>
-<h2 id="MNIST介绍"><a href="#MNIST介绍" class="headerlink" title="MNIST介绍"></a>MNIST介绍</h2><p>MNIST，是一个非常庞大的手写数字数据库，是网上著名的公开数据集之一。在网上有不少这种数据集，都是做机器学习和深度学习的研究机构喜欢拿来做训练和测试的一些标准化项目。</p>
-<p>MNIST的官方网址是：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">点击这里</a></p>
-<p>我们需要从官方网站上下载以下4个数据文件：</p>
-<table>
-<thead>
-<tr>
-<th>文件名</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>·train-images-idx3-ubyte.gz</td>
-<td>训练图片</td>
-</tr>
-<tr>
-<td>·train-labels-idx1-ubyte.gz</td>
-<td>训练标签</td>
-</tr>
-<tr>
-<td>·t10k-images-idx3-ubyte.gz</td>
-<td>测试图片</td>
-</tr>
-<tr>
-<td>·t10k-labels-idx1-ubyte.gz</td>
-<td>测试标签</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>读书总结</category>
-      </categories>
-      <tags>
-        <tag>DLearning</tag>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>白话深度学习与TensorFlow（1）——初识机器学习</title>
-    <url>/2020/07/18/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E5%88%9D%E8%AF%86%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="机器学习是什么"><a href="#机器学习是什么" class="headerlink" title="机器学习是什么"></a>机器学习是什么</h1><p>机器学习就是人类定义一定的计算机算法，让计算机根据输入的样本和一些人类的干预来总结并归纳其特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反应的过程。</p>
-<p>机器学习的目的是让机器可以<strong>独立或至少半独立地</strong>进行相对复杂或者高要求的工作。不同于传统的算法依据事先编写好的代码执行，机器学习具有“一定的智能性”。</p>
-<p>以监督学习的过程为例。首先，给与模型一定数量的<strong>训练样本</strong>（训练集），让模型根据这些训练样本进行<strong>训练</strong>，从而得到一个判断标准。之后，利用验证集<strong>验证</strong>该标准是否具有泛化性。</p>
-<p>机器学习可以分为两种，分别是<strong>监督学习和无监督学习</strong>。</p>
-<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类，是一种典型的“无监督学习”，是把物理对象或抽象对象的集合分组为由彼此类似的对象组成的多个类的分析过程。简单来说，就是一种<strong>归纳总结</strong>的思想。</p>
-<p>比较常用的聚类算法有K-Means、DBSCAN等几种，<strong>基本思路都是利用每个向量之间的“距离”</strong>——空间中的欧氏距离或者曼哈顿距离，从远近判断是否从属于同一类别。</p>
-<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>回归，是一种“学习”方法。简单来说就是一种<strong>“由果索因”</strong>的过程，是一种归纳的思想——当我看到大量的事实所呈现的样态，我推断出原因或客观蕴含的关系是如何的。</p>
-<p>常用的回归有两大类，分别是<strong>线性回归和非线性回归</strong>。</p>
-<ol>
-<li><p>线性回归</p>
-<p>所谓线性回归，就是在观察和归纳样本的过程中认为向量和最终的函数值呈现线性的关系。而后设计这种关系为：</p>
-<p>y=f（x）=wx+b</p>
-<p>这里的w和x分别是1×n和n×1的矩阵，wx则指的是这两个矩阵的内积。</p>
-<p>我们所要做的事情就是对w矩阵的内容和偏置b的内容求出一个<strong>使得Loss最小的解</strong>出来，越小就说明该映射关系描述越精确。Loss为一个全局范围内由f（x）映射得到的y和我真实观测到的那个y的差距加和，表达式如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00006.jpg" alt="Loss函数"></p>
-<div class="note info"><p>使用线性回归的前提是数据呈现出线性关系。否则，会产生欠拟合现象。 </p>
-</div>
-</li>
-<li><p>非线性回归</p>
-<p>非线性回归类中，在机器学习领域应用最多的当属逻辑回归。与线性回归不同，在这种模型中观察者假设的前提是y只有两种值：一种是1，一种是0，或者说“是”或“否”的这种判断。</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00009.jpg" alt="逻辑回归"></p>
-<p>这里面的wx+b和前面线性回归中所说的wx+b是一个概念，都是指一个w矩阵和x做了内积再和偏置b做了加和。</p>
-<p>令<strong>z = wx + b，则横轴是z，纵轴是y，</strong>那么函数图像如下：</p>
-<p><img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00011.jpg" alt="逻辑回归函数图像"></p>
-<p>训练的过程跟普通线性回归也是一样的，只不过损失函数的形式不同。但是，它的损失函数的含义仍旧是表示这种拟合残差与待定系数的关系，并通过相应的手段进行迭代式的优化，最后通过逐步调整待定系数减小残差。</p>
-</li>
-</ol>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>分类，通常我们把分类算法叫做”分类器“。</p>
-<p>分类的原理就相当于一个黑盒子，有个入口，有个出口。我们在入口丢进去一个“样本”，在出口<strong>期望得到一个分类的“标签”</strong>。分类的训练过程和回归的训练过程一样，都是极为套路化的程序。</p>
-<ol>
-<li>输入样本和分类标签</li>
-<li>建立映射假说的某个y = f（x）的模型</li>
-<li>求解出全局的损失函数Loss和待定系数w的映射关系，Loss = g（w）</li>
-<li>通过迭代优化逐步降低Loss，最终找到一个w能使召回率和精确率满足当前场景需要。注意，这里尤其指在验证数据集上的表现。</li>
-</ol>
-<p>我们在编写代码教会分类器怎么做学习的时候，其实是在教它如何建立一种输入到输出的映射逻辑，以及让它自己调整这种逻辑关系，使得逻辑更为合理。而合理与否的判断也非常明确，那就是<strong>召回率</strong><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>和<strong>精确率</strong><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>两个指标。</p>
-<h2 id="传统机器学习与深度学习"><a href="#传统机器学习与深度学习" class="headerlink" title="传统机器学习与深度学习"></a>传统机器学习与深度学习</h2><p>机器学习可以粗略地分为传统的机器学习和深度学习。</p>
-<p>传统的机器学习通常是需要人提前先来做特征提取，把提取过的特征向量化后再丢给模型去训练，这里<strong>人要做相当的前置工作</strong>。并且传统机器学习在工作的过程中具<strong>有非常好的解释特性</strong>，或者说你知道模型在做什么，处理的是什么特征，其中任何一个指标值的大小变化的意义会有良好的解释。而且，传统机器学习在训练的过程中<strong>需要很少的样本向量</strong>，通常都是百级或者千级就够了，这对于深度学习来说也是无法做到的——它需要数以万计的样本来做训练。</p>
-<p>深度学习通常可以采用End-to-End的学习方式，输入的内容只需要做很少的一些归一化（normalization）、白化（whitening）等处理就可以丢给模型去训练，通常<strong>不需要人来做特征提取的工作</strong>。而这个特征提取的动作可以由整个深度学习的网络模型帮我们自动完成。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">就是查全率，即检索出的相关样本和样本库（待测对象库）中所有的相关样本的比率</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">就是查准率，检索出的相关样本数与检索出的样本总数的比率</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>读书总结</category>
-      </categories>
-      <tags>
-        <tag>DLearning</tag>
-        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -689,191 +575,122 @@
         <category>读书总结</category>
       </categories>
       <tags>
-        <tag>DLearning</tag>
         <tag>AI</tag>
+        <tag>DLearning</tag>
       </tags>
   </entry>
   <entry>
-    <title>阿飞学Linux——（0）计算机概论</title>
-    <url>/2020/06/25/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%880%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/</url>
-    <content><![CDATA[<h1 id="什么是电脑"><a href="#什么是电脑" class="headerlink" title="什么是电脑"></a>什么是电脑</h1><p>电脑是指接受用户输入指令与数据，经由cpu等数学与逻辑单元运算处理后，以产生或储存成有用的信息。</p>
-<h2 id="计算机硬件的五大单元"><a href="#计算机硬件的五大单元" class="headerlink" title="计算机硬件的五大单元"></a>计算机硬件的五大单元</h2><p>计算机是由五个单元组成的，包括<strong>输入单元，输出单元，cpu内部的控制单元，算数逻辑单元与内存</strong>五个部分。</p>
-<p>cpu内部的控制单元负责协调周边元件与各单元间的工作，而算术逻辑单元负责程序运算与逻辑判断。</p>
-<p>故计算机的工作流程是，用户利用输入单元输入数据，之后数据流入内存，cpu从内存读取数据进行运算后，将结果写回内存后送给输出单元显示。</p>
-<a id="more"></a>
-
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer02.gif" alt="电脑的五大单元"></p>
-<h2 id="CPU的架构"><a href="#CPU的架构" class="headerlink" title="CPU的架构"></a>CPU的架构</h2><p>cpu的架构分为两种，分别是精简指令集（RISC）与复杂指令集（CISC）。</p>
-<p>精简指令集较为精简，每个指令的执行时间较短，完成的动作单纯，执行性能较佳；而复杂指令集包含较多的指令，指令的执行较复杂，花费时间较长。</p>
-<h2 id="电脑上常用的计算单位"><a href="#电脑上常用的计算单位" class="headerlink" title="电脑上常用的计算单位"></a>电脑上常用的计算单位</h2><ol>
-<li><p>容量单位</p>
-<p>电脑在存取数据时是以Byte为单位的，而1 Byte = 8 bits。</p>
-<p>常见的单位转换如下</p>
-<table>
-<thead>
-<tr>
-<th>进位制</th>
-<th>Kilo</th>
-<th>Mega</th>
-<th>Giga</th>
-<th>Tera</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>二进制</td>
-<td>1024B</td>
-<td>1024K</td>
-<td>1024M</td>
-<td>1024G</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>速度单位</p>
-<p>CPU的运算速度常使用MHz或GHz之类的单位。而网络传输方面，常使用的单位为Mbps即Mbits per second。</p>
-</li>
-</ol>
-<h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p>不同的CPU型号具有不同的脚位，因此能够搭配的主板芯片组也不同。</p>
-<p>CPU内部含有微指令集，不同的微指令集使CPU具有不同的工作效率。除此之外，CPU性能的比较还与CPU的频率有很大的关系。</p>
-<ul>
-<li><p>CPU的工作频率：外频与倍频</p>
-<p>早期的CPU架构通过北桥来链接系统最重要的CPU，内存与显卡设备。由于所有的设备都通过北桥来链接，故每个设备的工作频率要相同。但是CPU的运算速度远高于其他设备，故为了迎合其他设备的速度，需要在CPU内部进行再加速，于是就有了外频与倍频。外频*倍频，所得到的就是CPU的真实频率速度。不过，由于速度被北桥所卡死了，故目前已经取消了北桥，取而代之的是，将内存控制器整合到CPU内部，使得CPU可以直接与内存等设备分别进行沟通。</p>
-<p><em>倍频是固定好的，故进行超频时，修改的是外频。</em></p>
-</li>
-<li><p>32位与64位的CPU</p>
-<p>CPU每次能够从内存中读取数据进行处理的数据量称为字组大小，字组大小依据CPU的设计有32位和64位。</p>
-</li>
-</ul>
-<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>CPU所使用的数据都是来自于内存。个人电脑的内存主要为动态随机存取内存DRAM，是一种挥发性内存。DRAM又可以分为SDRAM和DDR SDRAM两种。DDR是所谓的双倍数据传送速度，它可以在一次工作周期中进行两次数据传送。</p>
-<ul>
-<li><p>多通道设计</p>
-<p>传统的总线宽度一般为64位，为了加大该宽度，因此芯片组厂商将两个内存汇整在一起，如果一支内存是64位，则两支内存可以达到128位，这就是双通道设计。</p>
-</li>
-<li><p>DRAM与SRAM</p>
-<p>由于CPU与内存之间的通信还得要经过内存控制器，故如果将部分数据放在CPU中的话，可以提高性能。由此引入了高速缓存，但是DRAM无法达到所要求的频率速度，故需要使用SRAM（静态随机存取内存）。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer07.gif" alt="高速缓存作用"></p>
-</li>
-<li><p>ROM</p>
-<p>ROM也叫只读存储器，是一种非挥发性的内存。很多的固件，通常就是写入ROM中</p>
-</li>
-</ul>
-<h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡对于图像影像的显示扮演了关键的角色。</p>
-<p>显卡上会有一个内存的容量，称为显存，它的容量影响到屏幕分辨率于色彩深度。而随着3D游戏的流行，显卡运算能力愈发重要，因此显卡会内嵌一个3D加速芯片，这就是所谓的GPU。目前主流的显卡规格是PCI-e，它拥有更快的传输带宽。</p>
-<table>
-<thead>
-<tr>
-<th>规格</th>
-<th>1x带宽</th>
-<th>16x带宽</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PCIe 1.0</td>
-<td>250MB/s</td>
-<td>4GB/s</td>
-</tr>
-<tr>
-<td>PCIe 2.0</td>
-<td>500MB/s</td>
-<td>8GB/s</td>
-</tr>
-<tr>
-<td>PCIe 3.0</td>
-<td>~1GB/s</td>
-<td>~16GB/s</td>
-</tr>
-<tr>
-<td>PCIe 4.0</td>
-<td>~2GB/s</td>
-<td>~32GB/s</td>
-</tr>
-</tbody></table>
-<h2 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h2><p>硬盘在运行时，主轴马达让盘片转动，然后机械手臂可伸展让磁头在盘片上进行读写。一个硬盘内会有多个盘片。盘片上的数据如下图所示：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/Disktructure.jpg" alt="盘片上的数据格式"></p>
-<p>盘片上的每个小区块，称之为<strong>扇区</strong>。同一个同心圆的扇区组合成的圆称为<strong>磁道</strong>。而所有盘片上面的同一个磁道组合成了<strong>柱面</strong>。</p>
-<ul>
-<li><p>传输接口</p>
-<ul>
-<li><p>SATA接口</p>
-<p>目前SATA已经发展到了第三代，SATA 3.0的理论接口速度可以达到600 MByte/s。</p>
-</li>
-<li><p>USB接口</p>
-<p>如果磁盘是外接式的接口，那么跟主板链接的很可能就是USB接口。目前USB 3.1的理论传输速度可以达到1000 MByte/s，但是实际上并不可能达到。</p>
-</li>
-</ul>
-</li>
-<li><p>固态硬盘SSD</p>
-<p>传统的硬盘读写数据延迟较高，因此产生了固态硬盘，它没有寻道时间和旋转延迟，可以通过内存直接读写，大大提高了传输效率。</p>
-</li>
-</ul>
-<h2 id="扩展卡与接口"><a href="#扩展卡与接口" class="headerlink" title="扩展卡与接口"></a>扩展卡与接口</h2><p>多信道的卡，例如x8的卡可以安装在少信道的插槽上，如x4的插槽。只是如此这般的话，这张卡的极限性能会下降。</p>
-<h2 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h2><ul>
-<li><p>发挥扩展卡性能需要考虑插槽的位置</p>
-<p>如果我们将卡安装在跟CPU直接相连的那几个插槽上，可以得到最佳性能，但是如果安装在与南桥相连接的插槽上，那么扩展卡的数据要先进入南桥争抢带宽，之后再通过DMI 2.0将数据传给CPU。DMI 2.0的传输速度远远低于PCIe 2.0x8的传输速度，由此导致了性能瓶颈。</p>
-</li>
-<li><p>CMOS与BIOS</p>
-<p>CMOS是嵌入在主板上面的存储器，主要功能为记录主板上面的重要参数，包括系统时间，CPU电压与频率等。</p>
-<p>BIOS是主板上的固件，在开机时计算机主动执行的第一个程序，负责载入CMOS中的参数，并调用储存设备中的开机程序。</p>
-</li>
-<li><p>连接周边设备的接口</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/connect02.jpg" alt="链接周边设备接口"></p>
-<ul>
-<li>USB接口：USB 3.0为蓝色的插槽颜色。</li>
-</ul>
-</li>
-</ul>
-<h1 id="数据表示方式"><a href="#数据表示方式" class="headerlink" title="数据表示方式"></a>数据表示方式</h1><h2 id="数字系统"><a href="#数字系统" class="headerlink" title="数字系统"></a>数字系统</h2><p>二进制是计算机的基础。</p>
-<p>二进制与十进制的转换如下：</p>
-<p>1101 = 1 * 2^3^ + 1 * 2^2^ + 0 * 2^1^ + 1 * 2^0^</p>
-<p>十进制转二进制如下：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/number_01.gif" alt="十进制转二进制方法"></p>
-<h2 id="文字编码系统"><a href="#文字编码系统" class="headerlink" title="文字编码系统"></a>文字编码系统</h2><p>计算机上文字的存储采用的文字编码系统的方式来实现的。具体实现如下图所示：</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/word_01.gif" alt="文字编码系统"></p>
-<p>常用的英文编码表是ASCII编码，在该编码中，每个符号占1 Bytes的记录，故有2^8^ = 256种变化。</p>
-<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="机器程序与编译程序"><a href="#机器程序与编译程序" class="headerlink" title="机器程序与编译程序"></a>机器程序与编译程序</h2><p>对于人类而言直接编写机器程序是不现实的，因此产生了高级程序语言。利用高级程序语言编写代码后，交与编译器进行编译后得到机器码，这样简化了写代码的工作。</p>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>OS其实也是一组程序，这组程序的重点在于管理电脑的所有活动以及驱动系统中的所有硬件。但是，要命令OS驱动硬件工作，必须有应用程序的帮助。</p>
-<ul>
-<li><p>OS核心</p>
-<p>OS核心负责管控硬件以及提供合理的电脑系统资源分配。核心程序是参考硬件编写的，故同一个OS程序不能够在不同的硬件架构下运行。当硬件发生变动时，核心程序也要做出调整。并且核心程序是受保护的，不能被用户直接调用。因此，OS提供了系统调用接口，使得用户可以通过该接口调用核心功能，从而编写应用程序来完成复杂的工作。</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/os_01.gif" alt="OS的角色"></p>
-</li>
-<li><p>驱动程序</p>
-<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer_driver.png" alt="驱动程序与OS的关系"></p>
-<p>OS必须能够驱动硬件，如此应用程序才能够使用该硬件功能。通常OS会提供开发接口，让开发商制作他们的驱动程序。要使用新硬件功能，必须要安装合适的驱动程序。</p>
-</li>
-</ul>
-<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>应用程序时参考OS提供的开发接口所开发出来的软件，这些软件可以让用户操作，从而达到某些电脑的功能利用。 </p>
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
-<li><p>全世界目前跑的最快的计算机（2020年6月23日）</p>
-<ul>
-<li>名称：富岳</li>
-<li>系统名称：Red Hat </li>
-<li>所在位置：日本</li>
-<li>使用的CPU型号与规格：64位处理器A64FX，采用ARM架构</li>
-<li>总共使用的CPU数量：15W</li>
-</ul>
-</li>
-<li><p>Intel i7 4790 CPU的信息</p>
-<ul>
-<li>与南桥沟通的DMI带宽：5 GT/s</li>
-<li>第二层高速缓存容量：8 MB</li>
-<li>最大PCIe信道数量：16</li>
-<li>主板上面PCIe插槽的数量限制：1x16,2x8,1x8+2x4</li>
-</ul>
-</li>
-<li><p>Intel SSD 520相关信息</p>
-<ul>
-<li>连接接口：SATA 3.0 6 Gb/s</li>
-<li>最大读写速度：读——550 MB/s，写——520 MB/s</li>
-<li>最大随机读写数据：读——25000 IOPS，写——40000 IOPS</li>
-</ul>
-</li>
-</ol>
+    <title>一手好牌，怎么被那位一把手打烂的？</title>
+    <url>/2020/07/28/%E4%B8%80%E6%89%8B%E5%A5%BD%E7%89%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A2%AB%E9%82%A3%E4%BD%8D%E4%B8%80%E6%8A%8A%E6%89%8B%E6%89%93%E7%83%82%E7%9A%84%EF%BC%9F/</url>
+    <content><![CDATA[<p>你可能难以相信，中国人千百年来所津津乐道的<strong>“贞观之治”</strong>结束的时候，盛世大唐的国力还没有达到五十年前的水准，也就是隋朝的<strong>“开皇之治”</strong>后期的水准。</p>
+<p>原因是，贞观之治开始前，隋炀帝的已经将国力消耗殆尽，随后又引发了隋唐更迭过程中十几年的战乱，导致人口急剧减少，国家极其衰弱。</p>
+<p>社会财富的积累，人口的增长，一方面需要给百姓减负，让他们日子能够过好，能够放心地生孩子，生下孩子能够养大，休养百姓才有国家生息。另外一方面，也需要相当时间的积累，几代人、十几代人的辛勤劳动，财富代代叠加，才能形成比较充盈的国力。贞观之治的效果，也需要时间才能充分显示。隋朝开皇时代的繁荣也不是天赐，而是长时间地执行正确的政策，加上杨文的父亲一身谨小慎微，宵衣旰食才得到的。</p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D1-31-300x210.jpg" alt="img"></p>
+<p>杨广拿到了一手好牌。他可以说是非常非常幸运的，比唐太宗李世民还要幸运得多。他含着金钥匙出生，十一岁就被封为晋王，三十五岁当上了皇帝，而且他接手的这个帝国是当时世界最强大的帝国，当时的隋朝国力强盛，国势蒸蒸日上。上天给了他这样一把好得不能再好的好牌，他只要正常出牌，就能舒舒服服地做他的人生大赢家，命运对杨广已经无法更加眷顾了。</p>
+<p>不过最终他却成了输家，而且是大大的输家，输得一败涂地。他不但自身横死，而且葬送了他父亲一世心血造就的帝国，甚至不可避免地祸及妻子儿孙，也给天下百姓带来深重的灾难。他自己在年富力强的时候，被他信任的部下处死。他的皇后，被他的部下宇文化及抢去做妾，后来又被其他人辗转抢夺，做过很多人的玩物。他的子孙被造反者当作工具使用，不用以后就给予处死。强大的隋朝在他手上瓦解，国家落入李渊父子手中。他背上昏君和暴君的恶名，永远也无法洗清。</p>
+<p><strong><a href="https://chinadigitaltimes.net/chinese/tag/杨广/" target="_blank" rel="noopener">杨广</a>，他是怎么把一手好牌打成稀烂的？</strong></p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D2-5-300x172.jpg" alt="img"></p>
+<p><strong>首先，他为了获得伟大政绩和奢侈享受，不断兴建宏伟的工程。</strong>在十几年时间里，他大肆营建东都洛阳，在各地修建豪华的离宫和别馆，还有巡游各地的壮观的驰道，其中工程量最大的，当然是举世闻名的千年大计<strong>京杭大运河</strong>。这些工程无一不需要耗费大量的财富，并且需要调动大量的民众。这些工程很多并不是必要的，也有些是需要但是并不那么急迫的。大运河固然是大大有利于巩固国家一统，商品人员往来，但是短时间内完成这个巨大工程，也会给百姓带来的太过沉重的负担。</p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D3-5-300x292.jpg" alt="img"></p>
+<p><strong>其次，他不断征讨周边的民族和国家。</strong>短短十来年，他向南征讨越南、琉球，向西征讨吐谷浑，向东北征讨契丹和高句丽。其中耗费人力物力最大、损失最惨重的是三次征讨高句丽，死伤的百姓达到数百万。这些战争大部分都是主动出击，并没有十分的必要。无穷无尽的战争带来的是大量的死伤，这点终于让百姓忍无可忍了。</p>
+<p><strong>其三，他为了“万邦来朝”的假象和虚名，大肆挥霍国家财富。</strong>他带着庞大的随从队伍，摆着豪华的排场，跑到北方草原会见突厥的可汗，然后又召见北方各族的首领。这些人这么给面子远道而来，当然要赏赐，他慷慨地赏赐那些首领以无数金银财宝和绫罗绸缎。然后又同样地跑去西域，在焉支山设下豪华营地，威逼利诱西域二十余国君主前来拜见，然后还是赏大量的赏赐，让这些人满载而归。他还在洛阳招俫周边数十个国家的使节和客商，举行大规模的盛会，极尽奢华的加以招待和赏赐。<strong>高颎和贺若弼等为建立隋朝立下大功的柱国重臣，认为给突厥赏赐太多，表示非常心痛，居然就被杨广处死，家人还被流放为奴。</strong>杨广豪气冲天地大撒钱财，其实也没有落到好名声，而是被外国的当作傻瓜冤大头。当时就有外国人在街上说，中国固然富有，但是也有很多衣不蔽体的穷人，干嘛要装着钱多花不完的样子？<strong>后来，受赏赐最多的突厥甚至发兵围困落魄的隋炀帝，差点把他打死。</strong></p>
+<p><img src="https://chinadigitaltimes.net/chinese/files/2020/07/%E9%9A%8B%E6%9C%9D4-5-300x268.jpg" alt="img"></p>
+<p>隋炀帝在短短十几年时间里，这么一番折腾下来，终于把天下给逼反了。全国烽火四起，大大小小的造反势力多达二百多股，最后分化组合成十几支强大的割据势力。而那些王公大臣，比如宠臣宇文化及和亲表弟李渊等人，也趁机出手，开始逐鹿中原，抢夺这大好江山。</p>
+<p><strong>杨广怎么把一个富裕强大的国家快速地给折腾没了呢？</strong></p>
+<p><strong>第一，他急于向世人证明自己的能力，也过于热衷树立个人的名声。</strong>杨广是通过阴谋手段成为储君的，上台前又经历了被废掉的凶险，他急迫间快刀斩乱麻，采取了弑父杀兄的残忍措施，才得以安然登上皇位。因为这些经历，他迫切地要做一番宏伟的事业，要让天下人认识他的超凡能力，颂扬他的伟大功绩。他不但想要超过他的父亲，他甚至要超过秦皇汉武。他太过急迫了，没想到的是，急功近利的结果反而是适得其反。</p>
+<p><strong>第二，他出身富贵，不懂得百姓疾苦，更不懂得尊重百姓的财产和生命。</strong>他的高贵出身，他一帆风顺的人生经历，使得他的眼里只有君主的无上威严，国家的宏图大业，而老百姓，只不过是一群蝼蚁罢了，或者只是完成自己目标的一把棋子而已，自己可以根据需要随心所欲地进行调配运用。</p>
+<p><strong>第三，他的权力完全没有制约，甚至连劝谏和真话都被他屏蔽了。</strong>他残酷地处死说真话和提意见的人，于是劝谏的人没有了。他重用说好听话和无原则服从的人，于是身边就只有奴才而没有能人了。于是乎，他可以独居深宫，肆意畅想，为所欲为，连一丝杂音都听不到，何等畅快！何等美妙！</p>
 ]]></content>
       <categories>
-        <category>技术文章</category>
+        <category>转载文章</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>politic</tag>
+        <tag>history</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白话深度学习与TensorFlow（3）——TensorFlow框架特性与安装</title>
+    <url>/2020/07/19/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94TensorFlow%E6%A1%86%E6%9E%B6%E7%89%B9%E6%80%A7%E4%B8%8E%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="TensorFlow简介"><a href="#TensorFlow简介" class="headerlink" title="TensorFlow简介"></a>TensorFlow简介</h1><p>TensorFlow是一个<strong>采用数据流图</strong>，用于数值计算的开源软件库。</p>
+<p><strong>节点（nodes）</strong>在图中表示数学操作，但也可以表示数据输入的起点/输出的终点，或者读取/写入持久变量（persistent variable）的终点。图中的线（edges）则表示在节点间相互联系的多维数据数组，即<strong>张量（tensor）</strong>。张量从图中流过的直观图像是这个工具取名为“TensorFlow”的原因。一旦输入端的所有张量准备好，节点将被分配到各种计算设备完成异步并行运算。</p>
+<img src="http://reader.epubee.com/books/mobile/45/457619375a7312e6f1f9b7a8da94907a/Image00055.jpg" alt="TensorFlow" style="zoom: 50%;" />
+
+<h1 id="对比其他框架"><a href="#对比其他框架" class="headerlink" title="对比其他框架"></a>对比其他框架</h1><ol>
+<li>TensorFlow：深度学习最流行的库之一，是谷歌在深刻总结了其前身DistBelief的经验教训上形成的；它不仅便携、高效、可扩展，还能在不同计算机上运行：小到智能手机，大到计算机集群；它是一款轻量级的软件，可以立刻生成你的训练模型，也能重新实现它；TensorFlow有强大的社区、企业支持，因此它广泛用于从个人到企业、从初创公司到大公司等不同群体。</li>
+<li>Caffe：卷积神经网络框架，专注于卷积神经网络和图像处理，是用C++语言写成的，执行速度非常快。</li>
+<li>Torch：是一个专注于GPU实现的机器学习库，得到了像Facebook、谷歌、Twitter这样的大公司的研究团队的支持。</li>
+<li>Nervana Neo：是一个高效的Python机器学习库，它能够在单个机器上使用多个GPU。</li>
+<li>Theano：是一个用Python编写的极其灵活的Python机器学习库，用它定义复杂的模型相当容易，因此它在研究中极其流行。</li>
+</ol>
+<h1 id="其他特点"><a href="#其他特点" class="headerlink" title="其他特点"></a>其他特点</h1><ol>
+<li><p>多环境与集群支持</p>
+</li>
+<li><p>TensorBoard——看得见的训练</p>
+</li>
+<li><p>TensorFlow Serving——模型</p>
+</li>
+</ol>
+<h1 id="如何选择好的框架"><a href="#如何选择好的框架" class="headerlink" title="如何选择好的框架"></a>如何选择好的框架</h1><p>目前框架之间的差别主要体现在以下几个地方：</p>
+<ol>
+<li><p>性能方面</p>
+<p>该属性主要由底层的实现语言决定，运行速度较快的仍旧是C/C++一类。但这并不碍事，主要影响效率的是样本数量，网络设计等方面。</p>
+</li>
+<li><p>社区活跃度</p>
+<p>活跃的社区意味着有更多的人正在使用这样一个项目，会有更多的人贡献代码，提交Bug，遇到错误你也很容易找到前人踩坑留下的垫坑石。因而做起项目来风险也相对比较小，学习起来进步也会快一些。</p>
+</li>
+<li><p>语言</p>
+<p>这几乎是最不重要的一个方面，因为不管什么语言，实现的框架大多都会支持Python的“驱动”，或者我们称接口。</p>
+</li>
+</ol>
+<h1 id="安装TensorFlow"><a href="#安装TensorFlow" class="headerlink" title="安装TensorFlow"></a>安装TensorFlow</h1><p><a href="https://www.tensorflow.org/install?hl=zh-cn" target="_blank" rel="noopener">TensorFlow安装教程</a></p>
+]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>DLearning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白话深度学习与TensorFlow（5）——手写板功能</title>
+    <url>/2020/07/26/%E7%99%BD%E8%AF%9D%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8ETensorFlow%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%89%8B%E5%86%99%E6%9D%BF%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h1 id="手写板功能"><a href="#手写板功能" class="headerlink" title="手写板功能"></a>手写板功能</h1><p>手写板功能，一个基于MNIST数据集的神经网络实验。</p>
+<h2 id="MNIST介绍"><a href="#MNIST介绍" class="headerlink" title="MNIST介绍"></a>MNIST介绍</h2><p>MNIST，是一个非常庞大的手写数字数据库，是网上著名的公开数据集之一。在网上有不少这种数据集，都是做机器学习和深度学习的研究机构喜欢拿来做训练和测试的一些标准化项目。</p>
+<p>MNIST的官方网址是：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">点击这里</a></p>
+<p>我们需要从官方网站上下载以下4个数据文件：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>·train-images-idx3-ubyte.gz</td>
+<td>训练图片</td>
+</tr>
+<tr>
+<td>·train-labels-idx1-ubyte.gz</td>
+<td>训练标签</td>
+</tr>
+<tr>
+<td>·t10k-images-idx3-ubyte.gz</td>
+<td>测试图片</td>
+</tr>
+<tr>
+<td>·t10k-labels-idx1-ubyte.gz</td>
+<td>测试标签</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>DLearning</tag>
       </tags>
   </entry>
   <entry>
@@ -922,19 +739,8 @@
         <category>读书总结</category>
       </categories>
       <tags>
-        <tag>DLearning</tag>
         <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（4）初次使用Centos</title>
-    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读书总结</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
+        <tag>DLearning</tag>
       </tags>
   </entry>
   <entry>
@@ -1033,175 +839,6 @@
 ]]></content>
       <categories>
         <category>技术文章</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
-    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="使用者与群组"><a href="#使用者与群组" class="headerlink" title="使用者与群组"></a>使用者与群组</h1><p>在Linux中，任何一个文件都具有“User，Group及Others”三种身份的权限。</p>
-<p>通过对这三种身份权限的设置，可以使文件对不同的用户具有不同的可见性。并且需要<strong>注意，每个用户都可以有多个群组的支持。</strong></p>
-<p><strong>注意，root基本上是不受系统的权限所限制的， 所以无论文件权限为何，默认root都可以存取喔。</strong></p>
-<p>关于账号与群组的信息有以下三个相关文件，不要随意删除这三个文件</p>
-<table>
-<thead>
-<tr>
-<th>文件名</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>/etc/passwd</td>
-<td>系统上的所有账号信息（包括root）</td>
-</tr>
-<tr>
-<td>/etc/shadow</td>
-<td>个人密码</td>
-</tr>
-<tr>
-<td>/etc/group</td>
-<td>系统中所有的群组信息</td>
-</tr>
-</tbody></table>
-<h1 id="Linux文件权限概念"><a href="#Linux文件权限概念" class="headerlink" title="Linux文件权限概念"></a>Linux文件权限概念</h1><h2 id="Linux文件属性"><a href="#Linux文件属性" class="headerlink" title="Linux文件属性"></a>Linux文件属性</h2><p>可以通过<code>ls -al</code>这个指令来查看文件的属性。ls是“list”的意思，重点在显示文件的文件名与相关属性。而选项“-al”则表示列出所有的文件详细的权限与属性 （包含隐藏文件，就是文件名第一个字符为“ . ”的文件）。</p>
-<p>文件属性详细说明如下图所示：</p>
-<p><img src="http://reader.epubee.com/books/mobile/87/87932a0df8b28d26374a5e42aec3ee25/Images/centos7_0210filepermission_2.gif" alt="文件属性的示意图"></p>
-<ol>
-<li><p>第一栏代表该文件的类型与权限</p>
-<p><img src="http://reader.epubee.com/books/mobile/87/87932a0df8b28d26374a5e42aec3ee25/Images/0210filepermission_3.gif" alt="文件的类型与权限的内容"></p>
-<p>第一个字符：代表文件类型，<strong>d表示目录，-表示文件，l表示链接文件，b表示块设备文件，c表示字符设备文件</strong></p>
-<p>接下来的字符中，三个为一组，且均为“rwx”三个参数的组合。<strong>这三个权限的位置不会发生改变，如果没有对应权限，则用“-”表示</strong>。</p>
-<p>第一组为“文件拥有者具有的权限”，上图所示，该文件拥有者对该文件具有读，写，可执行的全部权限。</p>
-<p>第二组为“该文件所属的群组内的用户对该文件具有的权限”。</p>
-<p>第三组为others对该文件具有的权限。</p>
-</li>
-<li><p>第二栏代表有多少文件名链接到该结点（i-node）</p>
-<p>每个文件都会将他的权限与属性记录到文件系统的i-node中，不过，我们使用的目录树却是使用文件名来记录， 因此每个文件名就会链接到一个i-node啰！</p>
-</li>
-<li><p>第三栏代表该文件的<strong>拥有者账号</strong></p>
-</li>
-<li><p>第四栏代表该文件的所属群组</p>
-</li>
-<li><p>第五栏代表该文件的容量大小，单位为Bytes</p>
-</li>
-<li><p>第六栏代表该文件的创建日期或者是最近的修改日期</p>
-</li>
-<li><p>第七栏位该文件的文件名</p>
-<p><strong>比较特殊的是：如果文件名之前多一个“ . ”，则代表这个文件为“隐藏文件”</strong></p>
-</li>
-</ol>
-<h2 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h2><ol>
-<li><p>改变文件所属群组——chgrp</p>
-<p>注意，要被改变的群组名称必须要在/etc/group文件内存在才行，否则就会显示错误！</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@study ~]# chgrp [-R] groupname dirname/filename ...</span><br><span class="line">选项与参数：</span><br><span class="line">-R : 进行递回（recursive）的持续变更，亦即连同次目录下的所有文件、目录都更新成为这个群组之意。常常用在变更某一目录内所有的文件之情况。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>改变文件拥有者——chown</p>
-<p>注意， 使用者必须是已经存在系统中的帐号，也就是在/etc/passwd 这个文件中有记录的使用者名称才能改变。</p>
-<p><strong>chown还可以直接修改群组的名称。</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@study ~]# chown [-R] 帐号名称 文件或目录</span><br><span class="line">[root@study ~]# chown [-R] 帐号名称:群组名称 文件或目录</span><br><span class="line">-R : 进行递回（recursive）的持续变更，亦即连同次目录下的所有文件、目录都更新成为这个群组之意。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>改变权限——chmod</p>
-<p>权限的设置有两种方法，分别可以使用数字或者是符号来进行权限的变更。这里主要记录如何利用数字来改变文件权限。</p>
-<p>Linux文件的基本权限有九个，分别是owner/group/others三种身份各有自己的read/write/execute权限。我们可以使用数字来代表各个权限：r——4，w——2，x——1。</p>
-<p>每种身份（owner/group/others）各自的三个权限（r/w/x）分数是需要累加的，例如当权限为： [-rwxrwx—] 分数则是：</p>
-<blockquote>
-<p>owner = rwx = 4+2+1 = 7<br>group = rwx = 4+2+1 = 7<br>others= — = 0+0+0 = 0</p>
-</blockquote>
-<p>所以等一下我们设置权限的变更时，该文件的权限数字就是770啦！</p>
-<p>chmod的语法如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@study ~]# chmod [-R] xyz 文件或目录</span><br><span class="line">选项与参数：</span><br><span class="line">xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加。</span><br><span class="line">-R : 进行递回（recursive）的持续变更，亦即连同次目录下的所有文件都会变更</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="目录与文件的权限区别"><a href="#目录与文件的权限区别" class="headerlink" title="目录与文件的权限区别"></a>目录与文件的权限区别</h2><ol>
-<li><p>权限对文件的意义</p>
-<p>文件是实际<strong>含有数据的地方</strong>，包括一般文本文件、数据库内容档、二进制可执行文件等等。</p>
-<p>权限对于文件具有如下意义：</p>
-<table>
-<thead>
-<tr>
-<th>权限</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r（read）</td>
-<td>可读取该文件的实际内容，如读取文本文件的文字内容等</td>
-</tr>
-<tr>
-<td>w（write）</td>
-<td>可以编辑、新增或者是修改该文件的内容（但不含删除该文件）</td>
-</tr>
-<tr>
-<td>x（execute）</td>
-<td>该文件具有可以被系统执行的权限</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>权限对目录的意义</p>
-<p>目录主要的内容是<strong>记录文件名清单</strong>，文件名与目录有强烈的关连。</p>
-<p>权限对于目录具有如下意义：</p>
-<table>
-<thead>
-<tr>
-<th>权限</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r（read）</td>
-<td>表示具有读取目录结构清单的权限</td>
-</tr>
-<tr>
-<td>w（write）</td>
-<td>具有改动该目录结构清单的权限，即创建新文件或目录，删除文件或目录等</td>
-</tr>
-<tr>
-<td>x（execute）</td>
-<td>代表用户能否进入该目录并使其成为工作目录</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<div class="note info"><p>总结：</p>
-<p>对于一般文件来说，rwx主要是针对“文件的内容”；对于目录来说，rwx则是针对“目录内的文件名清单”。</p>
-</div>
-
-<h2 id="Linux文件种类与扩展名"><a href="#Linux文件种类与扩展名" class="headerlink" title="Linux文件种类与扩展名"></a>Linux文件种类与扩展名</h2><p>在Linux下，任何设备都是文件，就连数据沟通的接口也有专门的文件负责。</p>
-<p>Linux下的文件种类有如下几种：</p>
-<table>
-<thead>
-<tr>
-<th>文件种类</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>正规文件</td>
-<td>用“-”表示，就是一般我们在进行存取的类型的文件</td>
-</tr>
-<tr>
-<td>目录文件</td>
-<td>用“d”表示</td>
-</tr>
-<tr>
-<td>链接文件</td>
-<td>用“l”表示，类似于Win下的快捷方式</td>
-</tr>
-<tr>
-<td>设备文件</td>
-<td>块设备用“b”表示，字符设备用“c”表示</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>读书总计</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -1401,6 +1038,200 @@
       </tags>
   </entry>
   <entry>
+    <title>阿飞学Linux——（0）计算机概论</title>
+    <url>/2020/06/25/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%880%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="什么是电脑"><a href="#什么是电脑" class="headerlink" title="什么是电脑"></a>什么是电脑</h1><p>电脑是指接受用户输入指令与数据，经由cpu等数学与逻辑单元运算处理后，以产生或储存成有用的信息。</p>
+<h2 id="计算机硬件的五大单元"><a href="#计算机硬件的五大单元" class="headerlink" title="计算机硬件的五大单元"></a>计算机硬件的五大单元</h2><p>计算机是由五个单元组成的，包括<strong>输入单元，输出单元，cpu内部的控制单元，算数逻辑单元与内存</strong>五个部分。</p>
+<p>cpu内部的控制单元负责协调周边元件与各单元间的工作，而算术逻辑单元负责程序运算与逻辑判断。</p>
+<p>故计算机的工作流程是，用户利用输入单元输入数据，之后数据流入内存，cpu从内存读取数据进行运算后，将结果写回内存后送给输出单元显示。</p>
+<a id="more"></a>
+
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer02.gif" alt="电脑的五大单元"></p>
+<h2 id="CPU的架构"><a href="#CPU的架构" class="headerlink" title="CPU的架构"></a>CPU的架构</h2><p>cpu的架构分为两种，分别是精简指令集（RISC）与复杂指令集（CISC）。</p>
+<p>精简指令集较为精简，每个指令的执行时间较短，完成的动作单纯，执行性能较佳；而复杂指令集包含较多的指令，指令的执行较复杂，花费时间较长。</p>
+<h2 id="电脑上常用的计算单位"><a href="#电脑上常用的计算单位" class="headerlink" title="电脑上常用的计算单位"></a>电脑上常用的计算单位</h2><ol>
+<li><p>容量单位</p>
+<p>电脑在存取数据时是以Byte为单位的，而1 Byte = 8 bits。</p>
+<p>常见的单位转换如下</p>
+<table>
+<thead>
+<tr>
+<th>进位制</th>
+<th>Kilo</th>
+<th>Mega</th>
+<th>Giga</th>
+<th>Tera</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>二进制</td>
+<td>1024B</td>
+<td>1024K</td>
+<td>1024M</td>
+<td>1024G</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>速度单位</p>
+<p>CPU的运算速度常使用MHz或GHz之类的单位。而网络传输方面，常使用的单位为Mbps即Mbits per second。</p>
+</li>
+</ol>
+<h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p>不同的CPU型号具有不同的脚位，因此能够搭配的主板芯片组也不同。</p>
+<p>CPU内部含有微指令集，不同的微指令集使CPU具有不同的工作效率。除此之外，CPU性能的比较还与CPU的频率有很大的关系。</p>
+<ul>
+<li><p>CPU的工作频率：外频与倍频</p>
+<p>早期的CPU架构通过北桥来链接系统最重要的CPU，内存与显卡设备。由于所有的设备都通过北桥来链接，故每个设备的工作频率要相同。但是CPU的运算速度远高于其他设备，故为了迎合其他设备的速度，需要在CPU内部进行再加速，于是就有了外频与倍频。外频*倍频，所得到的就是CPU的真实频率速度。不过，由于速度被北桥所卡死了，故目前已经取消了北桥，取而代之的是，将内存控制器整合到CPU内部，使得CPU可以直接与内存等设备分别进行沟通。</p>
+<p><em>倍频是固定好的，故进行超频时，修改的是外频。</em></p>
+</li>
+<li><p>32位与64位的CPU</p>
+<p>CPU每次能够从内存中读取数据进行处理的数据量称为字组大小，字组大小依据CPU的设计有32位和64位。</p>
+</li>
+</ul>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>CPU所使用的数据都是来自于内存。个人电脑的内存主要为动态随机存取内存DRAM，是一种挥发性内存。DRAM又可以分为SDRAM和DDR SDRAM两种。DDR是所谓的双倍数据传送速度，它可以在一次工作周期中进行两次数据传送。</p>
+<ul>
+<li><p>多通道设计</p>
+<p>传统的总线宽度一般为64位，为了加大该宽度，因此芯片组厂商将两个内存汇整在一起，如果一支内存是64位，则两支内存可以达到128位，这就是双通道设计。</p>
+</li>
+<li><p>DRAM与SRAM</p>
+<p>由于CPU与内存之间的通信还得要经过内存控制器，故如果将部分数据放在CPU中的话，可以提高性能。由此引入了高速缓存，但是DRAM无法达到所要求的频率速度，故需要使用SRAM（静态随机存取内存）。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer07.gif" alt="高速缓存作用"></p>
+</li>
+<li><p>ROM</p>
+<p>ROM也叫只读存储器，是一种非挥发性的内存。很多的固件，通常就是写入ROM中</p>
+</li>
+</ul>
+<h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡对于图像影像的显示扮演了关键的角色。</p>
+<p>显卡上会有一个内存的容量，称为显存，它的容量影响到屏幕分辨率于色彩深度。而随着3D游戏的流行，显卡运算能力愈发重要，因此显卡会内嵌一个3D加速芯片，这就是所谓的GPU。目前主流的显卡规格是PCI-e，它拥有更快的传输带宽。</p>
+<table>
+<thead>
+<tr>
+<th>规格</th>
+<th>1x带宽</th>
+<th>16x带宽</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PCIe 1.0</td>
+<td>250MB/s</td>
+<td>4GB/s</td>
+</tr>
+<tr>
+<td>PCIe 2.0</td>
+<td>500MB/s</td>
+<td>8GB/s</td>
+</tr>
+<tr>
+<td>PCIe 3.0</td>
+<td>~1GB/s</td>
+<td>~16GB/s</td>
+</tr>
+<tr>
+<td>PCIe 4.0</td>
+<td>~2GB/s</td>
+<td>~32GB/s</td>
+</tr>
+</tbody></table>
+<h2 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h2><p>硬盘在运行时，主轴马达让盘片转动，然后机械手臂可伸展让磁头在盘片上进行读写。一个硬盘内会有多个盘片。盘片上的数据如下图所示：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/Disktructure.jpg" alt="盘片上的数据格式"></p>
+<p>盘片上的每个小区块，称之为<strong>扇区</strong>。同一个同心圆的扇区组合成的圆称为<strong>磁道</strong>。而所有盘片上面的同一个磁道组合成了<strong>柱面</strong>。</p>
+<ul>
+<li><p>传输接口</p>
+<ul>
+<li><p>SATA接口</p>
+<p>目前SATA已经发展到了第三代，SATA 3.0的理论接口速度可以达到600 MByte/s。</p>
+</li>
+<li><p>USB接口</p>
+<p>如果磁盘是外接式的接口，那么跟主板链接的很可能就是USB接口。目前USB 3.1的理论传输速度可以达到1000 MByte/s，但是实际上并不可能达到。</p>
+</li>
+</ul>
+</li>
+<li><p>固态硬盘SSD</p>
+<p>传统的硬盘读写数据延迟较高，因此产生了固态硬盘，它没有寻道时间和旋转延迟，可以通过内存直接读写，大大提高了传输效率。</p>
+</li>
+</ul>
+<h2 id="扩展卡与接口"><a href="#扩展卡与接口" class="headerlink" title="扩展卡与接口"></a>扩展卡与接口</h2><p>多信道的卡，例如x8的卡可以安装在少信道的插槽上，如x4的插槽。只是如此这般的话，这张卡的极限性能会下降。</p>
+<h2 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h2><ul>
+<li><p>发挥扩展卡性能需要考虑插槽的位置</p>
+<p>如果我们将卡安装在跟CPU直接相连的那几个插槽上，可以得到最佳性能，但是如果安装在与南桥相连接的插槽上，那么扩展卡的数据要先进入南桥争抢带宽，之后再通过DMI 2.0将数据传给CPU。DMI 2.0的传输速度远远低于PCIe 2.0x8的传输速度，由此导致了性能瓶颈。</p>
+</li>
+<li><p>CMOS与BIOS</p>
+<p>CMOS是嵌入在主板上面的存储器，主要功能为记录主板上面的重要参数，包括系统时间，CPU电压与频率等。</p>
+<p>BIOS是主板上的固件，在开机时计算机主动执行的第一个程序，负责载入CMOS中的参数，并调用储存设备中的开机程序。</p>
+</li>
+<li><p>连接周边设备的接口</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/connect02.jpg" alt="链接周边设备接口"></p>
+<ul>
+<li>USB接口：USB 3.0为蓝色的插槽颜色。</li>
+</ul>
+</li>
+</ul>
+<h1 id="数据表示方式"><a href="#数据表示方式" class="headerlink" title="数据表示方式"></a>数据表示方式</h1><h2 id="数字系统"><a href="#数字系统" class="headerlink" title="数字系统"></a>数字系统</h2><p>二进制是计算机的基础。</p>
+<p>二进制与十进制的转换如下：</p>
+<p>1101 = 1 * 2^3^ + 1 * 2^2^ + 0 * 2^1^ + 1 * 2^0^</p>
+<p>十进制转二进制如下：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/number_01.gif" alt="十进制转二进制方法"></p>
+<h2 id="文字编码系统"><a href="#文字编码系统" class="headerlink" title="文字编码系统"></a>文字编码系统</h2><p>计算机上文字的存储采用的文字编码系统的方式来实现的。具体实现如下图所示：</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/word_01.gif" alt="文字编码系统"></p>
+<p>常用的英文编码表是ASCII编码，在该编码中，每个符号占1 Bytes的记录，故有2^8^ = 256种变化。</p>
+<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="机器程序与编译程序"><a href="#机器程序与编译程序" class="headerlink" title="机器程序与编译程序"></a>机器程序与编译程序</h2><p>对于人类而言直接编写机器程序是不现实的，因此产生了高级程序语言。利用高级程序语言编写代码后，交与编译器进行编译后得到机器码，这样简化了写代码的工作。</p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>OS其实也是一组程序，这组程序的重点在于管理电脑的所有活动以及驱动系统中的所有硬件。但是，要命令OS驱动硬件工作，必须有应用程序的帮助。</p>
+<ul>
+<li><p>OS核心</p>
+<p>OS核心负责管控硬件以及提供合理的电脑系统资源分配。核心程序是参考硬件编写的，故同一个OS程序不能够在不同的硬件架构下运行。当硬件发生变动时，核心程序也要做出调整。并且核心程序是受保护的，不能被用户直接调用。因此，OS提供了系统调用接口，使得用户可以通过该接口调用核心功能，从而编写应用程序来完成复杂的工作。</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/os_01.gif" alt="OS的角色"></p>
+</li>
+<li><p>驱动程序</p>
+<p><img src="http://linux.vbird.org/linux_basic/0105computers/computer_driver.png" alt="驱动程序与OS的关系"></p>
+<p>OS必须能够驱动硬件，如此应用程序才能够使用该硬件功能。通常OS会提供开发接口，让开发商制作他们的驱动程序。要使用新硬件功能，必须要安装合适的驱动程序。</p>
+</li>
+</ul>
+<h2 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h2><p>应用程序时参考OS提供的开发接口所开发出来的软件，这些软件可以让用户操作，从而达到某些电脑的功能利用。 </p>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol>
+<li><p>全世界目前跑的最快的计算机（2020年6月23日）</p>
+<ul>
+<li>名称：富岳</li>
+<li>系统名称：Red Hat </li>
+<li>所在位置：日本</li>
+<li>使用的CPU型号与规格：64位处理器A64FX，采用ARM架构</li>
+<li>总共使用的CPU数量：15W</li>
+</ul>
+</li>
+<li><p>Intel i7 4790 CPU的信息</p>
+<ul>
+<li>与南桥沟通的DMI带宽：5 GT/s</li>
+<li>第二层高速缓存容量：8 MB</li>
+<li>最大PCIe信道数量：16</li>
+<li>主板上面PCIe插槽的数量限制：1x16,2x8,1x8+2x4</li>
+</ul>
+</li>
+<li><p>Intel SSD 520相关信息</p>
+<ul>
+<li>连接接口：SATA 3.0 6 Gb/s</li>
+<li>最大读写速度：读——550 MB/s，写——520 MB/s</li>
+<li>最大随机读写数据：读——25000 IOPS，写——40000 IOPS</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（4）初次使用Centos</title>
+    <url>/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>读书总结</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿飞学Linux——（3）安装Centos7.x</title>
     <url>/2020/06/29/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%883%EF%BC%89%E5%AE%89%E8%A3%85Centos7-x/</url>
     <content><![CDATA[<h1 id="安装前的规划"><a href="#安装前的规划" class="headerlink" title="安装前的规划"></a>安装前的规划</h1><ol>
@@ -1572,6 +1403,334 @@
 ]]></content>
       <categories>
         <category>技术文章</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿飞学Linux——（5）Linux的文件权限与目录配置</title>
+    <url>/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="使用者与群组"><a href="#使用者与群组" class="headerlink" title="使用者与群组"></a>使用者与群组</h1><p>在Linux中，任何一个文件都具有“User，Group及Others”三种身份的权限。</p>
+<p>通过对这三种身份权限的设置，可以使文件对不同的用户具有不同的可见性。并且需要<strong>注意，每个用户都可以有多个群组的支持。</strong></p>
+<p><strong>注意，root基本上是不受系统的权限所限制的， 所以无论文件权限为何，默认root都可以存取喔。</strong></p>
+<p>关于账号与群组的信息有以下三个相关文件，不要随意删除这三个文件</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/etc/passwd</td>
+<td>系统上的所有账号信息（包括root）</td>
+</tr>
+<tr>
+<td>/etc/shadow</td>
+<td>个人密码</td>
+</tr>
+<tr>
+<td>/etc/group</td>
+<td>系统中所有的群组信息</td>
+</tr>
+</tbody></table>
+<h1 id="Linux文件权限概念"><a href="#Linux文件权限概念" class="headerlink" title="Linux文件权限概念"></a>Linux文件权限概念</h1><h2 id="Linux文件属性"><a href="#Linux文件属性" class="headerlink" title="Linux文件属性"></a>Linux文件属性</h2><p>可以通过<code>ls -al</code>这个指令来查看文件的属性。ls是“list”的意思，重点在显示文件的文件名与相关属性。而选项“-al”则表示列出所有的文件详细的权限与属性 （包含隐藏文件，就是文件名第一个字符为“ . ”的文件）。</p>
+<p>文件属性详细说明如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/87/87932a0df8b28d26374a5e42aec3ee25/Images/centos7_0210filepermission_2.gif" alt="文件属性的示意图"></p>
+<ol>
+<li><p>第一栏代表该文件的类型与权限</p>
+<p><img src="http://reader.epubee.com/books/mobile/87/87932a0df8b28d26374a5e42aec3ee25/Images/0210filepermission_3.gif" alt="文件的类型与权限的内容"></p>
+<p>第一个字符：代表文件类型，<strong>d表示目录，-表示文件，l表示链接文件，b表示块设备文件，c表示字符设备文件</strong></p>
+<p>接下来的字符中，三个为一组，且均为“rwx”三个参数的组合。<strong>这三个权限的位置不会发生改变，如果没有对应权限，则用“-”表示</strong>。</p>
+<p>第一组为“文件拥有者具有的权限”，上图所示，该文件拥有者对该文件具有读，写，可执行的全部权限。</p>
+<p>第二组为“该文件所属的群组内的用户对该文件具有的权限”。</p>
+<p>第三组为others对该文件具有的权限。</p>
+</li>
+<li><p>第二栏代表有多少文件名链接到该结点（i-node）</p>
+<p>每个文件都会将他的权限与属性记录到文件系统的i-node中，不过，我们使用的目录树却是使用文件名来记录， 因此每个文件名就会链接到一个i-node啰！</p>
+</li>
+<li><p>第三栏代表该文件的<strong>拥有者账号</strong></p>
+</li>
+<li><p>第四栏代表该文件的所属群组</p>
+</li>
+<li><p>第五栏代表该文件的容量大小，单位为Bytes</p>
+</li>
+<li><p>第六栏代表该文件的创建日期或者是最近的修改日期</p>
+</li>
+<li><p>第七栏位该文件的文件名</p>
+<p><strong>比较特殊的是：如果文件名之前多一个“ . ”，则代表这个文件为“隐藏文件”</strong></p>
+</li>
+</ol>
+<h2 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h2><ol>
+<li><p>改变文件所属群组——chgrp</p>
+<p>注意，要被改变的群组名称必须要在/etc/group文件内存在才行，否则就会显示错误！</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@study ~]# chgrp [-R] groupname dirname/filename ...</span><br><span class="line">选项与参数：</span><br><span class="line">-R : 进行递回（recursive）的持续变更，亦即连同次目录下的所有文件、目录都更新成为这个群组之意。常常用在变更某一目录内所有的文件之情况。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改变文件拥有者——chown</p>
+<p>注意， 使用者必须是已经存在系统中的帐号，也就是在/etc/passwd 这个文件中有记录的使用者名称才能改变。</p>
+<p><strong>chown还可以直接修改群组的名称。</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@study ~]# chown [-R] 帐号名称 文件或目录</span><br><span class="line">[root@study ~]# chown [-R] 帐号名称:群组名称 文件或目录</span><br><span class="line">-R : 进行递回（recursive）的持续变更，亦即连同次目录下的所有文件、目录都更新成为这个群组之意。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改变权限——chmod</p>
+<p>权限的设置有两种方法，分别可以使用数字或者是符号来进行权限的变更。这里主要记录如何利用数字来改变文件权限。</p>
+<p>Linux文件的基本权限有九个，分别是owner/group/others三种身份各有自己的read/write/execute权限。我们可以使用数字来代表各个权限：r——4，w——2，x——1。</p>
+<p>每种身份（owner/group/others）各自的三个权限（r/w/x）分数是需要累加的，例如当权限为： [-rwxrwx—] 分数则是：</p>
+<blockquote>
+<p>owner = rwx = 4+2+1 = 7<br>group = rwx = 4+2+1 = 7<br>others= — = 0+0+0 = 0</p>
+</blockquote>
+<p>所以等一下我们设置权限的变更时，该文件的权限数字就是770啦！</p>
+<p>chmod的语法如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@study ~]# chmod [-R] xyz 文件或目录</span><br><span class="line">选项与参数：</span><br><span class="line">xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加。</span><br><span class="line">-R : 进行递回（recursive）的持续变更，亦即连同次目录下的所有文件都会变更</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="目录与文件的权限区别"><a href="#目录与文件的权限区别" class="headerlink" title="目录与文件的权限区别"></a>目录与文件的权限区别</h2><ol>
+<li><p>权限对文件的意义</p>
+<p>文件是实际<strong>含有数据的地方</strong>，包括一般文本文件、数据库内容档、二进制可执行文件等等。</p>
+<p>权限对于文件具有如下意义：</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r（read）</td>
+<td>可读取该文件的实际内容，如读取文本文件的文字内容等</td>
+</tr>
+<tr>
+<td>w（write）</td>
+<td>可以编辑、新增或者是修改该文件的内容（但不含删除该文件）</td>
+</tr>
+<tr>
+<td>x（execute）</td>
+<td>该文件具有可以被系统执行的权限</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>权限对目录的意义</p>
+<p>目录主要的内容是<strong>记录文件名清单</strong>，文件名与目录有强烈的关连。</p>
+<p>权限对于目录具有如下意义：</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r（read）</td>
+<td>表示具有读取目录结构清单的权限</td>
+</tr>
+<tr>
+<td>w（write）</td>
+<td>具有改动该目录结构清单的权限，即创建新文件或目录，删除文件或目录等</td>
+</tr>
+<tr>
+<td>x（execute）</td>
+<td>代表用户能否进入该目录并使其成为工作目录</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<div class="note info"><p>总结：</p>
+<p>对于一般文件来说，rwx主要是针对“文件的内容”；对于目录来说，rwx则是针对“目录内的文件名清单”。</p>
+</div>
+
+<h2 id="Linux文件种类与扩展名"><a href="#Linux文件种类与扩展名" class="headerlink" title="Linux文件种类与扩展名"></a>Linux文件种类与扩展名</h2><p>在Linux下，任何设备都是文件，就连数据沟通的接口也有专门的文件负责。</p>
+<p>Linux下的文件种类有如下几种：</p>
+<table>
+<thead>
+<tr>
+<th>文件种类</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正规文件</td>
+<td>用“-”表示，就是一般我们在进行存取的类型的文件</td>
+</tr>
+<tr>
+<td>目录文件</td>
+<td>用“d”表示</td>
+</tr>
+<tr>
+<td>链接文件</td>
+<td>用“l”表示，类似于Win下的快捷方式</td>
+</tr>
+<tr>
+<td>设备文件</td>
+<td>块设备用“b”表示，字符设备用“c”表示</td>
+</tr>
+<tr>
+<td>数据接口文件</td>
+<td>用“s”表示</td>
+</tr>
+<tr>
+<td>FIFO</td>
+<td>用“p”表示，他主要的目的在解决多个程序同时存取一个文件所造成的错误问题</td>
+</tr>
+</tbody></table>
+<h1 id="Linux目录配置"><a href="#Linux目录配置" class="headerlink" title="Linux目录配置"></a>Linux目录配置</h1><p>每套Linux Distributions都遵循一套标准，该标准规定了每个目录下应该放置怎样的文件。</p>
+<h2 id="Linux目录配置的标准——FHS"><a href="#Linux目录配置的标准——FHS" class="headerlink" title="Linux目录配置的标准——FHS"></a>Linux目录配置的标准——FHS</h2><p>FHS的重点在于规范每个特定的目录下应该要放置什么样子的数据。</p>
+<p>FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：</p>
+<ol>
+<li><p>/ （root, 根目录）：与开机系统有关；</p>
+<p>FHS标准建议：根目录（/）所在分区应该越小越好， 且应用程序所安装的软件最好不要与根目录放在同一个分区内，保持根目录越小越好。 如此不但性能较佳，根目录所在的文件系统也较不容易发生问题。</p>
+<p>因此FHS定义出根目录下应该要有下面这些次目录的存在才行，即使没有实体目录，FHS也希望至少有链接文件存在才好。</p>
+<p>FHS要求必须存在的次目录，如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>放置文件内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/bin</td>
+<td>/bin放置的是在单人维护模式下还能够被操作的指令。如cat,date,mv等指令</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>放置开机会使用到的文件，包括Linux核心文件以及开机菜单与开机所需配置文件等等</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>任何设备与周边设备都是以文件的型态存在于这个目录当中的</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>该目录放置系统主要的配置文件，包括用户的账号，密码信息，各种开机启动项等。FHS建议不要放置可可执行文件（binary）在这个目录中</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>放置的是在开机时会用到的函数库， 以及在/bin或/sbin下面的指令会调用的函数库。FHS要求必须存在/lib/modules/，用来放置驱动程序</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>放置的是可移除的设备</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>用来暂时挂载某些额外的设备</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>第三方协力软件放置的目录</td>
+</tr>
+<tr>
+<td>/run</td>
+<td>放置系统开机后所产生的各项信息。使用内存仿真</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>放在/sbin下面的为开机过程中所需要的，里面包括了开机、修复、还原系统所需要的指令</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>是一些网络服务启动之后，这些服务所需要取用的数据目录</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>让一般使用者或者是正在执行的程序暂时放置文件的地方</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>第二层FHS设置</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>第二层FHS设置，主要是放置变动性的数据</td>
+</tr>
+</tbody></table>
+<p>还有一些目录需要了解下：</p>
+<ul>
+<li>/proc：他放置的数据都是在内存当中， 例如系统核心、进程信息（process）、周边设备的状态及网络状态等等。因为这个目录下的数据都是在内存当中， 所以本身不占任何硬盘空间。</li>
+<li>/sys：也是一个虚拟的文件系统，主要也是记录核心与系统硬件信息较相关的信息。同样不占硬盘容量喔！</li>
+<li>/lost+found：这个目录是使用标准的ext2/ext3/ext4文件系统格式才会产生的一个目录，目的在于当文件系统发生错误时， 将一些遗失的片段放置到这个目录下。不过如果使用的是 xfs 文件系统的话，就不会存在这个目录了！</li>
+</ul>
+</li>
+<li><p>/usr （unix software resource）：与软件安装/执行有关；</p>
+<p>FHS的基本定义，/usr里面放置的数据属于可分享的与不可变动的（shareable, static）。</p>
+<p>FHS建议所有软件开发者，应该将他们的数据合理的分别放置到这个目录下的次目录，而不要自行创建该软件自己独立的目录。<strong>类似于Win下的“C:\Windows\ （当中的一部份） + C:\Program files\”这两个目录的综合体</strong>。</p>
+<p>FHS要求必须存在的次目录，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>放置文件内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/usr/bin/</td>
+<td>所有一般用户能够使用的指令都放在这里</td>
+</tr>
+<tr>
+<td>/usr/lib/</td>
+<td>基本上，与 /lib 功能相同，所以 /lib 就是链接到此目录中的！</td>
+</tr>
+<tr>
+<td>/usr/local/</td>
+<td>系统管理员在本机自行安装自己下载的软件（非distribution默认提供者），建议安装到此目录， 这样会比较便于管理。</td>
+</tr>
+<tr>
+<td>/usr/sbin/</td>
+<td>非系统正常运行所需要的系统指令。不过基本功能与 /sbin 也差不多， 因此目前 /sbin 就是链接到此目录中的。</td>
+</tr>
+<tr>
+<td>/usr/share/</td>
+<td>主要放置只读的数据文件，当然也包括共享文件。在这个目录下放置的数据几乎是不分硬件架构均可读取的数据， 因为几乎都是文字文件嘛！</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>/var （variable）：与系统运行过程有关。</p>
+<p>/var目录主要针对常态性变动的文件，包括高速缓存（cache）、登录文件（log file）以及某些软件运行所产生的文件， 包括程序文件（lock file, run file），或者例如MySQL数据库的文件等等。</p>
+<p>FHS要求必须存在的次目录，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>放置文件内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/var/cache/</td>
+<td>应用程序本身运行过程中会产生的一些临时数据</td>
+</tr>
+<tr>
+<td>/var/lib/</td>
+<td>程序本身执行的过程中，需要使用到的数据文件放置的目录。在此目录下各自的软件应该要有各自的目录。</td>
+</tr>
+<tr>
+<td>/var/lock/</td>
+<td>某些设备或者是文件资源一次只能被一个应用程序所使用，如果同时有两个程序使用该设备时， 就可能产生一些错误的状况，因此就得要将该设备上锁（lock），以确保该设备只会给单一软件所使用。目前此目录也已经挪到 /run/lock 中！</td>
+</tr>
+<tr>
+<td>/var/log/</td>
+<td>重要到不行！这是登录文件放置的目录！</td>
+</tr>
+<tr>
+<td>/var/mail/</td>
+<td>放置个人电子邮件信箱的目录，不过这个目录也被放置到/var/spool/mail/目录中！ 通常这两个目录是互为链接文件啦！</td>
+</tr>
+<tr>
+<td>/var/run/</td>
+<td>某些程序或者是服务启动后，会将他们的PID放置在这个目录下喔！ 与 /run 相同，这个目录链接到 /run 去了！</td>
+</tr>
+<tr>
+<td>/var/spool/</td>
+<td>这个目录通常放置一些伫列数据，所谓的“伫列”就是排队等待其他程序使用的数据啦！ 这些数据被使用后通常都会被删除。</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p>目录树架构如下图所示：</p>
+<p><img src="http://reader.epubee.com/books/mobile/87/87932a0df8b28d26374a5e42aec3ee25/Images/centos7_0210filepermission_4.jpg" alt="目录树架构"></p>
+]]></content>
+      <categories>
+        <category>读书总计</category>
       </categories>
       <tags>
         <tag>Linux</tag>
