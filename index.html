@@ -144,12 +144,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -223,14 +223,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -290,6 +290,343 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/08/03/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%888%EF%BC%89%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8E%8B%E7%BC%A9%EF%BC%8C%E6%89%93%E5%8C%85%E4%B8%8E%E5%A4%87%E4%BB%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_luffy.jpg">
+      <meta itemprop="name" content="William">
+      <meta itemprop="description" content="Why not?">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美女剑豪带着肉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/03/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%888%EF%BC%89%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8E%8B%E7%BC%A9%EF%BC%8C%E6%89%93%E5%8C%85%E4%B8%8E%E5%A4%87%E4%BB%BD/" class="post-title-link" itemprop="url">阿飞学Linux——（8）文件与文件系统的压缩，打包与备份</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-03 23:09:49" itemprop="dateCreated datePublished" datetime="2020-08-03T23:09:49+08:00">2020-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-04 22:59:35" itemprop="dateModified" datetime="2020-08-04T22:59:35+08:00">2020-08-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="文件压缩的原理"><a href="#文件压缩的原理" class="headerlink" title="文件压缩的原理"></a>文件压缩的原理</h1><p>目前的计算机使用Bytes作为计量单位。不过，事实上，计算机最小的计量单位应该是bits，且1 Byte = 8 bits。于是，如果我们打算存储数字1，则它在计算机中的表现形式就会是：0000 0001。可以发现，前7个bits应该为空，只是为迎合OS对数据的存取，将它们用0填充。所以，我们可以利用压缩算法，将这些被0所占用的bits利用起来，以达到文件压缩的目的。</p>
+<p>压缩前与压缩后的文件所占用的磁盘容量比值， 就可以被称为是“压缩比”</p>
+<h1 id="Linux常见的压缩指令"><a href="#Linux常见的压缩指令" class="headerlink" title="Linux常见的压缩指令"></a>Linux常见的压缩指令</h1><p><strong>不同的压缩技术不能互相解压</strong>，通过压缩文件扩展名，可以帮助我们选择正确的解压指令。下表为一些常见的压缩文件扩展名：</p>
+<table>
+<thead>
+<tr>
+<th>扩展名</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*.z</td>
+<td>compress程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.zip</td>
+<td>zip程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.gz</td>
+<td>gzip程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.bz2</td>
+<td>bzip2程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.xz</td>
+<td>xz程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.tar</td>
+<td>tar程序打包的数据，并没有压缩过</td>
+</tr>
+<tr>
+<td>*.tar.gz</td>
+<td>tar程序打包的数据，并且经过gzip的压缩</td>
+</tr>
+<tr>
+<td>*.tar.bz2</td>
+<td>tar程序打包的数据，并且经过bzip2的压缩</td>
+</tr>
+<tr>
+<td>*.tar.xz</td>
+<td>tar程序打包的数据，并且经过xz的压缩</td>
+</tr>
+</tbody></table>
+<p>压缩指令通常仅能针对一个文件来压缩与解压缩，于是为了将多个文件进行压缩与解压，就出现了tar这个打包程序，它能够将多个文件“打包”成一个文件。</p>
+<h2 id="gzip，zcat-zmore-zless-zgrep"><a href="#gzip，zcat-zmore-zless-zgrep" class="headerlink" title="gzip，zcat/zmore/zless/zgrep"></a>gzip，zcat/zmore/zless/zgrep</h2><p>gzip 可以解开 compress, zip 与 gzip 等软件所压缩的文件。具体用法如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[dmtsai@study ~]$ gzip [-cdtv#] 文件名</span><br><span class="line">[dmtsai@study ~]$ zcat 文件名.gz</span><br><span class="line">选项与参数：</span><br><span class="line">-c  ：将压缩的数据输出到屏幕上，可通过数据流重导向来处理；</span><br><span class="line">-d  ：解压缩的参数；</span><br><span class="line">-t  ：可以用来检验一个压缩文件的一致性～看看文件有无错误；</span><br><span class="line">-v  ：可以显示出原文件/压缩文件的压缩比等信息；</span><br><span class="line"><span class="meta">-#</span><span class="bash">  ：<span class="comment"># 为数字的意思，代表压缩等级，-1 最快，但是压缩比最差、-9 最慢，但是压缩比最好！默认是 -6</span></span></span><br></pre></td></tr></table></figure>
+
+<p>注意：gzip 进行压缩时，在默认的状态下原本的文件会被压缩成为 .gz 的文件名，原始文件就不再存在了。</p>
+<p>如果被压缩的文件是文本文件，则我们可以用zcat/zmore/zless去读取压缩文件，此时屏幕上会显示解压缩之后的原始文件内容。</p>
+<p>如果你还想要从文字压缩文件当中找数据的话，可以通过 egrep 来搜寻关键字喔！而不需要将压缩文件解开才以 grep 进行！ 用法如下：<code>zgrep -n &#39;http&#39; services.gz</code></p>
+<h2 id="bzip2-bzcat-bzmore-bzless-bzgrep"><a href="#bzip2-bzcat-bzmore-bzless-bzgrep" class="headerlink" title="bzip2,bzcat/bzmore/bzless/bzgrep"></a>bzip2,bzcat/bzmore/bzless/bzgrep</h2><p>bzip2用法与gzip几乎相同。只是在压缩比上有更好的表现。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[dmtsai@study ~]$ bzip2 [-cdkzv#] 文件名</span><br><span class="line">[dmtsai@study ~]$ bzcat 文件名.bz2</span><br><span class="line">选项与参数：</span><br><span class="line">-c  ：将压缩的过程产生的数据输出到屏幕上！</span><br><span class="line">-d  ：解压缩的参数</span><br><span class="line">-k  ：保留原始文件，而不会删除原始的文件喔！</span><br><span class="line">-z  ：压缩的参数 （默认值，可以不加）</span><br><span class="line">-v  ：可以显示出原文件/压缩文件的压缩比等信息；</span><br><span class="line"><span class="meta">-#</span><span class="bash">  ：与 gzip 同样的，都是在计算压缩比的参数， -9 最佳， -1 最快！</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="xz-xzcat-xzmore-xzleess-xzgrep"><a href="#xz-xzcat-xzmore-xzleess-xzgrep" class="headerlink" title="xz,xzcat/xzmore/xzleess/xzgrep"></a>xz,xzcat/xzmore/xzleess/xzgrep</h2><p>xz的用法与bizp2/gzip几乎相同，只是压缩比更好，相应的它所需要的压缩时间也就更久。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[dmtsai@study ~]$ xz [-dtlkc#] 文件名</span><br><span class="line">[dmtsai@study ~]$ xcat 文件名.xz</span><br><span class="line">选项与参数：</span><br><span class="line">-d  ：就是解压缩啊！</span><br><span class="line">-t  ：测试压缩文件的完整性，看有没有错误</span><br><span class="line">-l  ：列出压缩文件的相关信息</span><br><span class="line">-k  ：保留原本的文件不删除～</span><br><span class="line">-c  ：同样的，就是将数据由屏幕上输出的意思！</span><br><span class="line"><span class="meta">-#</span><span class="bash">  ：同样的，也有较佳的压缩比的意思！</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="打包指令——tar"><a href="#打包指令——tar" class="headerlink" title="打包指令——tar"></a>打包指令——tar</h1><p><strong>gzip，bizp2，xz仅能针对单一文件进行压缩</strong>。而将多个文件或目录包成一个大文件的指令，就是“打包指令”。Linux提供了tar这个打包指令，用以将多个目录或文件打包成一个大文件后，再进行压缩。</p>
+<p>tar的具体用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[dmtsai@study ~]$ tar [-z|-j|-J] [cv] [-f 待创建的新文件名] filename... &lt;==打包与压缩</span><br><span class="line">[dmtsai@study ~]$ tar [-z|-j|-J] [tv] [-f 既有的 tar文件名]             &lt;==察看文件名</span><br><span class="line">[dmtsai@study ~]$ tar [-z|-j|-J] [xv] [-f 既有的 tar文件名] [-C 目录]   &lt;==解压缩</span><br><span class="line">选项与参数：</span><br><span class="line">-c  ：创建打包文件，可搭配 -v 来察看过程中被打包的文件名（filename）</span><br><span class="line">-t  ：察看打包文件的内容含有哪些文件名，重点在察看“文件名”就是了；</span><br><span class="line">-x  ：解打包或解压缩的功能，可以搭配 -C （大写） 在特定目录解开</span><br><span class="line"><span class="meta">#</span><span class="bash">	特别留意的是， -c, -t, -x 不可同时出现在一串命令行中。</span></span><br><span class="line">-z  ：通过 gzip  的支持进行压缩/解压缩：此时文件名最好为 *.tar.gz</span><br><span class="line">-j  ：通过 bzip2 的支持进行压缩/解压缩：此时文件名最好为 *.tar.bz2</span><br><span class="line">-J  ：通过 xz    的支持进行压缩/解压缩：此时文件名最好为 *.tar.xz。</span><br><span class="line"><span class="meta">#</span><span class="bash">	特别留意，-z, -j, -J 不可以同时出现在一串命令行中</span></span><br><span class="line">-v  ：在压缩/解压缩的过程中，将正在处理的文件名显示出来！</span><br><span class="line">-f filename：-f 后面要立刻接要被处理的文件名！建议 -f 单独写一个选项啰！（比较不会忘记）</span><br><span class="line">-C 目录    ：这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。</span><br><span class="line">-p（小写） ：保留备份数据的原本权限与属性，常用于备份（-c）重要的配置文件</span><br><span class="line">-P（大写） ：保留绝对路径，亦即允许备份数据中含有根目录存在之意；</span><br><span class="line">--exclude=FILE：在压缩的过程中，不要将 FILE 打包！</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>使用tar备份目录</p>
+<p>比如要备份/etc目录，做法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[dmtsai@study ~]$ su -  # 因为备份 /etc 需要 root 的权限，否则会出现一堆错误</span><br><span class="line">[root@study ~]# time tar -zpcv -f /root/etc.tar.gz /etc</span><br><span class="line"><span class="meta">#</span><span class="bash">-z表示利用gzip进行压缩</span></span><br><span class="line">[root@study ~]# time tar -jpcv -f /root/etc.tar.bz2 /etc</span><br><span class="line"><span class="meta">#</span><span class="bash">-j表示利用bzip2进行压缩</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查阅tar文件的数据内容</p>
+<p>可以利用tar查看打包文件内部的文件名，具体做法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]# tar -jtv -f /root/etc.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>可以发现在打包文件记录的每个文件名都没了根目录（/），这是为何？</p>
+<p>主要是为了安全！我们使用 tar 备份的数据可能会需要解压缩回来使用， 在 tar 所记录的文件名 （就是我们刚刚使用 tar -jtvf 所察看到的文件名） 那就是解压缩后的实际文件名。 如果拿掉了根目录，假设你将备份数据在 /tmp 解开，那么解压缩的文件名就会变成“/tmp/etc/xxx”。 但“如果没有拿掉根目录，解压缩后的文件名就会是绝对路径， 亦即解压缩后的数据一定会被放置到 /etc/xxx 去！”如此一来，你的原本的 /etc/ 下面的数据， 就会被备份数据所覆盖过去了！</p>
+</div>
+</li>
+<li><p>解压缩到特定的目录</p>
+<p>通过使用-C，可以将数据解压缩到特定的目录。如果没有使用-C选项的话，则会解压缩到当前目录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]# tar -jxv -f /root/etc.tar.bz2 -C /tmp</span><br><span class="line"><span class="meta">#</span><span class="bash">将/root/etc.tar.bz2解压缩到/tmp</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>仅备份比某个时刻新的文件</p>
+<p>某些情况下你会想要备份新的文件而已，并不想要备份旧文件！假设我们要备份/etc中比/etc/passwd要新的文件，具体做法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1.利用find找出比/etc/passwd还要新的文件</span></span><br><span class="line">[root@study ~]# find /etc -newer /etc/passwd</span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时会显示出比 /etc/passwd 这个文件的 mtime 还要新的文件名，</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2.利用tar进行打包压缩</span></span><br><span class="line">[root@study ~]# tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --newer-mtime="2015/06/17" /etc/*</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 显示出文件即可</span></span><br><span class="line">[root@study ~]# tar -jtv -f /root/etc.newer.then.passwd.tar.bz2 | grep -v '/$' </span><br><span class="line"><span class="meta">#</span><span class="bash"> 通过这个指令可以调用出 tar.bz2 内的结尾非 / 的文件名！就是我们要的啦！</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="xfs文件系统的备份与还原"><a href="#xfs文件系统的备份与还原" class="headerlink" title="xfs文件系统的备份与还原"></a>xfs文件系统的备份与还原</h1><p>涉及到两个指令xfsdump与xfsrestore。</p>
+<h2 id="xfsdump——xfs文件系统备份"><a href="#xfsdump——xfs文件系统备份" class="headerlink" title="xfsdump——xfs文件系统备份"></a>xfsdump——xfs文件系统备份</h2><p>xfsdump除了可以进行文件系统的完整备份之外，还可以进行累积备份喔！<strong>特别注意， xfsdump 默认仅支持文件系统的备份，并不支持特定目录的备份。</strong></p>
+<p>xfsdump有如下几点限制：</p>
+<ol>
+<li>xfsdump 不支持没有挂载的文件系统备份！所以只能备份已挂载的！</li>
+<li>xfsdump 必须使用 root 的权限才能操作</li>
+<li>xfsdump 只能备份 XFS 文件系统啊！</li>
+<li>xfsdump 备份下来的数据 （文件或储存媒体） 只能让 xfsrestore 解析</li>
+<li>xfsdump 是通过文件系统的 UUID 来分辨各个备份文件的，因此不能备份两个具有相同 UUID 的文件系统喔！</li>
+</ol>
+<p>具体用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]# xfsdump [-L S_label] [-M M_label] [-l #] [-f 备份文件] 待备份数据</span><br><span class="line">选项与参数：</span><br><span class="line">-L  ：xfsdump 会纪录每次备份的 session 标头，这里可以填写针对此文件系统的简易说明</span><br><span class="line">-M  ：xfsdump 可以纪录储存媒体的标头，这里可以填写此媒体的简易说明</span><br><span class="line">-l  ：是 L 的小写，就是指定等级～有 0~9 共 10 个等级喔！ （默认为 0，即完整备份）</span><br><span class="line">-f  ：有点类似 tar 啦！后面接产生的文件，亦可接例如 /dev/st0 设备文件名或其他一般文件文件名等</span><br><span class="line">-I  ：从 /var/lib/xfsdump/inventory 列出目前备份的信息状态</span><br></pre></td></tr></table></figure>
+
+<p>累积备份（-l 1）必须是在已经进行了完整备份(-l 0)的前提下才能进行。</p>
+<h2 id="xfsrestore——xfs文件系统还原"><a href="#xfsrestore——xfs文件系统还原" class="headerlink" title="xfsrestore——xfs文件系统还原"></a>xfsrestore——xfs文件系统还原</h2><p>xfsrestore的具体用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]# xfsrestore -I                                       &lt;==用来察看备份文件数据</span><br><span class="line">[root@study ~]# xfsrestore [-f 备份文件] [-L S_label] [-s] 待复原目录 &lt;==单一文件全系统复原</span><br><span class="line">[root@study ~]# xfsrestore [-f 备份文件] -r 待复原目录                &lt;==通过累积备份文件来复原系统</span><br><span class="line">[root@study ~]# xfsrestore [-f 备份文件] -i 待复原目录                &lt;==进入互动模式</span><br><span class="line">选项与参数：</span><br><span class="line">-I  ：跟 xfsdump 相同的输出！可查询备份数据，包括 Label 名称与备份时间等</span><br><span class="line">-f  ：后面接的就是备份文件！企业界很有可能会接 /dev/st0 等磁带机！我们这里接文件名！</span><br><span class="line">-L  ：就是 Session 的 Label name 喔！可用 -I 查询到的数据，在这个选项后输入！</span><br><span class="line">-s  ：需要接某特定目录，亦即仅复原某一个文件或目录之意！</span><br><span class="line">-r  ：如果是用文件来储存备份数据，那这个就不需要使用。如果是一个磁带内有多个文件，</span><br><span class="line">      需要这东西来达成累积复原</span><br><span class="line">-i  ：进入互动模式，进阶管理员使用的！一般我们不太需要操作它！</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他常见的压缩与备份工具"><a href="#其他常见的压缩与备份工具" class="headerlink" title="其他常见的压缩与备份工具"></a>其他常见的压缩与备份工具</h1><h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><p>dd最大的用途应该是在于“备份”！ 因为 dd 可以读取磁盘设备的内容（几乎是直接读取扇区”sector”），然后将整个设备备份成一个文件呢！具体的用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]# dd if="input_file" of="output_file" bs="block_size" count="number"</span><br><span class="line">选项与参数：</span><br><span class="line">if   ：就是 input file 啰～也可以是设备喔！</span><br><span class="line">of   ：就是 output file 喔～也可以是设备；</span><br><span class="line">bs   ：规划的一个 block 的大小，若未指定则默认是 512 Bytes（一个 sector 的大小）</span><br><span class="line">count：多少个 bs 的意思。</span><br></pre></td></tr></table></figure>
+
+<p>注意：dd 可以将原本旧的 partition 上面，将 sector 表面的数据整个复制过来！ 当然连同 superblock, boot sector, meta data 等等通通也会复制过来！所以会是备份的设备与被备份的设备完全相同。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/08/03/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%887%EF%BC%89Linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_luffy.jpg">
+      <meta itemprop="name" content="William">
+      <meta itemprop="description" content="Why not?">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美女剑豪带着肉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/03/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%887%EF%BC%89Linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">阿飞学Linux——（7）Linux磁盘与文件系统管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-03 23:09:14 / 修改时间：23:11:03" itemprop="dateCreated datePublished" datetime="2020-08-03T23:09:14+08:00">2020-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>磁盘与文件系统的管理，包括挂载，卸载文件系统等操作</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/03/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%887%EF%BC%89Linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/28/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%886%EF%BC%89Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_luffy.jpg">
+      <meta itemprop="name" content="William">
+      <meta itemprop="description" content="Why not?">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美女剑豪带着肉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/28/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%886%EF%BC%89Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">阿飞学Linux——（6）Linux文件与目录管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-28 17:48:57" itemprop="dateCreated datePublished" datetime="2020-07-28T17:48:57+08:00">2020-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-31 23:55:45" itemprop="dateModified" datetime="2020-07-31T23:55:45+08:00">2020-07-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>讲解对文件与目录的操作，包括在不同的目录间变换、 创建与删除目录、创建与删除文件，还有寻找文件、查阅文件内容等等。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/28/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%886%EF%BC%89Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -983,247 +1320,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_luffy.jpg">
-      <meta itemprop="name" content="William">
-      <meta itemprop="description" content="Why not?">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="美女剑豪带着肉">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/" class="post-title-link" itemprop="url">【霸王别姬】不疯魔，不成活</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-08 00:03:00 / 修改时间：00:07:26" itemprop="dateCreated datePublished" datetime="2020-07-08T00:03:00+08:00">2020-07-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%89%E5%BD%B1%E5%B2%81%E6%9C%88/" itemprop="url" rel="index"><span itemprop="name">光影岁月</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>说的是一辈子！差一年，一个月，一天，一个时辰，都不算一辈子！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/08/%E3%80%90%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC%E3%80%91%E4%B8%8D%E7%96%AF%E9%AD%94%EF%BC%8C%E4%B8%8D%E6%88%90%E6%B4%BB/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_luffy.jpg">
-      <meta itemprop="name" content="William">
-      <meta itemprop="description" content="Why not?">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="美女剑豪带着肉">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">阿飞学Linux——（5）Linux的文件权限与目录配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-07 23:23:30" itemprop="dateCreated datePublished" datetime="2020-07-07T23:23:30+08:00">2020-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-28 17:26:43" itemprop="dateModified" datetime="2020-07-28T17:26:43+08:00">2020-07-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">读书总计</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Linux的文件权限与目录配置的相关知识</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/07/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%885%EF%BC%89Linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://huowilliam.github.io/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_luffy.jpg">
-      <meta itemprop="name" content="William">
-      <meta itemprop="description" content="Why not?">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="美女剑豪带着肉">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/" class="post-title-link" itemprop="url">阿飞学Linux——（4）初次使用Centos</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-06 16:52:32" itemprop="dateCreated datePublished" datetime="2020-07-06T16:52:32+08:00">2020-07-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-26 23:56:50" itemprop="dateModified" datetime="2020-07-26T23:56:50+08:00">2020-07-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">读书总结</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>初次登录使用Centos</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/06/%E9%98%BF%E9%A3%9E%E5%AD%A6Linux%E2%80%94%E2%80%94%EF%BC%884%EF%BC%89%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8Centos/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
